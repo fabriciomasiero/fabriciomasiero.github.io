@@ -23,6 +23,7 @@ Now Im working on Neo7Apps, braziliam startup, and my first project I need to de
 
 
 
+
 Application developer for over 8 years, working exclusively on iOS. Currently working at the largest education company in Brazil, on a product with more than 1M active users, being responsible for leading the iOS team and updating the app frequently using SOLID principles, clean architecture and design pattern. In addition to using the latest technologies provided by Apple and the community. I also write articles for Mac O'Clock on Medium.
 
 - I rock a great mustache

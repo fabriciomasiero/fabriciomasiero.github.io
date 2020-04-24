@@ -1,4 +1,7 @@
-# Beautiful Jekyll
+### My Website ### 
+
+
+<!-- # Beautiful Jekyll
 
 [![Gem Version](https://badge.fury.io/rb/beautiful-jekyll-theme.svg)](https://badge.fury.io/rb/beautiful-jekyll-theme)
 
@@ -322,4 +325,4 @@ If you do fork or clone this project to use as a template for your site, I would
 
 - If you have a project page and you want a custom 404 page, you must have a custom domain.  See https://help.github.com/articles/custom-404-pages/.  This means that if you have a regular User Page you can use the 404 page from this theme, but if it's a website for a specific repository, the 404 page will not be used.
 
-- If there are many navigation bar links and avatar, some of the links may get partially hidden behind the avatar. 
+- If there are many navigation bar links and avatar, some of the links may get partially hidden behind the avatar.  -->
