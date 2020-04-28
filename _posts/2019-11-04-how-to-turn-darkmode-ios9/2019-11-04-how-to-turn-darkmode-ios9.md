@@ -2,8 +2,12 @@
 layout: post
 title: How to turn your old app into dark theme based on iOS 13?
 categories:
-- iOS
-feature_image: "https://picsum.photos/2560/600?image=872"
+- iOS 
+- Dark Theme 
+- Swift
+- Color
+- Xcode
+feature_image: "https://images.unsplash.com/photo-1569144157591-c60f3f82f137?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
 ---
 
 My app supports from iOS 9 to the latest released by Apple (13) and I would like it to be dark theme and light theme. It's possible?
@@ -20,7 +24,7 @@ Starting with creating an extension called
 
 ##### Color.swift #####
 
-![My Color Extension](/Images/My-Color-Extension.png)
+![My Color Extension](/Images/2019-11-04-how-to-turn-darkmode-ios9/My-Color-Extension.png)
 
 Use Color Literal for fuller and more native viewing. All app colors should be there, organized and standardized 👌. Say goodbye to colorWithHex () 😎 💁
 
@@ -28,7 +32,7 @@ Wonderful, but how would this work as dark mode? Simple, separate the colors tha
 
 The following is an example of colors that contemplate both theme types (can be scaled for more than that 👨‍💻)
 
-![Dark Themed Colors](/Images/Dark-Themed-Colors.png)
+![Dark Themed Colors](/Images/2019-11-04-how-to-turn-darkmode-ios9/Dark-Themed-Colors.png)
 
 ### But...Why this Colors? ###
 
@@ -43,23 +47,60 @@ So, this is how I developed this feature for the app that can work from iOS 9. A
 
 I think it's time to show how the app is doing, right?
 
-![Login Screen(Plurall only works on Brazil, sorry)](/Images/login-screen-light.png) | ![Login Screen(Plurall only works on Brazil, sorry)](/Images/login-screen-dark.png)
 
-Login Screen(Plurall only works on Brazil, sorry)
-Here are some examples of the dark mode.
+
+![Login Screen(Plurall only works on Brazil, sorry)](/Images/2019-11-04-how-to-turn-darkmode-ios9/login-screen-light.png) | ![Login Screen(Plurall only works on Brazil, sorry)](/Images/2019-11-04-how-to-turn-darkmode-ios9/login-screen-dark.png)
+
+
+Login Screen(Plurall only works on Brazil, sorry)
+
+
+
+![Side menu, I know, need to update this 😑](/Images/2019-11-04-how-to-turn-darkmode-ios9/menu-light.png) | ![Side menu, I know, need to update this 😑](/Images/2019-11-04-how-to-turn-darkmode-ios9/menu-dark.png)
+
+
 
 Side menu, I know, need to update this 😑
-A Task Workflow(app for students)
+
+
+
+![A Task Workflow(app for students)](/Images/2019-11-04-how-to-turn-darkmode-ios9/task-light.png) | ![A Task Workflow(app for students)](/Images/2019-11-04-how-to-turn-darkmode-ios9/task-dark.png)
+
+
+
+Side menu, I know, need to update this 😑
+
+
+
+![Works also in WKWebKit 😎](/Images/2019-11-04-how-to-turn-darkmode-ios9/webkit-light.png) | ![Works also in WKWebKit 😎](/Images/2019-11-04-how-to-turn-darkmode-ios9/webkit-dark.png)
+
+
+
 Works also in WKWebKit 😎
+
+
+
 There is only one "bad" side to this whole story, setting the colors manually 😒.
- If you use XIB or Storyboard (like me) it will be more work, but nothing too painful. If you're one of those who does the whole layout via code, nothing changes for you, champion! Either way you'll find a lot of it out there!
-Setting colors programmatically
+
+If you use XIB or Storyboard (like me) it will be more work, but nothing too painful. If you're one of those who does the whole layout via code, nothing changes for you, champion! Either way you'll find a lot of it out there!
+
+![Setting colors programmatically](/Images/2019-11-04-how-to-turn-darkmode-ios9/set-colors-programatically.png)
+
 
 ---
 
-From this, I will talk with the design team and see what changes we can make for a better view, I can see some display failures, not respecting the 21: 1 or even 4.5: 1 contrast.
+From this, I will talk with the design team and see what changes we can make for a better view, I can see some display failures, not respecting the **21: 1** or even **4.5: 1** **contrast**.
 Apart from this visual change, what has changed?
-Well, I revisited all the code (it's an old app, a lot of legacy stuff) and put it in my head: - Don't refactor complex things, fix force unwraps and other easy-to-maintain silly things.
-So, I tweaked all the app colors (which were a mess,), tweaked small errors from XIBs and Storyboards, removed countless classes that weren't relevant, and again, the app colors are completely organized and visual.
-I hope I have helped everyone looking for this change. If you would like to extend the discussion, call me on Twitter
-Happy Coding :)
+
+---
+*Well, I revisited all the code (it's an old app, a lot of legacy stuff) and put it in my head: - Don't refactor complex things, fix force unwraps and other easy-to-maintain silly things.
+So, I tweaked all the app colors (which were a mess,), tweaked small errors from XIBs and Storyboards, removed countless classes that weren't relevant, and again, the app colors are completely organized and visual.*
+
+
+
+---
+
+I hope I have helped everyone looking for this change. 
+If you would like to extend the discussion, call me on [Twitter](https://twitter.com/fabri_masiero)
+
+###### Happy Coding :) #######

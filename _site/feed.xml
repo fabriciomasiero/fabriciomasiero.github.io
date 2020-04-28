@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-28T18:53:25-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Fabrício Masiero iOS Engineer</title><subtitle>Swift Daily</subtitle><entry><title type="html">How to turn your old app into dark theme based on iOS 13?</title><link href="http://localhost:4000/ios/2019/11/04/how-to-turn-darkmode-ios9/" rel="alternate" type="text/html" title="How to turn your old app into dark theme based on iOS 13?" /><published>2019-11-04T00:00:00-03:00</published><updated>2019-11-04T00:00:00-03:00</updated><id>http://localhost:4000/ios/2019/11/04/how-to-turn-darkmode-ios9</id><content type="html" xml:base="http://localhost:4000/ios/2019/11/04/how-to-turn-darkmode-ios9/">&lt;p&gt;My app supports from iOS 9 to the latest released by Apple (13) and I would like it to be dark theme and light theme. It’s possible?
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-28T20:04:26-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Fabrício Masiero iOS Engineer</title><subtitle>Swift Daily</subtitle><entry><title type="html">How to turn your old app into dark theme based on iOS 13?</title><link href="http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/" rel="alternate" type="text/html" title="How to turn your old app into dark theme based on iOS 13?" /><published>2019-11-04T00:00:00-03:00</published><updated>2019-11-04T00:00:00-03:00</updated><id>http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9</id><content type="html" xml:base="http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/">&lt;p&gt;My app supports from iOS 9 to the latest released by Apple (13) and I would like it to be dark theme and light theme. It’s possible?
 Searching for WWDC articles I noticed that the way Apple does is using&lt;/p&gt;
 
 &lt;h3 id=&quot;colorsassets&quot;&gt;Colors.assets&lt;/h3&gt;
@@ -11,7 +11,7 @@ Starting with creating an extension called&lt;/p&gt;
 
 &lt;h5 id=&quot;colorswift&quot;&gt;Color.swift&lt;/h5&gt;
 
-&lt;p&gt;&lt;img src=&quot;/Images/My-Color-Extension.png&quot; alt=&quot;My Color Extension&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/Images/2019-11-04-how-to-turn-darkmode-ios9/My-Color-Extension.png&quot; alt=&quot;My Color Extension&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Use Color Literal for fuller and more native viewing. All app colors should be there, organized and standardized 👌. Say goodbye to colorWithHex () 😎 💁&lt;/p&gt;
 
@@ -19,7 +19,7 @@ Starting with creating an extension called&lt;/p&gt;
 
 &lt;p&gt;The following is an example of colors that contemplate both theme types (can be scaled for more than that 👨‍💻)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/Images/Dark-Themed-Colors.png&quot; alt=&quot;Dark Themed Colors&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/Images/2019-11-04-how-to-turn-darkmode-ios9/Dark-Themed-Colors.png&quot; alt=&quot;Dark Themed Colors&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;butwhy-thiscolors&quot;&gt;But…Why this Colors?&lt;/h3&gt;
 
@@ -37,27 +37,65 @@ And why does Apple use full-black in its native apps? The high-end iPhones (iPho
 &lt;table&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;&lt;img src=&quot;/Images/login-screen-light.png&quot; alt=&quot;Login Screen(Plurall only works on Brazil, sorry)&quot; /&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;img src=&quot;/Images/login-screen-dark.png&quot; alt=&quot;Login Screen(Plurall only works on Brazil, sorry)&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/Images/2019-11-04-how-to-turn-darkmode-ios9/login-screen-light.png&quot; alt=&quot;Login Screen(Plurall only works on Brazil, sorry)&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/Images/2019-11-04-how-to-turn-darkmode-ios9/login-screen-dark.png&quot; alt=&quot;Login Screen(Plurall only works on Brazil, sorry)&quot; /&gt;&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Login Screen(Plurall only works on Brazil, sorry)
-Here are some examples of the dark mode.&lt;/p&gt;
+&lt;p&gt;Login Screen(Plurall only works on Brazil, sorry)&lt;/p&gt;
 
-&lt;p&gt;Side menu, I know, need to update this 😑
-A Task Workflow(app for students)
-Works also in WKWebKit 😎
-There is only one “bad” side to this whole story, setting the colors manually 😒.
- If you use XIB or Storyboard (like me) it will be more work, but nothing too painful. If you’re one of those who does the whole layout via code, nothing changes for you, champion! Either way you’ll find a lot of it out there!
-Setting colors programmatically&lt;/p&gt;
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;/Images/2019-11-04-how-to-turn-darkmode-ios9/menu-light.png&quot; alt=&quot;Side menu, I know, need to update this 😑&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/Images/2019-11-04-how-to-turn-darkmode-ios9/menu-dark.png&quot; alt=&quot;Side menu, I know, need to update this 😑&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Side menu, I know, need to update this 😑&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;/Images/2019-11-04-how-to-turn-darkmode-ios9/task-light.png&quot; alt=&quot;A Task Workflow(app for students)&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/Images/2019-11-04-how-to-turn-darkmode-ios9/task-dark.png&quot; alt=&quot;A Task Workflow(app for students)&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Side menu, I know, need to update this 😑&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;/Images/2019-11-04-how-to-turn-darkmode-ios9/webkit-light.png&quot; alt=&quot;Works also in WKWebKit 😎&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/Images/2019-11-04-how-to-turn-darkmode-ios9/webkit-dark.png&quot; alt=&quot;Works also in WKWebKit 😎&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Works also in WKWebKit 😎&lt;/p&gt;
+
+&lt;p&gt;There is only one “bad” side to this whole story, setting the colors manually 😒.&lt;/p&gt;
+
+&lt;p&gt;If you use XIB or Storyboard (like me) it will be more work, but nothing too painful. If you’re one of those who does the whole layout via code, nothing changes for you, champion! Either way you’ll find a lot of it out there!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Images/2019-11-04-how-to-turn-darkmode-ios9/set-colors-programatically.png&quot; alt=&quot;Setting colors programmatically&quot; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;From this, I will talk with the design team and see what changes we can make for a better view, I can see some display failures, not respecting the 21: 1 or even 4.5: 1 contrast.
-Apart from this visual change, what has changed?
-Well, I revisited all the code (it’s an old app, a lot of legacy stuff) and put it in my head: - Don’t refactor complex things, fix force unwraps and other easy-to-maintain silly things.
-So, I tweaked all the app colors (which were a mess,), tweaked small errors from XIBs and Storyboards, removed countless classes that weren’t relevant, and again, the app colors are completely organized and visual.
-I hope I have helped everyone looking for this change. If you would like to extend the discussion, call me on Twitter
-Happy Coding :)&lt;/p&gt;</content><author><name></name></author><summary type="html">My app supports from iOS 9 to the latest released by Apple (13) and I would like it to be dark theme and light theme. It’s possible? Searching for WWDC articles I noticed that the way Apple does is using</summary></entry></feed>
+&lt;p&gt;From this, I will talk with the design team and see what changes we can make for a better view, I can see some display failures, not respecting the &lt;strong&gt;21: 1&lt;/strong&gt; or even &lt;strong&gt;4.5: 1&lt;/strong&gt; &lt;strong&gt;contrast&lt;/strong&gt;.
+Apart from this visual change, what has changed?&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;em&gt;Well, I revisited all the code (it’s an old app, a lot of legacy stuff) and put it in my head: - Don’t refactor complex things, fix force unwraps and other easy-to-maintain silly things.
+So, I tweaked all the app colors (which were a mess,), tweaked small errors from XIBs and Storyboards, removed countless classes that weren’t relevant, and again, the app colors are completely organized and visual.&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;I hope I have helped everyone looking for this change. 
+If you would like to extend the discussion, call me on &lt;a href=&quot;https://twitter.com/fabri_masiero&quot;&gt;Twitter&lt;/a&gt;&lt;/p&gt;
+
+&lt;h6 id=&quot;happy-coding&quot;&gt;Happy Coding :)&lt;/h6&gt;</content><author><name></name></author><summary type="html">My app supports from iOS 9 to the latest released by Apple (13) and I would like it to be dark theme and light theme. It’s possible? Searching for WWDC articles I noticed that the way Apple does is using</summary></entry></feed>

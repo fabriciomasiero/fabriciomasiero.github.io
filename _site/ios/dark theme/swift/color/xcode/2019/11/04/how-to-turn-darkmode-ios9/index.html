@@ -15,13 +15,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="My app supports from iOS 9 to the latest released by Apple (13) and I would like it to be dark theme and light theme. It’s possible? Searching for WWDC articles I noticed that the way Apple does is using" />
 <meta property="og:description" content="My app supports from iOS 9 to the latest released by Apple (13) and I would like it to be dark theme and light theme. It’s possible? Searching for WWDC articles I noticed that the way Apple does is using" />
-<link rel="canonical" href="http://localhost:4000/ios/2019/11/04/how-to-turn-darkmode-ios9/" />
-<meta property="og:url" content="http://localhost:4000/ios/2019/11/04/how-to-turn-darkmode-ios9/" />
+<link rel="canonical" href="http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/" />
+<meta property="og:url" content="http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/" />
 <meta property="og:site_name" content="Fabrício Masiero iOS Engineer" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-11-04T00:00:00-03:00" />
 <script type="application/ld+json">
-{"headline":"How to turn your old app into dark theme based on iOS 13?","dateModified":"2019-11-04T00:00:00-03:00","datePublished":"2019-11-04T00:00:00-03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ios/2019/11/04/how-to-turn-darkmode-ios9/"},"url":"http://localhost:4000/ios/2019/11/04/how-to-turn-darkmode-ios9/","description":"My app supports from iOS 9 to the latest released by Apple (13) and I would like it to be dark theme and light theme. It’s possible? Searching for WWDC articles I noticed that the way Apple does is using","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://secure.gravatar.com/avatar/e8aad27c12f50d24f6d9bc759d08710e"}},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"How to turn your old app into dark theme based on iOS 13?","dateModified":"2019-11-04T00:00:00-03:00","datePublished":"2019-11-04T00:00:00-03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/"},"url":"http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/","description":"My app supports from iOS 9 to the latest released by Apple (13) and I would like it to be dark theme and light theme. It’s possible? Searching for WWDC articles I noticed that the way Apple does is using","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://secure.gravatar.com/avatar/e8aad27c12f50d24f6d9bc759d08710e"}},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -146,7 +146,7 @@
 
 
 
-  <div class="feature" style="background-image: url(https://picsum.photos/2560/600?image=872)">
+  <div class="feature" style="background-image: url(https://images.unsplash.com/photo-1569144157591-c60f3f82f137?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80)">
     <div class="container  typeset">
       
 
@@ -169,7 +169,15 @@
   
   
     
-      <span class="label  label--category"><a href="/categories/#ios">iOS</a></span>
+      <span class="label  label--category"><a href="/categories/#ios">iOS</a></span>,
+    
+      <span class="label  label--category"><a href="/categories/#dark theme">Dark Theme</a></span>,
+    
+      <span class="label  label--category"><a href="/categories/#swift">Swift</a></span>,
+    
+      <span class="label  label--category"><a href="/categories/#color">Color</a></span>,
+    
+      <span class="label  label--category"><a href="/categories/#xcode">Xcode</a></span>
     
   &nbsp;&middot;&nbsp;<time datetime="2019-11-04T00:00:00-03:00" class="time">04 Nov 2019</time>
 </small>
@@ -187,7 +195,7 @@ Starting with creating an extension called</p>
 
 <h5 id="colorswift">Color.swift</h5>
 
-<p><img src="/Images/My-Color-Extension.png" alt="My Color Extension" /></p>
+<p><img src="/Images/2019-11-04-how-to-turn-darkmode-ios9/My-Color-Extension.png" alt="My Color Extension" /></p>
 
 <p>Use Color Literal for fuller and more native viewing. All app colors should be there, organized and standardized 👌. Say goodbye to colorWithHex () 😎 💁</p>
 
@@ -195,7 +203,7 @@ Starting with creating an extension called</p>
 
 <p>The following is an example of colors that contemplate both theme types (can be scaled for more than that 👨‍💻)</p>
 
-<p><img src="/Images/Dark-Themed-Colors.png" alt="Dark Themed Colors" /></p>
+<p><img src="/Images/2019-11-04-how-to-turn-darkmode-ios9/Dark-Themed-Colors.png" alt="Dark Themed Colors" /></p>
 
 <h3 id="butwhy-thiscolors">But…Why this Colors?</h3>
 
@@ -213,30 +221,68 @@ And why does Apple use full-black in its native apps? The high-end iPhones (iPho
 <table>
   <tbody>
     <tr>
-      <td><img src="/Images/login-screen-light.png" alt="Login Screen(Plurall only works on Brazil, sorry)" /></td>
-      <td><img src="/Images/login-screen-dark.png" alt="Login Screen(Plurall only works on Brazil, sorry)" /></td>
+      <td><img src="/Images/2019-11-04-how-to-turn-darkmode-ios9/login-screen-light.png" alt="Login Screen(Plurall only works on Brazil, sorry)" /></td>
+      <td><img src="/Images/2019-11-04-how-to-turn-darkmode-ios9/login-screen-dark.png" alt="Login Screen(Plurall only works on Brazil, sorry)" /></td>
     </tr>
   </tbody>
 </table>
 
-<p>Login Screen(Plurall only works on Brazil, sorry)
-Here are some examples of the dark mode.</p>
+<p>Login Screen(Plurall only works on Brazil, sorry)</p>
 
-<p>Side menu, I know, need to update this 😑
-A Task Workflow(app for students)
-Works also in WKWebKit 😎
-There is only one “bad” side to this whole story, setting the colors manually 😒.
- If you use XIB or Storyboard (like me) it will be more work, but nothing too painful. If you’re one of those who does the whole layout via code, nothing changes for you, champion! Either way you’ll find a lot of it out there!
-Setting colors programmatically</p>
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/Images/2019-11-04-how-to-turn-darkmode-ios9/menu-light.png" alt="Side menu, I know, need to update this 😑" /></td>
+      <td><img src="/Images/2019-11-04-how-to-turn-darkmode-ios9/menu-dark.png" alt="Side menu, I know, need to update this 😑" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Side menu, I know, need to update this 😑</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/Images/2019-11-04-how-to-turn-darkmode-ios9/task-light.png" alt="A Task Workflow(app for students)" /></td>
+      <td><img src="/Images/2019-11-04-how-to-turn-darkmode-ios9/task-dark.png" alt="A Task Workflow(app for students)" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Side menu, I know, need to update this 😑</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/Images/2019-11-04-how-to-turn-darkmode-ios9/webkit-light.png" alt="Works also in WKWebKit 😎" /></td>
+      <td><img src="/Images/2019-11-04-how-to-turn-darkmode-ios9/webkit-dark.png" alt="Works also in WKWebKit 😎" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Works also in WKWebKit 😎</p>
+
+<p>There is only one “bad” side to this whole story, setting the colors manually 😒.</p>
+
+<p>If you use XIB or Storyboard (like me) it will be more work, but nothing too painful. If you’re one of those who does the whole layout via code, nothing changes for you, champion! Either way you’ll find a lot of it out there!</p>
+
+<p><img src="/Images/2019-11-04-how-to-turn-darkmode-ios9/set-colors-programatically.png" alt="Setting colors programmatically" /></p>
 
 <hr />
 
-<p>From this, I will talk with the design team and see what changes we can make for a better view, I can see some display failures, not respecting the 21: 1 or even 4.5: 1 contrast.
-Apart from this visual change, what has changed?
-Well, I revisited all the code (it’s an old app, a lot of legacy stuff) and put it in my head: - Don’t refactor complex things, fix force unwraps and other easy-to-maintain silly things.
-So, I tweaked all the app colors (which were a mess,), tweaked small errors from XIBs and Storyboards, removed countless classes that weren’t relevant, and again, the app colors are completely organized and visual.
-I hope I have helped everyone looking for this change. If you would like to extend the discussion, call me on Twitter
-Happy Coding :)</p>
+<p>From this, I will talk with the design team and see what changes we can make for a better view, I can see some display failures, not respecting the <strong>21: 1</strong> or even <strong>4.5: 1</strong> <strong>contrast</strong>.
+Apart from this visual change, what has changed?</p>
+
+<hr />
+<p><em>Well, I revisited all the code (it’s an old app, a lot of legacy stuff) and put it in my head: - Don’t refactor complex things, fix force unwraps and other easy-to-maintain silly things.
+So, I tweaked all the app colors (which were a mess,), tweaked small errors from XIBs and Storyboards, removed countless classes that weren’t relevant, and again, the app colors are completely organized and visual.</em></p>
+
+<hr />
+
+<p>I hope I have helped everyone looking for this change. 
+If you would like to extend the discussion, call me on <a href="https://twitter.com/fabri_masiero">Twitter</a></p>
+
+<h6 id="happy-coding">Happy Coding :)</h6>
 
 
     <div class="share">

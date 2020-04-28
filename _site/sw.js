@@ -1,8 +1,8 @@
-const version = '20200428185325';
+const version = '20200428200426';
 const cacheName = `static::${version}`;
 
 const buildContentBlob = () => {
-  return ["/ios/2019/11/04/how-to-turn-darkmode-ios9/","/about/","/categories/","/blog/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/feed.xml","https://secure.gravatar.com/avatar/e8aad27c12f50d24f6d9bc759d08710e", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
+  return ["/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/","/about/","/categories/","/blog/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/feed.xml","https://secure.gravatar.com/avatar/e8aad27c12f50d24f6d9bc759d08710e", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
   ]
 }
 
