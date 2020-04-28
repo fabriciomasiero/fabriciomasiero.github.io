@@ -11,27 +11,39 @@ Searching for WWDC articles I noticed that the way Apple does is using
 
 ### Colors.assets ### 
 
-PRETTY! I created a color asset in the app and started setting it up. But… what I feared came true. Support only for the. iOS 11+. Great Scott!
+**PRETTY!** I created a color asset in the app and started setting it up. But… what I feared came true. Support only for the. iOS 11+. Great Scott!
 
 
 ## Color Document ## 
 I had to think of other ways to do something sustainable and work.
 Starting with creating an extension called
 
-#### Color.swift #### 
+##### Color.swift #####
 
-![My Color Extension](./My-Color-Extension.png)
+![My Color Extension](/Images/My-Color-Extension.png)
 
-My Color ExtensionUse Color Literal for fuller and more native viewing. All app colors should be there, organized and standardized 👌. Say goodbye to colorWithHex () 😎 💁
+Use Color Literal for fuller and more native viewing. All app colors should be there, organized and standardized 👌. Say goodbye to colorWithHex () 😎 💁
+
 Wonderful, but how would this work as dark mode? Simple, separate the colors that are dark themed and those that are not. For example, Plurall is my app name and purple is its color, it should not necessarily be dark themed.
+
 The following is an example of colors that contemplate both theme types (can be scaled for more than that 👨‍💻)
-Dark Themed ColorsWhy this Colors?
+
+![Dark Themed Colors](/Images/Dark-Themed-Colors.png)
+
+### But...Why this Colors? ###
+
 I keep these variables above to the same extent and they are color changeable. The system understands perfectly when to use each one. But where did I get in those dark colors? Why of them?
-Well, I'm not officially a designer, I don't have this skill but I venture anyway ☺️.
-But then, what about the dark colors? I used the Inverted Color technique (here a site that will help you invert the color - Invert Colors), so I can maintain the same contrast and visualization usability that my app had before Dark Mode, using colors that still talk to each other.
+
+*Well, I'm not officially a designer, I don't have this skill but I venture anyway ☺️.*
+
+But then, what about the dark colors? I used the Inverted Color technique (here a site that will help you invert the color - [Invert Colors](https://pinetools.com/invert-color)), so I can maintain the same contrast and visualization usability that my app had before Dark Mode, using colors that still talk to each other.
 And why does Apple use full-black in its native apps? The high-end iPhones (iPhone X, iPhone XS and iPhone 11 Pro) contain OLED screen and black is faithful, these screens can uses less battery in black pixels.
+
 So, this is how I developed this feature for the app that can work from iOS 9. As seen in the code, it still does not work in the past iOS, this is a decision we still have to talk internally, but it is easy to implement this change .
+
 I think it's time to show how the app is doing, right?
+
+![Login Screen(Plurall only works on Brazil, sorry)](/Images/login-screen-light.png) | ![Login Screen(Plurall only works on Brazil, sorry)](/Images/login-screen-dark.png)
 
 Login Screen(Plurall only works on Brazil, sorry)
 Here are some examples of the dark mode.

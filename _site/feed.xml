@@ -1,28 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-28T17:03:25-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Fabrício Masiero iOS Engineer</title><subtitle>Swift Daily</subtitle><entry><title type="html">How to turn your old app into dark theme based on iOS 13?</title><link href="http://localhost:4000/ios/2019/11/04/how-to-turn-darkmode-ios9/" rel="alternate" type="text/html" title="How to turn your old app into dark theme based on iOS 13?" /><published>2019-11-04T00:00:00-03:00</published><updated>2019-11-04T00:00:00-03:00</updated><id>http://localhost:4000/ios/2019/11/04/how-to-turn-darkmode-ios9</id><content type="html" xml:base="http://localhost:4000/ios/2019/11/04/how-to-turn-darkmode-ios9/">&lt;p&gt;My app supports from iOS 9 to the latest released by Apple (13) and I would like it to be dark theme and light theme. It’s possible?
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-28T18:53:25-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Fabrício Masiero iOS Engineer</title><subtitle>Swift Daily</subtitle><entry><title type="html">How to turn your old app into dark theme based on iOS 13?</title><link href="http://localhost:4000/ios/2019/11/04/how-to-turn-darkmode-ios9/" rel="alternate" type="text/html" title="How to turn your old app into dark theme based on iOS 13?" /><published>2019-11-04T00:00:00-03:00</published><updated>2019-11-04T00:00:00-03:00</updated><id>http://localhost:4000/ios/2019/11/04/how-to-turn-darkmode-ios9</id><content type="html" xml:base="http://localhost:4000/ios/2019/11/04/how-to-turn-darkmode-ios9/">&lt;p&gt;My app supports from iOS 9 to the latest released by Apple (13) and I would like it to be dark theme and light theme. It’s possible?
 Searching for WWDC articles I noticed that the way Apple does is using&lt;/p&gt;
 
 &lt;h3 id=&quot;colorsassets&quot;&gt;Colors.assets&lt;/h3&gt;
 
-&lt;p&gt;PRETTY! I created a color asset in the app and started setting it up. But… what I feared came true. Support only for the. iOS 11+. Great Scott!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PRETTY!&lt;/strong&gt; I created a color asset in the app and started setting it up. But… what I feared came true. Support only for the. iOS 11+. Great Scott!&lt;/p&gt;
 
 &lt;h2 id=&quot;color-document&quot;&gt;Color Document&lt;/h2&gt;
 &lt;p&gt;I had to think of other ways to do something sustainable and work.
 Starting with creating an extension called&lt;/p&gt;
 
-&lt;h4 id=&quot;colorswift&quot;&gt;Color.swift&lt;/h4&gt;
+&lt;h5 id=&quot;colorswift&quot;&gt;Color.swift&lt;/h5&gt;
 
-&lt;p&gt;&lt;img src=&quot;./My-Color-Extension.png&quot; alt=&quot;My Color Extension&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/Images/My-Color-Extension.png&quot; alt=&quot;My Color Extension&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;My Color ExtensionUse Color Literal for fuller and more native viewing. All app colors should be there, organized and standardized 👌. Say goodbye to colorWithHex () 😎 💁
-Wonderful, but how would this work as dark mode? Simple, separate the colors that are dark themed and those that are not. For example, Plurall is my app name and purple is its color, it should not necessarily be dark themed.
-The following is an example of colors that contemplate both theme types (can be scaled for more than that 👨‍💻)
-Dark Themed ColorsWhy this Colors?
-I keep these variables above to the same extent and they are color changeable. The system understands perfectly when to use each one. But where did I get in those dark colors? Why of them?
-Well, I’m not officially a designer, I don’t have this skill but I venture anyway ☺️.
-But then, what about the dark colors? I used the Inverted Color technique (here a site that will help you invert the color - Invert Colors), so I can maintain the same contrast and visualization usability that my app had before Dark Mode, using colors that still talk to each other.
-And why does Apple use full-black in its native apps? The high-end iPhones (iPhone X, iPhone XS and iPhone 11 Pro) contain OLED screen and black is faithful, these screens can uses less battery in black pixels.
-So, this is how I developed this feature for the app that can work from iOS 9. As seen in the code, it still does not work in the past iOS, this is a decision we still have to talk internally, but it is easy to implement this change .
-I think it’s time to show how the app is doing, right?&lt;/p&gt;
+&lt;p&gt;Use Color Literal for fuller and more native viewing. All app colors should be there, organized and standardized 👌. Say goodbye to colorWithHex () 😎 💁&lt;/p&gt;
+
+&lt;p&gt;Wonderful, but how would this work as dark mode? Simple, separate the colors that are dark themed and those that are not. For example, Plurall is my app name and purple is its color, it should not necessarily be dark themed.&lt;/p&gt;
+
+&lt;p&gt;The following is an example of colors that contemplate both theme types (can be scaled for more than that 👨‍💻)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Images/Dark-Themed-Colors.png&quot; alt=&quot;Dark Themed Colors&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;butwhy-thiscolors&quot;&gt;But…Why this Colors?&lt;/h3&gt;
+
+&lt;p&gt;I keep these variables above to the same extent and they are color changeable. The system understands perfectly when to use each one. But where did I get in those dark colors? Why of them?&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Well, I’m not officially a designer, I don’t have this skill but I venture anyway ☺️.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;But then, what about the dark colors? I used the Inverted Color technique (here a site that will help you invert the color - &lt;a href=&quot;https://pinetools.com/invert-color&quot;&gt;Invert Colors&lt;/a&gt;), so I can maintain the same contrast and visualization usability that my app had before Dark Mode, using colors that still talk to each other.
+And why does Apple use full-black in its native apps? The high-end iPhones (iPhone X, iPhone XS and iPhone 11 Pro) contain OLED screen and black is faithful, these screens can uses less battery in black pixels.&lt;/p&gt;
+
+&lt;p&gt;So, this is how I developed this feature for the app that can work from iOS 9. As seen in the code, it still does not work in the past iOS, this is a decision we still have to talk internally, but it is easy to implement this change .&lt;/p&gt;
+
+&lt;p&gt;I think it’s time to show how the app is doing, right?&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;img src=&quot;/Images/login-screen-light.png&quot; alt=&quot;Login Screen(Plurall only works on Brazil, sorry)&quot; /&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;img src=&quot;/Images/login-screen-dark.png&quot; alt=&quot;Login Screen(Plurall only works on Brazil, sorry)&quot; /&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;p&gt;Login Screen(Plurall only works on Brazil, sorry)
 Here are some examples of the dark mode.&lt;/p&gt;
