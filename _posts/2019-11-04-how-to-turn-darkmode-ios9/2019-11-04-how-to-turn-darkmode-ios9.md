@@ -20,7 +20,7 @@ Starting with creating an extension called
 
 #### Color.swift #### 
 
-![My Color Extension](Images/My-Color-Extension.png)
+![My Color Extension](./My-Color-Extension.png)
 
 My Color ExtensionUse Color Literal for fuller and more native viewing. All app colors should be there, organized and standardized 👌. Say goodbye to colorWithHex () 😎 💁
 Wonderful, but how would this work as dark mode? Simple, separate the colors that are dark themed and those that are not. For example, Plurall is my app name and purple is its color, it should not necessarily be dark themed.
