@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-04-28T20:04:26-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Fabrício Masiero iOS Engineer</title><subtitle>Swift Daily</subtitle><entry><title type="html">How to turn your old app into dark theme based on iOS 13?</title><link href="http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/" rel="alternate" type="text/html" title="How to turn your old app into dark theme based on iOS 13?" /><published>2019-11-04T00:00:00-03:00</published><updated>2019-11-04T00:00:00-03:00</updated><id>http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9</id><content type="html" xml:base="http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/">&lt;p&gt;My app supports from iOS 9 to the latest released by Apple (13) and I would like it to be dark theme and light theme. It’s possible?
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-02T16:30:25-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Fabrício Masiero iOS Engineer</title><subtitle>Swift Daily</subtitle><entry><title type="html">How to turn your old app into dark theme based on iOS 13?</title><link href="http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/" rel="alternate" type="text/html" title="How to turn your old app into dark theme based on iOS 13?" /><published>2019-11-04T00:00:00-03:00</published><updated>2019-11-04T00:00:00-03:00</updated><id>http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9</id><content type="html" xml:base="http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/">&lt;p&gt;My app supports from iOS 9 to the latest released by Apple (13) and I would like it to be dark theme and light theme. It’s possible?
 Searching for WWDC articles I noticed that the way Apple does is using&lt;/p&gt;
 
 &lt;h3 id=&quot;colorsassets&quot;&gt;Colors.assets&lt;/h3&gt;
@@ -65,7 +65,7 @@ And why does Apple use full-black in its native apps? The high-end iPhones (iPho
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Side menu, I know, need to update this 😑&lt;/p&gt;
+&lt;p&gt;A Task Workflow(app for students)&lt;/p&gt;
 
 &lt;table&gt;
   &lt;tbody&gt;

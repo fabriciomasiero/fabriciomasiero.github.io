@@ -33,24 +33,23 @@ paginate_path: blog/page:num
 
 # Header nav
 navigation_header:
-- title: Home
-  url: /
 - title: About Me
-  url: /about/
+  url: /
+# - title: About Me
+  # url: /about/
 - title: Posts
   url: /blog/
 
 # Footer nav
 navigation_footer:
-- title: Back to top
-  url: "#top"
+# - title: Back to top
+  # url: "#top"
 
 # Posts
 collections:
   posts:
     title: Posts
     output: true
-    description: "My thoughts and ideas"
-    feature_text: |
-      Welcome to my blog
-    feature_image: "https://picsum.photos/2560/600?image=866"
+    description: ""
+    feature_text:
+    feature_image: "https://images.unsplash.com/photo-1514428631868-a400b561ff44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
