@@ -18,9 +18,15 @@ Já trabalhei em projetos passados com: SwiftUI, Combine, Catalyst, XMPP, Unity3
 
 
 
+<!-- ![Kitten](./Images/about-me/about-me.JPG "A cute kitten") -->
 <div>
-<img src="about-me.jpg" width="20" height="20"/>
+<img src="Images/about-me/about-me.JPG" alt="Plurall"
+	title="Plurall App" width="200" height="200" />
+    <img src="Images/about-me/about-me.JPG" alt="Plurall"
+	title="Plurall App" width="200" height="200" />
 </div>
+<!-- <img src="/Images/about-me/about-me.JPG" width="20" height="20"/>
+</div> -->
 
 <!-- ![teste](/Images/2019-11-04-how-to-turn-darkmode-ios9/My-Color-Extension.png){height=20px width=20px} -->
 
