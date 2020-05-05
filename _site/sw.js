@@ -1,8 +1,8 @@
-const version = '20200505172923';
+const version = '20200505175341';
 const cacheName = `static::${version}`;
 
 const buildContentBlob = () => {
-  return ["/ios/talks/swift/xcode/wwdc/altconf/2020/03/11/wwdc-or-altconf/","/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/","/about/","/categories/","/blog/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/feed.xml","https://secure.gravatar.com/avatar/e8aad27c12f50d24f6d9bc759d08710e", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
+  return ["/ios/talks/swift/xcode/wwdc/altconf/2020/03/11/wwdc-or-altconf/","/ios/swiftui/swift/xcode/uikit/uiviewrepresentable/2020/03/09/how-to-add-UIKit-component-on-your-SwiftUI-project/","/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/","/about/","/categories/","/blog/","/","/manifest.json","/assets/search.json","/assets/styles.css","/redirects.json","/sitemap.xml","/robots.txt","/feed.xml","https://secure.gravatar.com/avatar/e8aad27c12f50d24f6d9bc759d08710e", "/assets/default-offline-image.png", "/assets/scripts/fetch.js"
   ]
 }
 

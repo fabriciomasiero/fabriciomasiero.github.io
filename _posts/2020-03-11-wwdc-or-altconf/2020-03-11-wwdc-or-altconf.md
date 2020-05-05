@@ -44,9 +44,14 @@ I have a great friend who was also in both and he prefers AltConf a thousand tim
 
 The question is simple, participate in both. These are incredible events, but each one has a different focus.
 
+![Have fun with your fellas =D](/Images/2020-03-11-wwdc-or-altconf/me-and-my-fellas.JPG)
+
 Never been to any event? Go! You don’t have to go to WWDC (if money and lottery are impediments), just go to AltConf, meet people, feel what it’s like to be with that crowd that week. Worth every penny.
 
-#### PS *: Join the parties ####
+#### PS *: Join the parties and have fun ####
+
+
 
 A hug
+
 Fabrício Masiero

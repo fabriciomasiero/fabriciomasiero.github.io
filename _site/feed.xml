@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-05T17:29:23-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Fabrício Masiero iOS Engineer</title><subtitle>Swift Daily</subtitle><entry><title type="html">WWDC or AltConf?</title><link href="http://localhost:4000/ios/talks/swift/xcode/wwdc/altconf/2020/03/11/wwdc-or-altconf/" rel="alternate" type="text/html" title="WWDC or AltConf?" /><published>2020-03-11T00:00:00-03:00</published><updated>2020-03-11T00:00:00-03:00</updated><id>http://localhost:4000/ios/talks/swift/xcode/wwdc/altconf/2020/03/11/wwdc-or-altconf</id><content type="html" xml:base="http://localhost:4000/ios/talks/swift/xcode/wwdc/altconf/2020/03/11/wwdc-or-altconf/">&lt;p&gt;&lt;img src=&quot;/Images/2020-03-11-wwdc-or-altconf/moscone-center.jpeg&quot; alt=&quot;Moscone Center at WWDC 2016 San Francisco&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-05T17:53:41-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Fabrício Masiero iOS Engineer</title><subtitle>Swift Daily</subtitle><entry><title type="html">WWDC or AltConf?</title><link href="http://localhost:4000/ios/talks/swift/xcode/wwdc/altconf/2020/03/11/wwdc-or-altconf/" rel="alternate" type="text/html" title="WWDC or AltConf?" /><published>2020-03-11T00:00:00-03:00</published><updated>2020-03-11T00:00:00-03:00</updated><id>http://localhost:4000/ios/talks/swift/xcode/wwdc/altconf/2020/03/11/wwdc-or-altconf</id><content type="html" xml:base="http://localhost:4000/ios/talks/swift/xcode/wwdc/altconf/2020/03/11/wwdc-or-altconf/">&lt;p&gt;&lt;img src=&quot;/Images/2020-03-11-wwdc-or-altconf/moscone-center.jpeg&quot; alt=&quot;Moscone Center at WWDC 2016 San Francisco&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;First of all, I would like to introduce myself, I am Fabrício Masiero, I have been working with iOS for over 8 years and today I lead a team in the largest education company in Brazil.&lt;/p&gt;
 
@@ -31,12 +31,112 @@ I have a great friend who was also in both and he prefers AltConf a thousand tim
 
 &lt;p&gt;The question is simple, participate in both. These are incredible events, but each one has a different focus.&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;/Images/2020-03-11-wwdc-or-altconf/me-and-my-fellas.JPG&quot; alt=&quot;Have fun with your fellas =D&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;Never been to any event? Go! You don’t have to go to WWDC (if money and lottery are impediments), just go to AltConf, meet people, feel what it’s like to be with that crowd that week. Worth every penny.&lt;/p&gt;
 
-&lt;h4 id=&quot;ps--join-the-parties&quot;&gt;PS *: Join the parties&lt;/h4&gt;
+&lt;h4 id=&quot;ps--join-the-parties-and-have-fun&quot;&gt;PS *: Join the parties and have fun&lt;/h4&gt;
 
-&lt;p&gt;A hug
-Fabrício Masiero&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">How to turn your old app into dark theme based on iOS 13?</title><link href="http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/" rel="alternate" type="text/html" title="How to turn your old app into dark theme based on iOS 13?" /><published>2019-11-04T00:00:00-03:00</published><updated>2019-11-04T00:00:00-03:00</updated><id>http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9</id><content type="html" xml:base="http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/">&lt;p&gt;My app supports from iOS 9 to the latest released by Apple (13) and I would like it to be dark theme and light theme. It’s possible?
+&lt;p&gt;A hug&lt;/p&gt;
+
+&lt;p&gt;Fabrício Masiero&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">How to add UIKit component on your SwiftUI project</title><link href="http://localhost:4000/ios/swiftui/swift/xcode/uikit/uiviewrepresentable/2020/03/09/how-to-add-UIKit-component-on-your-SwiftUI-project/" rel="alternate" type="text/html" title="How to add UIKit component on your SwiftUI project" /><published>2020-03-09T00:00:00-03:00</published><updated>2020-03-09T00:00:00-03:00</updated><id>http://localhost:4000/ios/swiftui/swift/xcode/uikit/uiviewrepresentable/2020/03/09/how-to-add-UIKit-component-on-your-SwiftUI-project</id><content type="html" xml:base="http://localhost:4000/ios/swiftui/swift/xcode/uikit/uiviewrepresentable/2020/03/09/how-to-add-UIKit-component-on-your-SwiftUI-project/">&lt;p&gt;A brief to how to add WKWebView on your SwiftUI view
+First of all, there is no WebView component write in SwiftUI, so, how I add this component?&lt;/p&gt;
+
+&lt;p&gt;Yes, we need to add an UIKit component to a SwiftUI view 🤔
+Ok, lets build a simple app in SwiftUI.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Images/2020-03-09-how-to-add-UIKit-component-on-your-SwiftUI-project/create-project.png&quot; alt=&quot;Creating Project on Xcode&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Xcode auto generate a Hello World project, its awesome, because it pretty easy to add WebView now!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Images/2020-03-09-how-to-add-UIKit-component-on-your-SwiftUI-project/initial-project.png&quot; alt=&quot;Initial State&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ok, finally lets work on some code&lt;/p&gt;
+
+&lt;p&gt;We need to create a ViewModel to treat the webview statement.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import Foundation
+import WebKit
+
+public class WebViewViewModel: NSObject {
+    
+    private let stringUrl: String
+    public let webView: WKWebView
+    
+    init(stringUrl: String) {
+        self.stringUrl = stringUrl
+        self.webView = WKWebView()
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We create a ViewModel called &lt;em&gt;WebViewViewModel&lt;/em&gt; with &lt;strong&gt;url&lt;/strong&gt; and &lt;strong&gt;webview&lt;/strong&gt; initializers. But, why?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;url&lt;/strong&gt; — is an string url to you web site e.g google.com&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;webview&lt;/strong&gt; — is an WKWebView object to store and control your component&lt;/p&gt;
+
+&lt;p&gt;and after this we need to perform a webview request to load the website, so add this on your ViewModel&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public func request() {
+    guard let url = URL(string: stringUrl) else {
+        return
+    }
+    let urlRequest = URLRequest(url: url)
+    webView.load(urlRequest)
+    if webView.navigationDelegate == nil {
+        webView.navigationDelegate = self
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And last but not least add WKNavigationDelegate to your ViewModel&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;extension WebViewViewModel: WKNavigationDelegate {
+    public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        
+    }
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Our ViewModel is completed! Now we need to add this webview on our SwiftUI view, back to ContentView class and add this &lt;strong&gt;UIViewRepresentable&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;struct WebView: UIViewRepresentable {
+    
+    let viewModel: WebViewViewModel
+    
+    func makeUIView(context: Context) -&amp;gt; WKWebView {
+        return viewModel.webView
+    }
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        viewModel.request()
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;But… Whats is &lt;strong&gt;UIViewRepresentable?&lt;/strong&gt; Basically is a instance to create and menage UIKit components, you can read more &lt;a href=&quot;https://developer.apple.com/documentation/swiftui/uiviewrepresentable&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;https://developer.apple.com/documentation/swiftui/uiviewrepresentable/3278050-updateuiview&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Lets understand what that code do.&lt;/p&gt;
+
+&lt;p&gt;The function &lt;strong&gt;makeUIView&lt;/strong&gt; is responsable to return your component.&lt;/p&gt;
+
+&lt;p&gt;The function &lt;strong&gt;updateUIView&lt;/strong&gt; is responsable to tells your app state change.&lt;/p&gt;
+
+&lt;p&gt;Finally, the last thing we need to do is add our webview to our main view, like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;struct ContentView: View {
+    var body: some View {
+        WebView(viewModel: WebViewViewModel(stringUrl: &quot;https://tinyurl.com/w498z2l&quot;))
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Yes, is simple like that!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/fabriciomasiero/WebViewSwiftUI/tree/master&quot;&gt;You can download the source code here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I hope you enjoyed.
+Bye bye =D&lt;/p&gt;</content><author><name></name></author><summary type="html">A brief to how to add WKWebView on your SwiftUI view First of all, there is no WebView component write in SwiftUI, so, how I add this component?</summary></entry><entry><title type="html">How to turn your old app into dark theme based on iOS 13?</title><link href="http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/" rel="alternate" type="text/html" title="How to turn your old app into dark theme based on iOS 13?" /><published>2019-11-04T00:00:00-03:00</published><updated>2019-11-04T00:00:00-03:00</updated><id>http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9</id><content type="html" xml:base="http://localhost:4000/ios/dark%20theme/swift/color/xcode/2019/11/04/how-to-turn-darkmode-ios9/">&lt;p&gt;My app supports from iOS 9 to the latest released by Apple (13) and I would like it to be dark theme and light theme. It’s possible?
 Searching for WWDC articles I noticed that the way Apple does is using&lt;/p&gt;
 
 &lt;h3 id=&quot;colorsassets&quot;&gt;Colors.assets&lt;/h3&gt;
