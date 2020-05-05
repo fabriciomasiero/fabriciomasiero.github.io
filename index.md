@@ -17,6 +17,12 @@ Trabalho com desenvolvimento iOS ha mais de 8 anos. Atuei em diversos projetos d
 Já trabalhei em projetos passados com: SwiftUI, Combine, Catalyst, XMPP, Unity3D Integration, Objective-C, SOAP, MVC, Storyboard, PHP CodeIgniter, Ruby On Rails e etc.
 
 
-![](/Images/about-me/about-me.JPG =100x20)
 
+<div>
+<img src="about-me.jpg" width="20" height="20"/>
+</div>
+
+<!-- ![teste](/Images/2019-11-04-how-to-turn-darkmode-ios9/My-Color-Extension.png){height=20px width=20px} -->
+
+<!-- ![teste](/Images/2019-11-04-how-to-turn-darkmode-ios9/My-Color-Extension.png) -->
 
