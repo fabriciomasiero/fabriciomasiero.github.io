@@ -27,15 +27,6 @@ Table Of Contents:
 18. Media Queries
 ******************************************/
 
-/**************
-Colors:
-- Backgrounds - light gray #2e2e2e
-- Backgrounds - gray #e8eff6
-- Buttons - red #fe0e01
-- Headings text, navbar links - black rgb(236, 236, 236);
-- Body text - dark gray #777
-***************************************** */
-
 
 /******************************/
 /*     01. General Styles     */
@@ -576,7 +567,7 @@ input[type='checkbox'] {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background: #2e2e2e;
+	background: pink;
 }
 
 .spinner {
@@ -631,7 +622,7 @@ input[type='checkbox'] {
 /*     03. Navigation     */
 /**************************/
 .navbar-custom {
-	background-color: #2e2e2e;
+	background-color: light;
 	box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
 	font: 700 0.875rem/0.875rem "Open Sans", sans-serif;
 	transition: all 0.2s;
@@ -694,7 +685,7 @@ input[type='checkbox'] {
 	margin-top: 0;
 	border: none;
 	border-radius: 0.25rem;
-	background-color: #2e2e2e;
+	background-color: pink;
 }
 
 .navbar-custom .dropdown-item {
@@ -703,7 +694,7 @@ input[type='checkbox'] {
 }
 
 .navbar-custom .dropdown-item:hover {
-	background-color: #2e2e2e;
+	background-color: var(--background);
 }
 
 .navbar-custom .dropdown-item .item-text {
@@ -771,7 +762,7 @@ input[type='checkbox'] {
 	overflow: hidden;
 	padding-top: 8rem;
 	padding-bottom: 3rem;
-	background-color: #2e2e2e;
+	background-color: var(--background);
 	text-align: center;
 }
 
@@ -808,7 +799,7 @@ input[type='checkbox'] {
 .cards-1 {
 	padding-top: 1rem;
 	padding-bottom: 2rem;
-	background-color: #2e2e2e;
+	background-color: var(--background);
 	text-align: center;
 }
 
@@ -885,7 +876,7 @@ input[type='checkbox'] {
 .basic-1 {
 	padding-top: 3rem;
 	padding-bottom: 8rem;
-	background-color: #2e2e2e;
+	background-color: var(--background);
 }
 
 .basic-1 .image-container {
@@ -1036,7 +1027,7 @@ input[type='checkbox'] {
 .tabs .nav-link {
 	padding: 0.5rem 1.5rem;
 	border-radius: 0;
-	background-color: #2e2e2e;
+	background-color: var(--background);
 	color: #777;
 	font-weight: 700;
 	font-size: 1.125rem;
@@ -1089,7 +1080,7 @@ input[type='checkbox'] {
 .basic-2 {
 	padding-top: 7rem;
 	padding-bottom: 5rem;
-	background-color: #2e2e2e;
+	background-color: var(--background);
 }
 
 .basic-2 h2 {
@@ -1209,7 +1200,7 @@ input[type='checkbox'] {
 .cards-2 {
 	padding-top: 7rem;
 	padding-bottom: 3rem;
-	background-color: #2e2e2e;
+	background-color: var(--background);
 	text-align: center;
 }
 
@@ -1331,7 +1322,7 @@ input[type='checkbox'] {
 	overflow: hidden;
 	padding-top: 8rem;
 	padding-bottom: 8rem;
-	background-color: #2e2e2e;
+	background-color: var(--background);
 	text-align: center;
 }
 
@@ -1366,7 +1357,7 @@ input[type='checkbox'] {
 	padding-top: 4rem;
 	padding-bottom: 1rem;
 	border-top: 1px solid #c8d4d6;
-	background-color: #2e2e2e;
+	background-color: var(--background);
 }
 
 .footer p,
@@ -1442,7 +1433,7 @@ input[type='checkbox'] {
 /*************************/
 .copyright {
 	padding-bottom: 0.75rem;
-	background-color: #2e2e2e;
+	background-color: var(--background);
 	text-align: center;
 }
 
@@ -1484,7 +1475,7 @@ a:hover.back-to-top {
 .ex-header {
 	padding-top: 8rem;
 	padding-bottom: 5rem;
-	background-color: #2e2e2e;
+	background-color: var(--background);
 	text-align: center;
 }
 
@@ -1507,7 +1498,7 @@ a:hover.back-to-top {
 .ex-basic-2 {
 	padding-top: 4.75rem;
 	padding-bottom: 4rem;
-	background-color: #2e2e2e;
+	background-color: var(--background);
 }
 
 .ex-basic-2 h3 {
@@ -1695,7 +1686,7 @@ a:hover.back-to-top {
 	
 	.navbar-custom.top-nav-collapse {
         padding: 0.5rem 1.5rem 0.5rem 2rem;
-		background-color: #2e2e2e;
+		background-color: var(--background);
 		box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
         background: rgba(255,255,255,0.95);
         backdrop-filter: blur(4px);
@@ -1754,7 +1745,7 @@ a:hover.back-to-top {
 	.header .deco-white-circle-1 {
 		position: absolute;
 		top: 26rem;
-		left: -12rem;
+		left: -120rem;
 		display: block;
 		width: 22rem;
 		height: 22rem;
@@ -1762,7 +1753,7 @@ a:hover.back-to-top {
 
 	.header .deco-white-circle-2 {
 		position: absolute;
-		top: 19rem;
+		top: 20rem;
 		right: -12rem;
 		display: block;
 		width: 20rem;
