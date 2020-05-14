@@ -116,9 +116,9 @@ a.red {
 .btn-solid-reg {
 	display: inline-block;
 	padding: 1.1875rem 2.125rem 1.1875rem 2.125rem;
-	border: 0.125rem solid #55C1B4;
+	border: 0.125rem solid var(--green);
 	border-radius: 2rem;
-	background-color: #55C1B4;
+	background-color: var(--green);
 	color: #fff;
 	font: 700 0.875rem/0 "Open Sans", sans-serif;
 	text-decoration: none;
@@ -126,18 +126,18 @@ a.red {
 }
 
 .btn-solid-reg:hover {
-	border: 0.125rem solid #55C1B4;
+	border: 0.125rem solid var(--green);
 	background-color: transparent;
-	color: #55C1B4;
+	color: var(--green);
 	text-decoration: none;
 }
 
 .btn-solid-lg {
 	display: inline-block;
 	padding: 1.5rem 2.375rem 1.5rem 2.375rem;
-	border: 0.125rem solid #55C1B4;
+	border: 0.125rem solid var(--green);
 	border-radius: 2rem;
-	background-color: #55C1B4;
+	background-color: var(--green);
 	color: #fff;
 	font: 700 0.875rem/0 "Open Sans", sans-serif;
 	text-decoration: none;
@@ -145,9 +145,9 @@ a.red {
 }
 
 .btn-solid-lg:hover {
-	border: 0.125rem solid #55C1B4;
+	border: 0.125rem solid var(--green);
 	background-color: transparent;
-	color: #55C1B4;
+	color: var(--green);
 	text-decoration: none;
 }
 
@@ -732,7 +732,7 @@ input[type='checkbox'] {
 .navbar-custom .navbar-toggler {
 	padding: 0;
 	border: none;
-	color: rgb(236, 236, 236);;
+	color: rgb(236, 236, 236);
 	font-size: 2rem;
 }
 
@@ -2000,10 +2000,10 @@ a:hover.back-to-top {
 	}
 
 	.header .deco-white-circle-1 {
-		top: 14rem;
-		left: -27rem;
-		width: 40rem;
-		height: 40rem;
+		top: 18rem;
+		left: -40rem;
+		width: 35rem;
+		height: 35rem;
 	}
 
 	.header .deco-white-circle-2 {
@@ -2014,7 +2014,7 @@ a:hover.back-to-top {
 
 	.header .deco-blue-circle {
 		top: 29rem;
-		left: 10rem;
+		left: 2rem;
 		width: 6rem;
 		height: 6rem;
 	}
