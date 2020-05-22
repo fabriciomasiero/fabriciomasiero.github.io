@@ -124,11 +124,28 @@ a.red {
 	text-decoration: none;
 	transition: all 0.2s;
 }
+.btn-solid-reg-purple {
+	display: inline-block;
+	padding: 1.1875rem 2.125rem 1.1875rem 2.125rem;
+	border: 0.125rem solid var(--darkBlue);
+	border-radius: 2rem;
+	background-color: var(--darkBlue);
+	color: #fff;
+	font: 700 0.875rem/0 "Open Sans", sans-serif;
+	text-decoration: none;
+	transition: all 0.2s;
+}
 
 .btn-solid-reg:hover {
 	border: 0.125rem solid var(--green);
 	background-color: transparent;
 	color: var(--green);
+	text-decoration: none;
+}
+.btn-solid-reg-purple:hover {
+	border: 0.125rem solid var(--darkBlue);
+	background-color: transparent;
+	color: var(--white);
 	text-decoration: none;
 }
 
