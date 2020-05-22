@@ -1469,6 +1469,13 @@ a:hover.back-to-top {
 	background-color: #555; 
 }
 
+.social-network-button {
+	margin-right: 10px;
+	margin-top: 10px;
+	min-width: 10em;
+	text-align: center;
+}
+
 
 /***************************/
 /*     17. Extra Pages     */
