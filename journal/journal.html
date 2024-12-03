@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Access Fabrício Masiero Journal</title>
+  <style>
+    /* General body styling */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      color: #e4e4e4;
+      background-color: #121212;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Main container */
+    .container {
+      width: 90%;
+      max-width: 450px;
+      background: #1e1e1e;
+      border-radius: 12px;
+      box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.8);
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    /* Header styles */
+    h1 {
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #cccccc;
+      margin-bottom: 25px;
+      line-height: 1.4;
+    }
+
+    /* Input field styling */
+    input[type="text"] {
+      width: calc(100% - 20px);
+      padding: 10px;
+      font-size: 1rem;
+      background-color: #2a2a2a;
+      color: #ffffff;
+      border: 1px solid #444;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      outline: none;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.8);
+      border-color: #007bff;
+    }
+
+    /* Button styling */
+    button {
+      width: calc(100% - 20px);
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #ffffff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    /* Footer styling */
+    footer {
+      margin-top: 15px;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 0.9rem;
+      }
+      input[type="text"],
+      button {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+      footer {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to my Journal</h1>
+    <p>Enter the password to access your personal entries. If you are here, you are special.</p>
+    <input type="text" id="password" placeholder="Enter your password">
+    <button onclick="submitPassword()">Submit</button>
+    <footer>
+      <p>&copy; 2024 Fabrício's Journal. Built with 💙 by <a href="https://fabriciomasiero.github.io">Fab</a>.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Function to handle password submission
+    function submitPassword() {
+      const password = document.getElementById("password").value;
+
+      // Map passwords to journal page URLs
+      const journalPages = {
+        "matcha": "kiara/kiara.html"
+      };
+
+      if (journalPages[password]) {
+        window.location.href = journalPages[password];
+      } else {
+        alert("Invalid password! Please try again.");
+      }
+    }
+
+    // Add event listener for Enter key
+    document.getElementById("password").addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        submitPassword();
+      }
+    });
+  </script>
+</body>
+</html>
