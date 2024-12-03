@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Journal Entry</title>
+  <title>The girl to rule them all</title>
   <style>
     /* General body styling */
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Merriweather', serif; /* Classic serif font for readability */
+      font-family: 'Merriweather', serif;
       color: #e4e4e4;
       background-color: #121212;
       display: flex;
@@ -19,6 +19,7 @@
     /* Main content container */
     .content {
       max-width: 800px;
+      width: 90%;
       padding: 30px 20px;
       line-height: 1.8;
       text-align: left;
@@ -76,50 +77,87 @@
       border-radius: 10px;
     }
 
-.image-container {
-    text-align: center;
-    margin: 20px 20px;
-}
+    /* Image container */
+    .image-container {
+      text-align: center;
+      margin: 20px 20px;
+    }
 
-.image-container img {
-    max-width: 100%;
-    height: auto;
-}
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+    }
 
-.image-description {
-    font-style: italic;
-    color: #555;
-    margin-top: 5px;
-}
+    .image-description {
+      font-style: italic;
+      color: #555;
+      margin-top: 5px;
+    }
 
-.video {
-  text-align: center;
-  margin-bottom: 20px;
-}
+    /* Video styling */
+    .video {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-.video-thumbnail {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
+    .video-thumbnail {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
 
-.video-thumbnail img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+    .video-thumbnail img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 64px; /* Adjust according to your image dimensions */
-  height: 64px; /* Adjust according to your image dimensions */
-  background: url('play.png') no-repeat center center;
-  background-size: contain;
-  pointer-events: none;
-}
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      background: url('play.png') no-repeat center center;
+      background-size: contain;
+      pointer-events: none;
+    }
+
+    /* Password section */
+    .password-section {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #secretPassword {
+      width: 90%;
+      max-width: 300px;
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #secretPassword:focus {
+      border-color: #888;
+      outline: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-left: 10px;
+      background-color: #5c85d6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #4a6fb3;
+    }
 
     /* Responsive design */
     @media (max-width: 600px) {
@@ -133,6 +171,11 @@
 
       .content p {
         font-size: 1rem;
+      }
+
+      .play-button {
+        width: 48px;
+        height: 48px;
       }
     }
   </style>
@@ -328,7 +371,8 @@
 <p>Eu sei que você queria isso, então toma:</p>
 
 <h2>O balancete disso tudo:</h2>
-
+<body>
+  <div class="content">
 <h3>Winning coins</h3>
 <pre><code>
 Eu aprendi o que é arte - 100 coins
@@ -345,6 +389,8 @@ Eu aprendi que eu não devo cometer os mesmos erros que cometi - 125 coins
 Eu perdi o amor da minha vida? Nunca saberei - Imensurável coins
 </code></pre>
 <hr>
+</div>
+</body>
 
 <div class="video">
   <a href="https://www.youtube.com/watch?v=eSXjkIg1gGE" target="_blank">
