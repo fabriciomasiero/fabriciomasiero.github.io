@@ -359,7 +359,7 @@ Eu perdi o amor da minha vida? Nunca saberei - Imensurável coins
 
 <div class="password-section">
   <p style="text-align: center;">Want an easter egg? There is more for you</p>
-  <input type="field" id="secretPassword" placeholder="Its something that I miss a lot">
+  <input type="text" id="secretPassword" placeholder="It's something that I miss a lot">
   <button onclick="checkPassword()">Submit</button>
 </div>
 
@@ -369,9 +369,16 @@ function checkPassword() {
     if (password === 'imissurlovebombingalot') {
         window.location.href = 'private_kiara.html';
     } else {
-        alert('Its deeper than that. Try again.');
+        alert('It\'s deeper than that. Try again.');
     }
 }
+
+// Add an event listener for the Enter key
+document.getElementById('secretPassword').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') { // Check if Enter key was pressed
+        checkPassword(); // Call the function
+    }
+});
 </script>
 
 <style>
