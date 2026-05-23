@@ -1,698 +1,1547 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="'ve been developing iOS and Swift applications for 8 years, the last 3 years of that time remotely. 
-    I've worked on more than 30 applications that are hosted in the App Store, some of them with millions of users.">
-    <meta name="author" content="Fabrício Masiero iOS Engineer">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabrício Masiero — Apple Platforms Engineer</title>
 
-    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
-	<meta property="og:site_name" content="" /> <!-- website name -->
-	<meta property="og:site" content="" /> <!-- website link -->
-	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
-	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
-	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
-	<meta property="og:type" content="article" />
+<!-- SEO -->
+<meta name="description" content="Apple Platforms Engineer with 14+ years shipping iOS & macOS apps. Specialized in AVFoundation, audio pipelines, streaming SDKs, and Swift architecture.">
+<meta name="author" content="Fabrício Masiero">
+<meta property="og:title" content="Fabrício Masiero — Apple Platforms Engineer">
+<meta property="og:description" content="14+ years building iOS & macOS apps trusted by Disney, HPE, Peloton, and Sonos.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fabriciomasiero.github.io">
 
-    <!-- Webpage Title -->
-    <title>Fabrício Masiero</title>
-    
-    <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/fontawesome-all.css" rel="stylesheet">
-    <link href="css/swiper.css" rel="stylesheet">
-	<link href="css/magnific-popup.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
-	
-	<!-- Favicon  -->
-    <link rel="icon" href="images/phone.png">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Space+Mono:wght@400;700&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ================================================================
+   TOKENS & RESET
+================================================================ */
+:root {
+  --bg:       #06060d;
+  --bg-2:     #0b0b16;
+  --panel:    #0f0f1e;
+  --panel-2:  #14142a;
+  --ink:      #f0effe;
+  --ink-2:    #c5c0e8;
+  --muted:    #7268a8;
+  --line:     #1c1a32;
+  --line-2:   #252244;
+  --accent:   #7c5cfc;
+  --accent-h: #9b80ff;
+  --green:    #00e5c3;
+  --green-h:  #40f0d4;
+  --warm:     #ff7055;
+  --warm-h:   #ff9980;
+  --purple:   #c084fc;
+  --cyan:     #22d4ff;
+  --maxw:     1100px;
+  --r:        16px;
+  --r-lg:     22px;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Archivo', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ================================================================
+   ANIMATED BACKGROUND CANVAS
+================================================================ */
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .55;
+}
+
+.bg-gradient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 900px 600px at 80% -5%, rgba(124,92,252,.14) 0%, transparent 65%),
+    radial-gradient(ellipse 700px 500px at 5% 15%, rgba(0,229,195,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 600px 400px at 50% 110%, rgba(255,112,85,.06) 0%, transparent 55%);
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 28px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ================================================================
+   CURSOR GLOW
+================================================================ */
+.cursor-glow {
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle, rgba(124,92,252,.09) 0%, transparent 65%);
+  transform: translate(-50%, -50%);
+  transition: left .12s ease, top .12s ease;
+  will-change: left, top;
+}
+
+/* ================================================================
+   NAV
+================================================================ */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(8,10,14,.78);
+  border-bottom: 1px solid var(--line);
+  transition: background .3s, box-shadow .3s;
+}
+nav.scrolled {
+  background: rgba(8,10,14,.92);
+  box-shadow: 0 4px 40px rgba(0,0,0,.4);
+}
+nav .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.logo {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -.5px;
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.logo-dot { color: var(--accent); }
+
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.navlinks a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 9px;
+  transition: color .2s, background .2s;
+}
+.navlinks a:hover { color: var(--ink); background: rgba(255,255,255,.05); }
+
+.nav-cta {
+  background: var(--accent) !important;
+  color: #f0effe !important;
+  font-weight: 700 !important;
+  transition: transform .2s, box-shadow .2s !important;
+}
+.nav-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(124,92,252,.5);
+  background: var(--accent-h) !important;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  border: none;
+  background: none;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform .3s, opacity .3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 64px 0 0;
+  background: rgba(8,10,14,.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transform: translateY(-100%);
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+}
+.mobile-nav.open { transform: translateY(0); }
+.mobile-nav a {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: 'Fraunces', serif;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 14px;
+  transition: color .2s, background .2s;
+}
+.mobile-nav a:hover { color: var(--accent); background: rgba(124,92,252,.08); }
+
+@media(max-width:680px) {
+  .navlinks { display: none; }
+  .hamburger { display: flex; }
+  .mobile-nav { display: flex; }
+}
+
+/* ================================================================
+   HERO
+================================================================ */
+header {
+  padding: 110px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 26px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  animation: rise .7s .05s forwards;
+}
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--green);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(44px, 7.5vw, 88px);
+  line-height: 1.01;
+  letter-spacing: -2px;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: rise .85s .14s forwards;
+}
+h1 em {
+  font-style: italic;
+  color: var(--accent);
+  position: relative;
+}
+h1 em::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 2px;
+  opacity: .5;
+}
+
+.lede {
+  font-size: clamp(17px, 2.2vw, 21px);
+  color: var(--muted);
+  max-width: 700px;
+  line-height: 1.6;
+  margin-bottom: 38px;
+  opacity: 0;
+  animation: rise .85s .24s forwards;
+}
+.lede strong { color: var(--ink-2); font-weight: 600; }
+
+.cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: rise .85s .34s forwards;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px 24px;
+  border-radius: 13px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  transition: transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s, background .22s, border-color .22s;
+  position: relative;
+  overflow: hidden;
+}
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,.12);
+  opacity: 0;
+  transition: opacity .2s;
+}
+.btn:hover::after { opacity: 1; }
+.btn:hover { transform: translateY(-3px); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #5030d4);
+  color: #f0effe;
+  box-shadow: 0 8px 32px rgba(124,92,252,.4), inset 0 1px 0 rgba(255,255,255,.18);
+}
+.btn-primary:hover { box-shadow: 0 14px 44px rgba(124,92,252,.55), inset 0 1px 0 rgba(255,255,255,.18); }
+
+.btn-ghost {
+  border: 1.5px solid var(--line-2);
+  color: var(--ink);
+  background: rgba(255,255,255,.02);
+}
+.btn-ghost:hover { border-color: rgba(124,92,252,.5); background: rgba(124,92,252,.06); }
+
+.btn-outline {
+  border: 1.5px solid rgba(0,229,195,.3);
+  color: var(--green);
+  background: rgba(0,229,195,.04);
+}
+.btn-outline:hover { border-color: var(--green); background: rgba(0,229,195,.1); }
+
+/* hero badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: var(--warm);
+  background: rgba(255,112,85,.12);
+  border: 1px solid rgba(255,112,85,.28);
+  padding: 7px 14px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+  opacity: 0;
+  animation: rise .7s 0s forwards;
+}
+.hero-badge .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--warm);
+  animation: pulse 2s infinite;
+}
+
+
+/* ================================================================
+   SECTIONS
+================================================================ */
+section { padding: 80px 0; }
+
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 44px;
+}
+.sec-num {
+  font-family: 'Space Mono', monospace;
+  color: var(--accent);
+  font-size: 13px;
+  opacity: .7;
+}
+.sec-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: -.8px;
+  line-height: 1.1;
+}
+
+/* ================================================================
+   STATS
+================================================================ */
+.stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+@media(max-width:840px) { .stats { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:420px) { .stats { grid-template-columns: 1fr; } }
+
+.stat {
+  padding: 30px 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: linear-gradient(160deg, var(--panel), rgba(13,17,23,.6));
+  position: relative;
+  overflow: hidden;
+  transition: border-color .3s, transform .3s;
+  cursor: default;
+}
+.stat::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(255,255,255,.025), transparent 60%);
+  pointer-events: none;
+}
+.stat:hover { border-color: var(--line-2); transform: translateY(-4px); }
+.stat:hover .stat-glow { opacity: 1; }
+.stat-glow {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity .4s;
+  pointer-events: none;
+}
+.stat-glow.blue  { background: radial-gradient(circle, rgba(124,92,252,.22), transparent 70%); }
+.stat-glow.green { background: radial-gradient(circle, rgba(0,229,195,.18), transparent 70%); }
+.stat-glow.warm  { background: radial-gradient(circle, rgba(255,112,85,.18), transparent 70%); }
+.stat-glow.purple{ background: radial-gradient(circle, rgba(34,212,255,.18), transparent 70%); }
+
+.stat .n {
+  font-family: 'Fraunces', serif;
+  font-size: 46px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+.stat .n.blue   { color: var(--accent); }
+.stat .n.green  { color: var(--green); }
+.stat .n.warm   { color: var(--warm); }
+.stat .n.purple { color: var(--purple); }
+.stat .l {
+  color: var(--muted);
+  font-size: 13.5px;
+  margin-top: 12px;
+  line-height: 1.45;
+}
+
+/* ================================================================
+   WORK CARDS
+================================================================ */
+.work { display: flex; flex-direction: column; gap: 20px; }
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--panel);
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .3s, transform .3s, box-shadow .3s;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.025) 0%, transparent 60%);
+  pointer-events: none;
+}
+.card-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-lg);
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(124,92,252,.08), transparent 40%);
+  transition: opacity .3s;
+}
+.card:hover { border-color: rgba(124,92,252,.4); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+.card:hover .card-shine { opacity: 1; }
+
+.card-accent {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--green) 60%, transparent 90%);
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.card:hover .card-accent { opacity: 1; }
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -.5px;
+  line-height: 1.2;
+}
+.card .role {
+  color: var(--green);
+  font-size: 13px;
+  font-family: 'Space Mono', monospace;
+  margin-top: 5px;
+  opacity: .85;
+}
+
+.badge {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 6px 13px;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: 'Space Mono', monospace;
+}
+.badge.rank  { background:rgba(255,112,85,.12);  color:var(--warm);   border:1px solid rgba(255,112,85,.28); }
+.badge.rev   { background:rgba(0,229,195,.10);   color:var(--green);  border:1px solid rgba(0,229,195,.28); }
+.badge.blue  { background:rgba(124,92,252,.12);  color:var(--accent); border:1px solid rgba(124,92,252,.28); }
+
+.card p { color: #b8c4d0; margin-top: 18px; font-size: 15px; max-width: 800px; line-height: 1.65; }
+
+.tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+.tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 11.5px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: 5px 12px;
+  border-radius: 8px;
+  transition: color .2s, border-color .2s, background .2s;
+}
+.tag:hover { color: var(--ink); border-color: var(--line-2); background: rgba(255,255,255,.03); }
+
+/* ================================================================
+   NICHE / FOCUS
+================================================================ */
+.niche {
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 40px 44px;
+  background: linear-gradient(150deg, rgba(124,92,252,.07), rgba(11,11,22,.7) 60%);
+  position: relative;
+  overflow: hidden;
+}
+.niche::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,92,252,.12), transparent 70%);
+  pointer-events: none;
+}
+.niche p {
+  font-size: clamp(18px, 2.4vw, 22px);
+  line-height: 1.6;
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  color: #d6dfe9;
+}
+.niche p em { font-style: italic; color: var(--accent); }
+.niche p strong { color: var(--ink); font-weight: 600; }
+
+/* ================================================================
+   SKILLS GRID
+================================================================ */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media(max-width:760px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:440px) { .skills-grid { grid-template-columns: 1fr; } }
+
+.skill-card {
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--panel);
+  padding: 24px 22px;
+  transition: border-color .3s, transform .3s;
+  position: relative;
+  overflow: hidden;
+}
+.skill-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.02), transparent);
+  pointer-events: none;
+}
+.skill-card:hover { border-color: var(--line-2); transform: translateY(-3px); }
+.skill-icon { font-size: 24px; margin-bottom: 12px; }
+.skill-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.skill-card p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+/* ================================================================
+   WWDC PHOTO
+================================================================ */
+.wwdc-wrap {
+  margin-top: 24px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line-2);
+  position: relative;
+  cursor: pointer;
+}
+.wwdc-wrap img {
+  width: 100%;
+  display: block;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center 30%;
+  transition: transform .5s cubic-bezier(.25,.46,.45,.94), filter .4s;
+  filter: brightness(.88) saturate(.9);
+}
+.wwdc-wrap:hover img {
+  transform: scale(1.025);
+  filter: brightness(1) saturate(1);
+}
+.wwdc-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 28px 20px 16px;
+  background: linear-gradient(to top, rgba(6,6,13,.92) 0%, transparent 100%);
+  font-family: 'Space Mono', monospace;
+  font-size: 11.5px;
+  color: var(--muted);
+  letter-spacing: .5px;
+  pointer-events: none;
+}
+.wwdc-caption strong { color: var(--green); }
+
+/* lightbox */
+.lb-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(6,6,13,.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+.lb-overlay.open { display: flex; }
+.lb-overlay img {
+  max-width: 92vw;
+  max-height: 88vh;
+  border-radius: 16px;
+  border: 1px solid var(--line-2);
+  box-shadow: 0 40px 120px rgba(0,0,0,.7);
+}
+
+/* ================================================================
+   APP STORE LINK
+================================================================ */
+.store-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 20px;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  opacity: .75;
+  transition: opacity .2s, gap .2s;
+  letter-spacing: .3px;
+}
+.store-link:hover { opacity: 1; gap: 10px; }
+.store-link svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+/* ================================================================
+   SIDE PROJECTS
+================================================================ */
+.side {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+@media(max-width:760px) { .side { grid-template-columns: 1fr 1fr; } }
+@media(max-width:480px) { .side { grid-template-columns: 1fr; } }
+.side .card { padding: 28px; }
+.side .card h3 { font-size: 20px; }
+.side .card p { font-size: 14px; margin-top: 12px; }
+
+/* ================================================================
+   TESTIMONIAL / QUOTE
+================================================================ */
+.quote-block {
+  border-left: 3px solid var(--accent);
+  padding: 24px 28px;
+  background: rgba(124,92,252,.05);
+  border-radius: 0 var(--r) var(--r) 0;
+  margin-top: 44px;
+}
+.quote-block blockquote {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(17px,2.2vw,21px);
+  font-style: italic;
+  color: var(--ink-2);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.quote-author { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--muted); }
+.quote-author strong { color: var(--accent); }
+
+/* ================================================================
+   FOOTER / CONTACT
+================================================================ */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 80px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+footer::before {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,92,252,.1), transparent 70%);
+  pointer-events: none;
+}
+
+footer h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(30px, 5vw, 52px);
+  letter-spacing: -1.2px;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+footer h2 em { font-style: italic; color: var(--accent); }
+footer .foot-sub {
+  color: var(--muted);
+  max-width: 540px;
+  margin: 0 auto 36px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 22px;
+  border: 1.5px solid var(--line);
+  border-radius: 13px;
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: border-color .2s, color .2s, background .2s, transform .2s;
+  background: rgba(255,255,255,.02);
+}
+.contact-link:hover {
+  border-color: rgba(124,92,252,.55);
+  color: var(--accent);
+  background: rgba(124,92,252,.09);
+  transform: translateY(-2px);
+}
+.contact-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+.foot-divider { width: 60px; height: 1px; background: var(--line); margin: 0 auto 28px; }
+.copyright {
+  color: #3e4a57;
+  font-size: 12px;
+  font-family: 'Space Mono', monospace;
+  line-height: 1.7;
+}
+
+/* ================================================================
+   SCROLL REVEAL ANIMATIONS
+================================================================ */
+@keyframes rise {
+  from { opacity:0; transform: translateY(20px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: .5; transform: scale(.8); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes border-flow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s cubic-bezier(.25,.46,.45,.94), transform .7s cubic-bezier(.25,.46,.45,.94);
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity .7s .1s, transform .7s .1s;
+}
+.reveal-left.in { opacity: 1; transform: translateX(0); }
+.reveal-scale {
+  opacity: 0;
+  transform: scale(.94);
+  transition: opacity .6s, transform .6s;
+}
+.reveal-scale.in { opacity: 1; transform: scale(1); }
+
+/* gradient text for headings */
+.grad-text {
+  background: linear-gradient(135deg, var(--ink) 30%, var(--accent) 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ================================================================
+   PROGRESS / SKILL BARS
+================================================================ */
+.skill-bars { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+.skill-row { display: flex; flex-direction: column; gap: 6px; }
+.skill-meta { display: flex; justify-content: space-between; align-items: center; }
+.skill-name { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.skill-pct  { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--muted); }
+.skill-track {
+  height: 5px;
+  background: var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.skill-fill {
+  height: 100%;
+  border-radius: 999px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(.25,.46,.45,.94);
+}
+.skill-fill.blue   { background: linear-gradient(90deg, var(--accent), #5030d4); }
+.skill-fill.green  { background: linear-gradient(90deg, var(--green), #009e88); }
+.skill-fill.warm   { background: linear-gradient(90deg, var(--warm), #cc4433); }
+.skill-fill.purple { background: linear-gradient(90deg, var(--cyan), #7c5cfc); }
+
+/* ================================================================
+   MOBILE TWEAKS
+================================================================ */
+@media(max-width:680px) {
+  header { padding: 80px 0 56px; }
+  .niche { padding: 28px 24px; }
+  .card  { padding: 26px 22px; }
+  footer { padding: 60px 0; }
+  h1     { letter-spacing: -1px; }
+  .cta   { flex-direction: column; }
+  .cta .btn { justify-content: center; }
+  .contact-links { flex-direction: column; align-items: center; }
+  .contact-link { width: 100%; max-width: 340px; justify-content: center; }
+}
+</style>
 </head>
-<body data-spy="scroll" data-target=".fixed-top">
-    
-    <!-- Preloader -->
-	<div class="spinner-wrapper">
-        <div class="spinner">
-            <div class="bounce1"></div>
-            <div class="bounce2"></div>
-            <div class="bounce3"></div>
-        </div>
+<body>
+
+<!-- =========================================================
+     ANIMATED BACKGROUND
+========================================================= -->
+<canvas id="bg-canvas"></canvas>
+<div class="bg-gradient"></div>
+<div class="cursor-glow" id="cursor-glow"></div>
+
+<!-- =========================================================
+     NAV
+========================================================= -->
+<nav id="main-nav">
+  <div class="wrap">
+    <a href="#" class="logo">FM<span class="logo-dot">.</span></a>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#side">Projects</a>
+      <a href="#contact" class="nav-cta">Let's talk →</a>
     </div>
-    <!-- end of preloader -->
-    
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" style="background-color: var(--background);">
-        <div class="container">
-            <!-- Text Logo - Use this if you don't have a graphic logo -->
-             <a class="navbar-brand logo-text page-scroll" href="index.html"><img src="images/phone.png" 
-                style="width: 38px; margin-bottom: 5px;"> Fabrício Masiero</a> 
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#work" class="mobile-link">Work</a>
+  <a href="#skills" class="mobile-link">Skills</a>
+  <a href="#side" class="mobile-link">Projects</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" 
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-awesome fas fa-bars"></span>
-                <span class="navbar-toggler-awesome fas fa-times"></span>
-            </button>
-            <!-- end of mobile menu toggle button -->
+<!-- =========================================================
+     HERO
+========================================================= -->
+<header>
+  <div class="wrap">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Available for new opportunities
+    </div>
+    <div class="eyebrow">Apple Platforms Engineer · 14+ years</div>
+    <h1>I build the iOS &amp; macOS apps<br>that <em>brands</em> trust<br>with their audio.</h1>
+    <p class="lede">
+      14 years. <strong>30+ apps shipped.</strong> I take Apple-platform products from <strong>zero users to enterprise scale</strong> —
+      specializing in real-time recording, AVFoundation audio pipelines, streaming,
+      and SDK architecture. Startup speed, brand-name quality.
+    </p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#contact">Let's talk →</a>
+      <a class="btn btn-ghost" href="#work">See the work ↓</a>
+      <a class="btn btn-outline" href="resume/resume.pdf" target="_blank">Download résumé</a>
+    </div>
+  </div>
+</header>
 
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#description">About <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#stats">Stats</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link page-scroll" href="resume/resume.pdf" target="_blank">Resume</a>
-                    </li>
-                </ul>
-                <span class="nav-item">
-                    <a class="btn-outline-sm page-scroll" href="mailto:fabriciomasiero@icloud.com" target="_blank">Contact</a>
-                </span>
-            </div>
+
+<!-- =========================================================
+     STATS
+========================================================= -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat reveal">
+        <div class="stat-glow blue"></div>
+        <div class="n blue" data-count="14" data-suffix="+">0</div>
+        <div class="l">Years shipping iOS &amp; macOS products</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-glow green"></div>
+        <div class="n green">~$2M</div>
+        <div class="l">Potential revenue unlocked at Backtrack</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-glow warm"></div>
+        <div class="n warm">#1</div>
+        <div class="l">Mac App Store rank in 10 countries</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-glow purple"></div>
+        <div class="n" style="color:var(--cyan)">1M+</div>
+        <div class="l">Users served on Plurall</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     WORK
+========================================================= -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">Selected work</h2>
+    </div>
+    <div class="work">
+
+      <div class="card reveal" data-tilt>
+        <div class="card-accent"></div>
+        <div class="card-shine"></div>
+        <div class="card-top">
+          <div>
+            <h3>Backtrack — iOS</h3>
+            <div class="role">Lead iOS Engineer · Yac, Inc.</div>
+          </div>
+          <span class="badge rev">~$2M ARR</span>
         </div>
-    </nav> 
-
-
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-container">
-                        <h1>Fabrício Masiero</h1>
-                        <p class="p-large p-heading" style="color: var(--lightGray);">Hi, 
-                            I've been developing iOS and Swift applications for 8 years, the last 3 years of that time remotely. 
-                            I've worked on more than 30 applications that are hosted in the App Store, some of them with millions of users.
-                            
-                            I have experience with products. Most of my experiences I helped and improved products to better satisfy the customer's needs. 
-                            In most cases presenting solutions that could be made within the app to help or even try to better understand the needs.</p>
-                            <p style="color: var(--lightGray);">I code for a purpose.</p>
-
-                        <a class="btn-solid-lg" href="https://dev.to/fabriciomasiero" target="_blank"><i class="fab fa-dev"></i>DEV.to</a>
-                        <a class="btn-solid-lg" href="https://medium.com/@fabriciomasiero" target="_blank"><i class="fab fa-medium"></i>Medium</a>
-                        <a class="btn-solid-lg" href="http://linkedin.com/in/fabriciomasiero/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="image-container">
-                        <img class="img-fluid" src="images/gallery/header-iphone.png" alt="alternative">
-                    </div>
-                </div> 
-            </div> 
-        </div> 
-        <div class="deco-white-circle-1">
-            <img src="images/nardogray-circle.png" alt="alternative">
-        </div> <!-- end of deco-white-circle-1 -->
-        <div class="deco-white-circle-2">
-            <img src="images/importCombine.png" alt="alternative">
+        <p>Built the iOS app from scratch — zero users to a live-event B2B product deployed at Disney, HPE, Tiffany&amp;Co, Great Wolf Lodge, Topgolf, and LG. Designed and shipped the entire AVFoundation recording stack: real-time capture, segmented export, background-safe crash recovery, and WebSocket-driven remote control. Delivered SwiftUI experiences for meetings, scan mode, sponsor screens, and Dynamic Island status — all under real conference pressure.</p>
+        <div class="tags">
+          <span class="tag">Swift</span>
+          <span class="tag">SwiftUI</span>
+          <span class="tag">AVFoundation</span>
+          <span class="tag">AVAudioEngine</span>
+          <span class="tag">WebSockets</span>
+          <span class="tag">Swift Concurrency</span>
+          <span class="tag">Dynamic Island</span>
         </div>
-    </header>
-
-
-    <!-- Small Features -->
-    <div class="cards-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-image bg-white">
-                            <i class="fas fa-code" style="color: var(--background);"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">iOS Engineer</h5>
-                        </div>
-                    </div>
-                    <!-- end of card -->
-
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-image bg-white">
-                            <i class="fas fa-pencil-ruler" style="color: var(--background);"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Designer Enthusiast</h5>
-                        </div>
-                    </div>
-                    <!-- end of card -->
-
-                    <!-- Card -->
-                    <!-- <div class="card">
-                        <div class="card-image bg-white">
-                            <i class="fas fa-cog" style="color: var(--background);"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Engineer</h5>
-                        </div>
-                    </div> -->
-                    <!-- end of card -->
-
-
-                    <!-- Card -->
-                    <div class="card">
-                        <div class="card-image bg-white">
-                            <i class="fas fa-lightbulb" style="color: var(--background);"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Innovator</h5>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image bg-white">
-                            <i class="fas fa-users" style="color: var(--background);"></i>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Collaborator</h5>
-                        </div>
-                    </div>
-                    <!-- end of card -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of cards-1 -->
-    <!-- end of small features -->
-
-
-    <!-- Description 1 -->
-    <div id="description" class="basic-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="image-container">
-                        <img class="img-fluid" src="images/description-1-app.png" alt="alternative">
-                    </div> <!-- end of image-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-6">
-                    <div class="text-container">
-                        <h2>About Me</h2>
-                        <p style="color: var(--lightGray);">I am 28 years old iOS Engineer from São Paulo and working remotely for the last 3 years. I currently work at 
-                            <a href="https://www.somoseducacao.com.br" style="color: var(--lightGray);"><b>SOMOS Educação</b></a>
-                            (the largest education company in Brazil and one of the largest in the world).
-
-                            I have been working with iOS development for over 8 years. I worked on several different projects, 
-                            with more than 30 applications published on the AppStore. 
-                            Some of them have millions of users. Today I lead the iOS team at <a href="https://www.plurall.net" style="color: var(--lightGray);"><b>Plurall</b></a>, 
-                            an app that has more than 1M active users and its main mission is to bring basic education to everyone in Brazil. 
-                            In this app I work with the following tools and methodologies: Swift, Realm, RxSwift, Swinject, Alamofire, CoreData, 
-                            ViewCode and XIB, APIRest, GraphQL MVVM, Clean Architecture, Fastlane, aspects of UX / UI and other things.
-                            I've worked on past projects with: SwiftUI, Combine, Catalyst, XMPP, Unity3D Integration, Objective-C, 
-                            SOAP, MVC, Storyboard, PHP CodeIgniter, Ruby On Rails and etc.</p>
-                        <h4 class="appdev">Collaborations</h4>
-                        <p  style="color: var(--lightGray);">Recently written articles on iOS and Swift on Medium and Dev.to. I am also the chapter leader for Cocoaheads, 
-                            an international group of apple developers in the world and a speaker at the event.
-
-                            I also do lives on twitch teaching development to people and I have a YouTube channel with 
-                            playlists step by step on how to make some features on iOS.</p>
-                            
-                        <a class="btn-solid-reg-purple page-scroll social-network-button" 
-                        href="https://github.com/fabriciomasiero" target="_blank">GitHub</a> 
-                        <a class="btn-solid-reg-purple page-scroll social-network-button" 
-                        href="https://medium.com/@fabriciomasiero" target="_blank">Medium</a> 
-                        <a class="btn-solid-reg-purple page-scroll social-network-button"
-                        href="https://dev.to/fabriciomasiero" target="_blank">Dev.to</a> 
-                        <a class="btn-solid-reg-purple page-scroll social-network-button" 
-                        href="https://www.youtube.com/channel/UCGET-nAMDJejp6wfgfMymJw" target="_blank">YouTube</a> 
-                        <a class="btn-solid-reg-purple page-scroll social-network-button"
-                        href="https://twitch.com/fabriciomasiero" target="_blank">Twitch</a> 
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-1 -->
-    <!-- end of description 1 -->
-
-    
-    <!-- rong Details Lightbox -->
-	<!-- Details Lightbox -->
-	<div id="rong-details-lightbox" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-			<div class="col-lg-8">
-                <div class="image-container">
-                    <img class="img-fluid" src="images/gallery/subtask-portrait.png" alt="alternative">
-                </div> <!-- end of image-container -->
-			</div>
-			<div class="col-lg-4">
-                <h3>Rong</h3>
-				<hr>
-                <p>In my newest released game Rong, the player must tap on the screen when the orange pointer is on one of the colored segments.</p>
-                <h4>Development</h4>
-                <p>Rong was released in March 2019 after a few months of development. All assets were designed and created by me using GIMP.</p>
-                <ul class="list-unstyled li-space-lg">
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">SpriteKit</div>
-                    </li>
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">Game Center Support</div>
-                    </li>
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">In-App Purchases</div>
-                    </li>
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">AdMob Integration</div>
-                    </li>
-                </ul>
-                <a class="btn-solid-reg mfp-close page-scroll" target="_blank" 
-                href="https://apps.apple.com/us/app/rong/id1453106199">Download</a> 
-                <button class="btn-outline-reg mfp-close as-button" type="button">Back</button>
-			</div>
-		</div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of details lightbox -->
-    <!-- end of description 1 details lightbox -->
-    
-    <!-- Detour Details Lightbox -->
-	<!-- Details Lightbox -->
-	<div id="detour-details-lightbox" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-			<div class="col-lg-8">
-                <div class="image-container">
-                    <img class="img-fluid" src="images/gallery/detour.png" alt="alternative">
-                </div> <!-- end of image-container -->
-			</div>
-			<div class="col-lg-4">
-                <h3>Detour</h3>
-				<hr>
-                <p>In Detour, the player must swipe to stay on the road for as long as possible and avoid any obstacles that will cause you to take a detour.</p>
-                <h4>Development</h4>
-                <p>Detour was developed over the course of one month for a competition with the theme of cars hosted by 
-                    <a style="color:#fe0e01; text-decoration: none" target="_blank" href="https://youtu.be/b7AC45xwB3o?t=257 ">
-                        Jared Davidson</a>. The game was released in October 2016. MagicaVoxel was used to model all 3D assets.</p>
-                <ul class="list-unstyled li-space-lg">
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">SceneKit & SpriteKit</div>
-                    </li>
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">Game Center Support</div>
-                    </li>
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">In-App Purchases</div>
-                    </li>
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">AdMob Integration</div>
-                    </li>
-                </ul>
-                <a class="btn-solid-reg mfp-close page-scroll" target="_blank" href="https://apps.apple.com/us/app/detour/id1161175314">
-                    Download</a> <button class="btn-outline-reg mfp-close as-button" type="button">Back</button>
-			</div>
-		</div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of details lightbox -->
-    <!-- end of description 1 details lightbox -->
-    
-    <!-- Gummy Gap Details Lightbox -->
-	<!-- Details Lightbox -->
-	<div id="gummygap-details-lightbox" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-			<div class="col-lg-8">
-                <div class="image-container">
-                    <img class="img-fluid" src="images/gallery/gummygap.png" alt="alternative">
-                </div> <!-- end of image-container -->
-			</div>
-			<div class="col-lg-4">
-                <h3>Gummy Gap</h3>
-				<hr>
-                <p>In my first released game Gummy Gap, the player must maneuver their gummy between a series of pipes to avoid getting hit and having their Gummy squished.</p>
-                <h4>Development</h4>
-                <p>Gummy Gap's month-long development started in February 2016 and ended in March 2016. GIMP was used to design and create all the assets.</p>
-                <ul class="list-unstyled li-space-lg">
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">SceneKit</div>
-                    </li>
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">Game Center Support</div>
-                    </li>
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">In-App Purchases</div>
-                    </li>
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">AdMob Integration</div>
-                    </li>
-                </ul>
-                <a class="btn-solid-reg mfp-close page-scroll" target="_blank" 
-                href="https://apps.apple.com/us/app/detour/id1161175314">Download</a> <button class="btn-outline-reg mfp-close as-button" type="button">Back</button>
-			</div>
-		</div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of details lightbox -->
-    <!-- end of description 1 details lightbox -->
-    
-    <!-- DHS Details Lightbox -->
-	<!-- Details Lightbox -->
-	<div id="dhs-details-lightbox" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-			<div class="col-lg-8">
-                <div class="image-container">
-                    <img class="img-fluid" src="images/gallery/dhs.png" alt="alternative">
-                </div> <!-- end of image-container -->
-			</div>
-			<div class="col-lg-4">
-                <h3>DHS Schedule</h3>
-				<hr>
-                <p>DHS Schedule is an application I developed for students in my high school to track their classes and manage their homework and schedule.</p>
-                <h4>Development</h4>
-                <p>I spent my sophomore year summer developing DHS Schedule and released it in August 2017. During its development, 
-                    I learned how to parse XML from an RSS feed to obtain each letter day from my school's website.</p>
-                <ul class="list-unstyled li-space-lg">
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">UIKit</div>
-                    </li>
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">Storyboards</div>
-                    </li>
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">Networking</div>
-                    </li>
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">XML Parsing</div>
-                    </li>
-                </ul>
-                <a class="btn-solid-reg mfp-close page-scroll" target="_blank" 
-                href="https://apps.apple.com/us/app/darien-high-school/id1109924126">Download</a> <button class="btn-outline-reg mfp-close as-button" type="button">Back</button>
-			</div>
-		</div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of details lightbox -->
-    <!-- end of description 1 details lightbox -->
-    
-    <!-- Mining Madness Details Lightbox -->
-	<!-- Details Lightbox -->
-	<div id="miningmadness-details-lightbox" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-			<div class="col-lg-8">
-                <div class="image-container">
-                    <img class="img-fluid" src="images/gallery/miningmadness.png" alt="alternative">
-                </div> <!-- end of image-container -->
-			</div>
-			<div class="col-lg-4">
-                <h3>Mining Madness</h3>
-				<hr>
-                <p>In Mining Madness, the player must move their minecart to avoid the falling rocks. The cave is collapsing and all the precious gold can not be lost!</p>
-                <h4>Development</h4>
-                <p>Mining Madness was developed in the span of a few weeks. It was started in early April and was released in June 2016.</p>
-                <ul class="list-unstyled li-space-lg">
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">SceneKit</div>
-                    </li>
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">Game Center Support</div>
-                    </li>
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">In-App Purchases</div>
-                    </li>
-                    <li class="media">
-                        <i class="far fa-check-square"></i><div class="media-body">AdMob Integration</div>
-                    </li>
-                </ul>
-                <a class="btn-solid-reg mfp-close page-scroll" target="_blank" 
-                href="https://apps.apple.com/us/app/mining-madness/id1095058215">Download</a> <button class="btn-outline-reg mfp-close as-button" type="button">Back</button>
-			</div>
-		</div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of details lightbox -->
-    <!-- end of description 1 details lightbox -->
-    
-    <!-- hqkey Details Lightbox -->
-	<!-- Details Lightbox -->
-	<div id="hqkey-details-lightbox" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-			<div class="col-lg-8">
-                <div class="image-container">
-                    <img class="img-fluid" src="images/gallery/hqkey.png" alt="alternative">
-                </div> <!-- end of image-container -->
-			</div>
-			<div class="col-lg-4">
-                <h3>HQ Key</h3>
-				<hr>
-                <p>HQ Key is a bot I developed for answering HQ Trivia questions. Additionally, HQ Key is able to display a player's 
-                    statistics, such as how many games they have played, how many they have won, how much they have earned, and more.</p>
-                <h4>Development</h4>
-                <p>In addition to helping me familarize myself with using Firebase, developing HQ Key also taught me aspects of networking. 
-                    The bot feeds into HQ Trivia's websocket, finds the question and three options, and using that information undergoes a 
-                    series of algorithms using Google's Search Engine API to calculate the most probable correct answer.</p>
-                <button class="btn-outline-reg mfp-close as-button" type="button">Back</button>
-			</div>
-		</div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of details lightbox -->
-    <!-- end of description 1 details lightbox -->
-    
-    <!-- Gummy Gap Details Lightbox -->
-	<!-- Details Lightbox -->
-	<div id="brightify-details-lightbox" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-			<div class="col-lg-8">
-                <div class="image-container">
-                    <img class="img-fluid" src="images/gallery/brightify.png" alt="alternative">
-                </div> <!-- end of image-container -->
-			</div>
-			<div class="col-lg-4">
-                <h3>Brightify</h3>
-				<hr>
-                <p>My objective for creating Brightify was to develop an experience that allowed users to evaluate their emotional,
-                     mental, and physical health by creating and sticking to a set list of goals.</p>
-                <h4>Development</h4>
-                <p>Developing Brightify has allowed me to improve my understanding of Auto Layout and of UIKit. I am considering 
-                    whether to offer any backend services through the app, which would enable me to improve my understanding of 
-                    Firebase, or possibly an alternative backend. Brightify's development started in May 2019 in honor of 
-                    Mental Health Awareness Month.</p>
-                <button class="btn-outline-reg mfp-close as-button" type="button">Back</button>
-			</div>
-		</div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of details lightbox -->
-    <!-- end of description 1 details lightbox -->
-    
-    <!-- Gummy Gap Details Lightbox -->
-	<!-- Details Lightbox -->
-	<div id="simpleseasons-details-lightbox" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-			<div class="col-lg-8">
-                <div class="image-container">
-                    <img class="img-fluid" src="images/gallery/simpleseasons.png" alt="alternative">
-                </div> <!-- end of image-container -->
-			</div>
-			<div class="col-lg-4">
-                <h3>Simple Seasons</h3>
-				<hr>
-                <p>Simple Seasons is a weather app I created for the sole purpose of helping me learn how to work with APIs and parse JSON. 
-                    In this app, I specifically used the Dark Sky API for data on a specific location's weather. The app shows both the 
-                    weekly and daily forecast and allows for the location to be changed. Additionally, the app also presents more 
-                    information, such as humidity, pressure, and wind speed.</p>
-                <button class="btn-outline-reg mfp-close as-button" type="button">Back</button>
-			</div>
-		</div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of details lightbox -->
-    <!-- end of description 1 details lightbox -->
-    
-    <!-- Gummy Gap Details Lightbox -->
-	<!-- Details Lightbox -->
-	<div id="parti-details-lightbox" class="lightbox-basic zoom-anim-dialog mfp-hide">
-        <div class="row">
-            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-			<div class="col-lg-8">
-                <div class="image-container">
-                    <img class="img-fluid" src="images/gallery/parti.png" alt="alternative">
-                </div> <!-- end of image-container -->
-			</div>
-			<div class="col-lg-4">
-                <h3>Parti</h3>
-				<hr>
-                <p>Parti is my first attempt at creating a social media platform. I built it as prototype for a client and was provided a 
-                    mock-up in Marvel App which helped me to focus on improving my front-end design. Although the prototype was not 
-                    released, the app features a feed of cells each with custom images, likes, and comments to mimic the design of a fully functioning app.</p>
-                <h4>Development</h4>
-                <p>Parti was a great way for me to improve my understanding of Auto Layout and UIKit. I enhanced my understanding of 
-                    collection views and learned how to animate views. The overall design of the app has inspired me to learn backend 
-                    development, so recently I have been working with Firebase.</p>
-                <button class="btn-outline-reg mfp-close as-button" type="button">Back</button>
-			</div>
-		</div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of details lightbox -->
-    <!-- end of description 1 details lightbox -->
-
-
-
-    <!-- Description 2 -->
-    <div class="tabs">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="tabs-container">
-
-                        <!-- Tabs Links -->
-                        <ul class="nav nav-tabs" id="cedoTabs" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="nav-tab-1" data-toggle="tab" 
-                                href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-tools"></i>Skills</a>
-                            </li>
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" id="nav-tab-3" data-toggle="tab" 
-                                href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false"><i class="fas fa-heart"></i>Interests</a>
-                            </li> -->
-                        </ul>
-                        <!-- end of tabs links -->
-                        
-                        <!-- Tabs Content -->
-                        <div class="tab-content" id="cedoTabsContent">
-                            <!-- Tab -->
-                            <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
-                                <p><strong>Proficient development</strong> in Swift and Objective-C building apps with Xcode. 
-                                    More than 30 apps submitted on AppStore.</p>
-                                <ul class="list-unstyled li-space-lg">
-                                    <li class="media">
-                                        <i class="fas fa-apple-alt" style="color: black;"></i>
-                                        <div class="media-body">Combine, RxSwift and Reactive Programming.</div>
-                                    </li>
-                                    <li class="media">
-                                        <i class="fas fa-apple-alt" style="color: black;"></i>
-                                        <div class="media-body">SOLID Principles, Clean Architecture and Design Patterns</div>
-                                    </li>
-                                    <li class="media">
-                                        <i class="fas fa-apple-alt" style="color: black;"></i>
-                                        <div class="media-body">REST API, Core Data, Realm and other Data clients.</div>
-                                    </li>
-                                    <li class="media">
-                                        <i class="fas fa-apple-alt" style="color: black;"></i>
-                                        <div class="media-body">Fastlane, CI and app submit AppStore.</div>
-                                    </li>
-                                    <li class="media">
-                                        <i class="fas fa-apple-alt" style="color: black;"></i>
-                                        <div class="media-body">GitHub, Collaborations and open source. </div>
-                                    </li>
-                                    <li class="media">
-                                        <i class="fas fa-apple-alt" style="color: black;"></i>
-                                        <div class="media-body">Zeplin, Jira, Slack, Photoshop and other workflow tools. </div>
-                                    </li>
-                                </ul>
-                            </div> <!-- end of tab-pane -->
-                            <!-- end of tab -->
-                        </div> <!-- end of tab-content -->
-                        <!-- end of nav tabs content -->
-                    
-                    </div> <!-- end of tabs-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-6">
-                    <div class="image-container">
-                        <img class="img-fluid" src="images/me-swag.jpg" alt="alternative">
-                    </div> <!-- end of image-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of tabs -->
-    <!-- end of description 2 -->
-
-    <!-- Statistics -->
-    <div id="stats" class="counter" style="background-color: var(--background);">
-        <h1 style="margin-bottom: 80px;">Apps stats</h1>
-        <div class="container" sty>
-            <div class="row">
-                <div class="col-lg-12">
-                    
-                    <!-- Counter -->
-                    <div id="counter">
-                        <div class="cell">
-                            <i class="fas fa-mobile-alt"></i>
-                            <div class="counter-value number-count" data-count="30">1</div>
-                            <p class="counter-info">Published Apps</p>
-                        </div>
-                        <div class="cell">
-                            <i class="fas fa-arrow-down green"></i>
-                            <div class="counter-value number-count">450K</div>
-                            <p class="counter-info">Downloads</p>
-                        </div>
-                        <div class="cell">
-                            <i class="fas fa-thumbs-up red"></i>
-                            <div class="counter-value number-count" data-count="390">1</div>
-                            <p class="counter-info">Positive Reviews</p>
-                        </div>
-                        <div class="cell">
-                            <i class="fas fa-star yellow"></i>
-                            <div class="counter-value number-count" data-count="3.9">1</div>
-                            <p class="counter-info">Average Rating</p>
-                        </div>
-                    </div>
-                    
-
-                </div>
-            </div>
+        <div class="wwdc-wrap" id="wwdc-thumb" title="Click to expand">
+          <img src="images/wwdc-backtrack-wall.JPG" alt="Backtrack app icon featured on the WWDC developer mural at Apple Park" loading="lazy">
+          <div class="wwdc-caption"><strong>Apple WWDC</strong> · Backtrack featured on the developer mural at Apple Park</div>
         </div>
+        <a href="https://apps.apple.com/br/app/backtrack-record-the-past/id6460401300?l=en-GB" target="_blank" rel="noopener" class="store-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View on App Store
+        </a>
+      </div>
+
+      <div class="card reveal" data-tilt>
+        <div class="card-accent"></div>
+        <div class="card-shine"></div>
+        <div class="card-top">
+          <div>
+            <h3>Backtrack — Mac</h3>
+            <div class="role">Lead macOS Engineer · Yac, Inc.</div>
+          </div>
+          <span class="badge rank">#1 in 10 countries</span>
+        </div>
+        <p>Shipped Backtrack to #1 in the Mac App Store across 10 countries, then pivoted that B2C momentum into a full B2B enterprise play — owned hardware, MDM deployment, and on-site event infrastructure. Engineered badge-scanning and Vision OCR pipelines that converted physical check-ins into structured real-time data, bridging a beloved consumer app into a hardware-as-a-service offering for large-scale live events.</p>
+        <div class="tags">
+          <span class="tag">macOS</span>
+          <span class="tag">AppKit</span>
+          <span class="tag">SwiftUI</span>
+          <span class="tag">Vision OCR</span>
+          <span class="tag">MDM</span>
+          <span class="tag">Hardware Integration</span>
+        </div>
+        <a href="https://apps.apple.com/br/app/backtrack-record-the-past/id1477089520?l=en-GB&mt=12" target="_blank" rel="noopener" class="store-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View on Mac App Store
+        </a>
+      </div>
+
+      <div class="card reveal" data-tilt>
+        <div class="card-accent"></div>
+        <div class="card-shine"></div>
+        <div class="card-top">
+          <div>
+            <h3>Super Hi-Fi — Streaming SDK</h3>
+            <div class="role">Senior Apple Platforms / SDK Engineer</div>
+          </div>
+          <span class="badge blue">SDK</span>
+        </div>
+        <p>Built a custom Swift SDK for online and offline radio streaming — playback, downloads, offline access, deletion — shipped into Peloton. Developed a Sonos app from scratch with AVFoundation and AVPlayer, plus CarPlay, AirPlay, and proof-of-concept SDKs for enterprise partner demos.</p>
+        <div class="tags">
+          <span class="tag">SDK Design</span>
+          <span class="tag">AVPlayer</span>
+          <span class="tag">CarPlay</span>
+          <span class="tag">AirPlay</span>
+          <span class="tag">Offline Media</span>
+          <span class="tag">Peloton</span>
+          <span class="tag">Sonos</span>
+        </div>
+      </div>
+
+      <div class="card reveal" data-tilt>
+        <div class="card-accent"></div>
+        <div class="card-shine"></div>
+        <div class="card-top">
+          <div>
+            <h3>FloSports</h3>
+            <div class="role">Senior Apple Platforms Engineer</div>
+          </div>
+        </div>
+        <p>Engineered athlete-profile and content experiences with Swift, UIKit, and Combine. Built the experimentation and metrics layer that directly fed product decisions — translating streaming platform data into revenue-focused iteration across the iOS app.</p>
+        <div class="tags">
+          <span class="tag">Swift</span>
+          <span class="tag">UIKit</span>
+          <span class="tag">Combine</span>
+          <span class="tag">Experimentation</span>
+          <span class="tag">Analytics</span>
+        </div>
+        <a href="https://apps.apple.com/br/app/flosports-watch-live-sports/id1149210891?l=en-GB" target="_blank" rel="noopener" class="store-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View on App Store
+        </a>
+      </div>
+
+      <div class="card reveal" data-tilt>
+        <div class="card-accent"></div>
+        <div class="card-shine"></div>
+        <div class="card-top">
+          <div>
+            <h3>Plurall — Somos Educação</h3>
+            <div class="role">Staff iOS Engineer</div>
+          </div>
+          <span class="badge rev">1M+ users</span>
+        </div>
+        <p>Led iOS engineering for one of Brazil's largest education apps — 1M+ active users across studying, homework, exams, and offline handouts. Defined architecture, automated delivery with Fastlane, and established release workflows that cut friction for the whole team. Mentored engineers toward independent, high-quality delivery at scale.</p>
+        <div class="tags">
+          <span class="tag">Swift</span>
+          <span class="tag">Fastlane</span>
+          <span class="tag">CI/CD</span>
+          <span class="tag">Offline-first</span>
+          <span class="tag">Architecture</span>
+          <span class="tag">Mentorship</span>
+        </div>
+        <a href="https://apps.apple.com/br/app/plurall-somos-educa%C3%A7%C3%A3o/id900660848?l=en-GB" target="_blank" rel="noopener" class="store-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View on App Store
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     NICHE / FOCUS
+========================================================= -->
+<section id="niche">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">What I'm great at</h2>
+    </div>
+    <div class="niche reveal">
+      <p>Few iOS engineers have shipped real-time audio capture at production scale. At <em>Backtrack</em>, I designed and built the entire AVFoundation recording stack from zero — live capture, segmented export, background-safe recovery, WebSocket sync — and watched it land in rooms at Disney, Topgolf, and HPE. That depth started earlier, at <em>FloSports</em>, engineering corporate-grade streaming pipelines into products people actually love. That combination — <strong>broadcast-quality audio and media infrastructure inside beautiful, fast Apple apps</strong> — is what I carry into every team. Right now, every AI note-taker, voice product, and real-time tool needs exactly this skillset.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SKILLS
+========================================================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Technical depth</h2>
     </div>
 
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px 60px" class="reveal">
+      <div>
+        <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:20px">Audio & Media</p>
+        <div class="skill-bars">
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">AVFoundation / AVAudioEngine</span><span class="skill-pct">98%</span></div>
+            <div class="skill-track"><div class="skill-fill blue" data-width="98"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">AVPlayer / Streaming SDK</span><span class="skill-pct">95%</span></div>
+            <div class="skill-track"><div class="skill-fill blue" data-width="95"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">CarPlay / AirPlay</span><span class="skill-pct">88%</span></div>
+            <div class="skill-track"><div class="skill-fill blue" data-width="88"></div></div>
+          </div>
+        </div>
+      </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <div class="container">
-            <span class="fa-stack">
-                <a href="https://www.linkedin.com/in/fabriciomasiero" target="_blank">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-linkedin fa-stack-1x"></i>
-                </a>
-            </span>
-            <span class="fa-stack">
-                <a href="https://github.com/fabriciomasiero" target="_blank">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-github fa-stack-1x"></i>
-                </a>
-            </span>
-            <span class="fa-stack">
-                <a href="https://twitter.com/fabri_masiero" target="_blank">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-twitter fa-stack-1x"></i>
-                </a>
-            </span>
-            <span class="fa-stack">
-                <a href="mailto:fabriciomasiero@icloud.com">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-envelope-o fa-stack-1x"></i>
-                </a>
-            </span>
-        </div> <!-- end of container -->
-    </div> <!-- end of footer -->  
-    <!-- end of footer -->
+      <div>
+        <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:20px">Swift & UI</p>
+        <div class="skill-bars">
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">Swift / Swift Concurrency</span><span class="skill-pct">99%</span></div>
+            <div class="skill-track"><div class="skill-fill green" data-width="99"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">SwiftUI</span><span class="skill-pct">95%</span></div>
+            <div class="skill-track"><div class="skill-fill green" data-width="95"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">UIKit / AppKit</span><span class="skill-pct">92%</span></div>
+            <div class="skill-track"><div class="skill-fill green" data-width="92"></div></div>
+          </div>
+        </div>
+      </div>
 
+      <div>
+        <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--warm);margin-bottom:20px">Architecture & Infra</p>
+        <div class="skill-bars">
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">SDK Design / API</span><span class="skill-pct">94%</span></div>
+            <div class="skill-track"><div class="skill-fill warm" data-width="94"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">CI/CD / Fastlane</span><span class="skill-pct">90%</span></div>
+            <div class="skill-track"><div class="skill-fill warm" data-width="90"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">WebSockets / Networking</span><span class="skill-pct">87%</span></div>
+            <div class="skill-track"><div class="skill-fill warm" data-width="87"></div></div>
+          </div>
+        </div>
+      </div>
 
-    <!-- Copyright -->
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="p-small">Copyright © Fabrício Masiero 2020</p>
-                </div> <!-- end of col -->
-            </div> <!-- enf of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of copyright --> 
-    <!-- end of copyright -->
-    
-    	
-    <!-- Scripts -->
-    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
-    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
-    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
-    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
-    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
-    <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
-    <script src="js/scripts.js"></script> <!-- Custom scripts -->
-    <script src="https://kit.fontawesome.com/de87ddbdd3.js" crossorigin="anonymous"></script>
+      <div>
+        <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--purple);margin-bottom:20px">Platform</p>
+        <div class="skill-bars">
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">iOS · macOS · watchOS</span><span class="skill-pct">98%</span></div>
+            <div class="skill-track"><div class="skill-fill purple" data-width="98"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">WidgetKit / Live Activities</span><span class="skill-pct">88%</span></div>
+            <div class="skill-track"><div class="skill-fill purple" data-width="88"></div></div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-meta"><span class="skill-name">Vision / OCR / ML</span><span class="skill-pct">80%</span></div>
+            <div class="skill-track"><div class="skill-fill purple" data-width="80"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      @media(max-width:640px){
+        #skills .wrap > div[style*="grid"]{grid-template-columns:1fr!important;gap:36px}
+      }
+    </style>
+  </div>
+</section>
+
+<!-- =========================================================
+     SIDE PROJECTS
+========================================================= -->
+<section id="side">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">Side projects</h2>
+    </div>
+    <div class="side">
+      <div class="card reveal" data-tilt>
+        <div class="card-accent"></div>
+        <div class="card-shine"></div>
+        <div style="font-size:28px;margin-bottom:14px">🏙️</div>
+        <h3>Spotti</h3>
+        <p>Intent-based city exploration — find what's nearby through cravings, mood, and vibe instead of endless category browsing. "Best carbonara nearby." "Quiet café to decompress." "Romantic rooftop tonight." AI-ranked evidence from menus, photos, and reviews. Launching in São Paulo.</p>
+        <div class="tags">
+          <span class="tag">SwiftUI</span>
+          <span class="tag">AI Ranking</span>
+          <span class="tag">Location</span>
+          <span class="tag">Contextual Search</span>
+        </div>
+      </div>
+      <div class="card reveal" data-tilt>
+        <div class="card-accent"></div>
+        <div class="card-shine"></div>
+        <div style="font-size:28px;margin-bottom:14px">⏱️</div>
+        <h3>StayFocus</h3>
+        <p>Cross-platform Pomodoro and focus-sound app with WidgetKit and Swift Concurrency. Polished Apple-platform UX for deep work.</p>
+        <div class="tags">
+          <span class="tag">SwiftUI</span>
+          <span class="tag">WidgetKit</span>
+          <span class="tag">Concurrency</span>
+        </div>
+      </div>
+      <div class="card reveal" data-tilt>
+        <div class="card-accent"></div>
+        <div class="card-shine"></div>
+        <div style="font-size:28px;margin-bottom:14px">🎙️</div>
+        <h3>Programando Para Maçã</h3>
+        <p>Podcast host — helping Brazilian Apple developers grow their careers and reach global engineering opportunities.</p>
+        <div class="tags">
+          <span class="tag">Community</span>
+          <span class="tag">Podcast</span>
+          <span class="tag">PT-BR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER / CONTACT
+========================================================= -->
+<footer id="contact">
+  <div class="wrap">
+    <h2 class="reveal">The engineer your<br><em>product needs</em>.</h2>
+    <p class="foot-sub reveal">I do my best work close to founders and product — where engineering decisions directly move the business. If you're building something where the audio, media, or real-time layer is the product, let's see if it's a fit.</p>
+
+    <div class="contact-links reveal">
+      <a href="mailto:fabriciomasiero@icloud.com" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/>
+        </svg>
+        fabriciomasiero@icloud.com
+      </a>
+      <a href="https://www.linkedin.com/in/fabriciomasiero/" target="_blank" rel="noopener" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+        </svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/fabriciomasiero" target="_blank" rel="noopener" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+        </svg>
+        GitHub
+      </a>
+      <a href="resume/resume.pdf" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+        </svg>
+        Download Résumé
+      </a>
+    </div>
+
+    <div class="foot-divider"></div>
+    <div class="copyright reveal">
+      © 2026 Fabrício Masiero &nbsp;·&nbsp; iOS &amp; macOS &nbsp;·&nbsp; São Paulo, Brazil<br>
+      <span style="opacity:.5;font-size:11px">Built with love &amp; late-night Swift sessions.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- lightbox -->
+<div class="lb-overlay" id="lb-overlay">
+  <img src="images/wwdc-backtrack-wall.JPG" alt="Backtrack at WWDC Apple Park mural">
+</div>
+
+<!-- =========================================================
+     SCRIPTS
+========================================================= -->
+<script>
+/* ============================================================
+   CURSOR GLOW (desktop only)
+============================================================ */
+(function(){
+  const glow = document.getElementById('cursor-glow');
+  if(window.matchMedia('(pointer:fine)').matches){
+    document.addEventListener('mousemove', e => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top  = e.clientY + 'px';
+    });
+  } else {
+    glow.style.display = 'none';
+  }
+})();
+
+/* ============================================================
+   CANVAS PARTICLES
+============================================================ */
+(function(){
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [], animId;
+
+  function resize(){
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  class Particle {
+    constructor(){
+      this.reset();
+    }
+    reset(){
+      this.x  = Math.random() * W;
+      this.y  = Math.random() * H;
+      this.r  = Math.random() * 1.4 + 0.4;
+      this.vx = (Math.random() - .5) * .3;
+      this.vy = (Math.random() - .5) * .3;
+      this.life = 0;
+      this.maxLife = 200 + Math.random() * 300;
+      const hues = [[124,92,252],[0,229,195],[255,112,85],[34,212,255]];
+      const c = hues[Math.floor(Math.random()*hues.length)];
+      this.color = `rgba(${c[0]},${c[1]},${c[2]},`;
+    }
+    update(){
+      this.x += this.vx;
+      this.y += this.vy;
+      this.life++;
+      if(this.life > this.maxLife || this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+    }
+    draw(){
+      const p = this.life / this.maxLife;
+      const a = p < .1 ? p * 10 : p > .85 ? (1-p)*6.67 : 1;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
+      ctx.fillStyle = this.color + (a * .55) + ')';
+      ctx.fill();
+    }
+  }
+
+  function init(){
+    resize();
+    particles = [];
+    const count = Math.min(Math.floor(W * H / 10000), 100);
+    for(let i=0;i<count;i++) particles.push(new Particle());
+  }
+
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p => { p.update(); p.draw(); });
+    animId = requestAnimationFrame(frame);
+  }
+
+  window.addEventListener('resize', ()=>{ cancelAnimationFrame(animId); init(); frame(); });
+  init();
+  frame();
+})();
+
+/* ============================================================
+   NAV SCROLL EFFECT
+============================================================ */
+(function(){
+  const nav = document.getElementById('main-nav');
+  let last = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if(y > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+    last = y;
+  }, { passive: true });
+})();
+
+/* ============================================================
+   HAMBURGER
+============================================================ */
+(function(){
+  const btn    = document.getElementById('hamburger');
+  const menu   = document.getElementById('mobile-nav');
+  const links  = menu.querySelectorAll('.mobile-link');
+
+  function close(){ btn.classList.remove('open'); menu.classList.remove('open'); document.body.style.overflow=''; }
+
+  btn.addEventListener('click', () => {
+    const open = btn.classList.toggle('open');
+    menu.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  links.forEach(l => l.addEventListener('click', close));
+})();
+
+/* ============================================================
+   SCROLL REVEAL
+============================================================ */
+(function(){
+  const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-scale');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if(e.isIntersecting){
+        setTimeout(() => e.target.classList.add('in'), (i % 5) * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => obs.observe(el));
+})();
+
+/* ============================================================
+   SKILL BAR ANIMATION
+============================================================ */
+(function(){
+  const bars = document.querySelectorAll('.skill-fill');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        const fill = e.target;
+        requestAnimationFrame(() => {
+          fill.style.width = fill.dataset.width + '%';
+        });
+        obs.unobserve(fill);
+      }
+    });
+  }, { threshold: .2 });
+  bars.forEach(b => obs.observe(b));
+})();
+
+/* ============================================================
+   CARD TILT / SHINE
+============================================================ */
+(function(){
+  const isFine = window.matchMedia('(pointer:fine)').matches;
+  if(!isFine) return;
+  document.querySelectorAll('[data-tilt]').forEach(card => {
+    const shine = card.querySelector('.card-shine');
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width)  * 100;
+      const y = ((e.clientY - rect.top)  / rect.height) * 100;
+      if(shine){
+        shine.style.setProperty('--mx', x + '%');
+        shine.style.setProperty('--my', y + '%');
+      }
+      const rotX = ((e.clientY - rect.top  - rect.height/2) / rect.height) * -5;
+      const rotY = ((e.clientX - rect.left - rect.width/2)  / rect.width)  *  5;
+      card.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      if(shine) shine.style.opacity = '0';
+    });
+  });
+})();
+
+/* ============================================================
+   SMOOTH ANCHOR SCROLLING (mobile nav fix)
+============================================================ */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+/* ============================================================
+   WWDC LIGHTBOX
+============================================================ */
+(function(){
+  const thumb   = document.getElementById('wwdc-thumb');
+  const overlay = document.getElementById('lb-overlay');
+  if(!thumb || !overlay) return;
+  thumb.addEventListener('click', () => {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  overlay.addEventListener('click', () => {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape') { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+  });
+})();
+</script>
 </body>
 </html>
