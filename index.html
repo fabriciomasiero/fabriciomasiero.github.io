@@ -400,9 +400,10 @@ section { padding: 80px 0; }
 /* ================================================================
    STATS
 ================================================================ */
-.stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
-@media(max-width:840px) { .stats { grid-template-columns: repeat(2,1fr); } }
-@media(max-width:420px) { .stats { grid-template-columns: 1fr; } }
+.stats { display: grid; grid-template-columns: repeat(5,1fr); gap: 18px; }
+@media(max-width:960px) { .stats { grid-template-columns: repeat(3,1fr); } }
+@media(max-width:600px) { .stats { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:380px) { .stats { grid-template-columns: 1fr; } }
 
 .stat {
   padding: 30px 24px;
@@ -671,6 +672,39 @@ section { padding: 80px 0; }
   border-radius: 16px;
   border: 1px solid var(--line-2);
   box-shadow: 0 40px 120px rgba(0,0,0,.7);
+}
+
+/* ================================================================
+   MORE CARD
+================================================================ */
+.card-more {
+  border-style: dashed;
+  border-color: var(--line);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 36px;
+  transition: border-color .3s, transform .3s;
+}
+.card-more:hover { border-color: var(--line-2); transform: none; box-shadow: none; }
+.card-more::before { display: none; }
+.card-more-inner { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.card-more-count {
+  font-family: 'Fraunces', serif;
+  font-size: 52px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: var(--line-2);
+}
+.card-more p {
+  color: var(--muted);
+  font-size: 14.5px;
+  max-width: 480px;
+  line-height: 1.65;
+  margin: 0;
 }
 
 /* ================================================================
@@ -966,7 +1000,7 @@ footer .foot-sub {
     <div class="stats">
       <div class="stat reveal">
         <div class="stat-glow blue"></div>
-        <div class="n blue" data-count="14" data-suffix="+">0</div>
+        <div class="n blue">14+</div>
         <div class="l">Years shipping iOS &amp; macOS products</div>
       </div>
       <div class="stat reveal">
@@ -983,6 +1017,11 @@ footer .foot-sub {
         <div class="stat-glow purple"></div>
         <div class="n" style="color:var(--cyan)">1M+</div>
         <div class="l">Users served on Plurall</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-glow" style="background:radial-gradient(circle,rgba(192,132,252,.2),transparent 70%)"></div>
+        <div class="n" style="color:var(--purple)">30+</div>
+        <div class="l">Apps shipped to the App Store</div>
       </div>
     </div>
   </div>
@@ -1122,6 +1161,13 @@ footer .foot-sub {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           View on App Store
         </a>
+      </div>
+
+      <div class="card card-more reveal">
+        <div class="card-more-inner">
+          <span class="card-more-count">+25</span>
+          <p>More projects across fintech, healthtech, enterprise, retail, and consumer — built over 14 years of shipping on Apple platforms. Not all stories are mine to tell.</p>
+        </div>
       </div>
 
     </div>
