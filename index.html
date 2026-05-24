@@ -675,36 +675,84 @@ section { padding: 80px 0; }
 }
 
 /* ================================================================
-   MORE CARD
+   MORE CARD / EARLY CAREER TIMELINE
 ================================================================ */
 .card-more {
   border-style: dashed;
   border-color: var(--line);
   background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 36px;
-  transition: border-color .3s, transform .3s;
+  padding: 34px 36px;
+  transition: border-color .3s;
 }
 .card-more:hover { border-color: var(--line-2); transform: none; box-shadow: none; }
 .card-more::before { display: none; }
-.card-more-inner { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-.card-more-count {
-  font-family: 'Fraunces', serif;
-  font-size: 52px;
-  font-weight: 600;
-  letter-spacing: -2px;
-  line-height: 1;
-  color: var(--line-2);
-}
-.card-more p {
+.card-more-inner { display: flex; flex-direction: column; gap: 20px; }
+
+.card-more-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   color: var(--muted);
+}
+
+.card-more-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-left: 2px;
+}
+
+.cmt-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding-bottom: 16px;
+  position: relative;
+}
+.cmt-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 14px;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+.cmt-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-2);
+  background: var(--bg);
+  flex-shrink: 0;
+  margin-top: 3px;
+  position: relative;
+  z-index: 1;
+  transition: border-color .2s;
+}
+.cmt-item.cmt-featured .cmt-dot {
+  border-color: var(--accent);
+  background: rgba(124,92,252,.15);
+}
+.cmt-body { display: flex; flex-direction: column; gap: 3px; }
+.cmt-company {
   font-size: 14.5px;
-  max-width: 480px;
-  line-height: 1.65;
-  margin: 0;
+  font-weight: 700;
+  color: var(--ink-2);
+}
+.cmt-item.cmt-featured .cmt-company { color: var(--ink); }
+.cmt-meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+.cmt-note {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-top: 4px;
+  max-width: 560px;
 }
 
 /* ================================================================
@@ -1165,8 +1213,44 @@ footer .foot-sub {
 
       <div class="card card-more reveal">
         <div class="card-more-inner">
-          <span class="card-more-count">+25</span>
-          <p>More projects across fintech, healthtech, enterprise, retail, and consumer — built over 14 years of shipping on Apple platforms. Not all stories are mine to tell.</p>
+          <div class="card-more-label">Earlier career</div>
+          <div class="card-more-timeline">
+            <div class="cmt-item cmt-featured">
+              <div class="cmt-dot"></div>
+              <div class="cmt-body">
+                <span class="cmt-company">AppFactory</span>
+                <span class="cmt-meta">2 yrs 7 mos</span>
+                <p class="cmt-note">An app studio — shipped 25+ iOS apps to the App Store across industries. The foundation behind the 30+ number.</p>
+              </div>
+            </div>
+            <div class="cmt-item">
+              <div class="cmt-dot"></div>
+              <div class="cmt-body">
+                <span class="cmt-company">Mowa</span>
+                <span class="cmt-meta">6 mos</span>
+              </div>
+            </div>
+            <div class="cmt-item">
+              <div class="cmt-dot"></div>
+              <div class="cmt-body">
+                <span class="cmt-company">Tokyo Marine</span>
+              </div>
+            </div>
+            <div class="cmt-item">
+              <div class="cmt-dot"></div>
+              <div class="cmt-body">
+                <span class="cmt-company">Ministika Post</span>
+                <span class="cmt-meta">1 yr 4 mos</span>
+              </div>
+            </div>
+            <div class="cmt-item">
+              <div class="cmt-dot"></div>
+              <div class="cmt-body">
+                <span class="cmt-company">Neo7 Apps</span>
+                <span class="cmt-meta">10 mos · 2012–2013</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
