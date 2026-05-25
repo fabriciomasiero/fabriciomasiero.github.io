@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Anti-FOUC: set theme before first paint -->
+<script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);})();</script>
 <title>Fabrício Masiero — Apple Platforms Engineer</title>
 
 <!-- Favicon -->
@@ -1258,6 +1260,187 @@ footer .foot-sub {
   .contact-links { flex-direction: column; align-items: center; }
   .contact-link { width: 100%; max-width: 340px; justify-content: center; }
 }
+
+/* ================================================================
+   THEME TOGGLE BUTTON
+================================================================ */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  border: 1.5px solid var(--line-2);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background .2s, transform .25s cubic-bezier(.34,1.56,.64,1);
+  flex-shrink: 0;
+  padding: 0;
+}
+.theme-toggle:hover {
+  color: var(--ink);
+  border-color: rgba(124,92,252,.45);
+  background: rgba(124,92,252,.06);
+  transform: rotate(18deg) scale(1.08);
+}
+.theme-toggle svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+  pointer-events: none;
+}
+/* Dark mode → show sun, Light mode → show moon */
+.icon-moon { display: none; }
+.icon-sun  { display: block; }
+[data-theme="light"] .icon-sun  { display: none; }
+[data-theme="light"] .icon-moon { display: block; }
+
+/* ================================================================
+   LIGHT THEME TOKENS
+================================================================ */
+[data-theme="light"] {
+  --bg:       #f9f8ff;
+  --bg-2:     #f2f0fd;
+  --panel:    #ebe8fc;
+  --panel-2:  #e3e0f8;
+  --ink:      #0e0c1e;
+  --ink-2:    #2a2654;
+  --muted:    #635a9e;
+  --line:     #d6d1ef;
+  --line-2:   #cac4e8;
+  --accent:   #6b42f8;
+  --accent-h: #7c5cfc;
+  --green:    #00786a;
+  --green-h:  #009b88;
+  --warm:     #c84224;
+  --warm-h:   #e05535;
+  --purple:   #8b30cc;
+  --cyan:     #0077aa;
+}
+
+/* ================================================================
+   LIGHT THEME STRUCTURAL OVERRIDES
+================================================================ */
+
+/* Background canvas & gradient */
+[data-theme="light"] #bg-canvas { opacity: .12; }
+[data-theme="light"] .bg-gradient {
+  background:
+    radial-gradient(ellipse 900px 600px at 80% -5%,  rgba(107,66,248,.07) 0%, transparent 65%),
+    radial-gradient(ellipse 700px 500px at 5%  15%,  rgba(0,120,106,.04)  0%, transparent 60%),
+    radial-gradient(ellipse 600px 400px at 50% 110%, rgba(200,66,36,.03)   0%, transparent 55%);
+}
+[data-theme="light"] .cursor-glow {
+  background: radial-gradient(circle, rgba(107,66,248,.05) 0%, transparent 65%);
+}
+
+/* Nav */
+[data-theme="light"] nav {
+  background: rgba(249,248,255,.85);
+  border-bottom-color: var(--line);
+}
+[data-theme="light"] nav.scrolled {
+  background: rgba(249,248,255,.97);
+  box-shadow: 0 4px 40px rgba(0,0,0,.06);
+}
+[data-theme="light"] .navlinks a:hover { background: rgba(0,0,0,.04); }
+
+/* Mobile nav */
+[data-theme="light"] .mobile-nav { background: rgba(249,248,255,.98); }
+[data-theme="light"] .mobile-nav a:hover { background: rgba(107,66,248,.06); }
+
+/* Hero h1 underline on accent em */
+[data-theme="light"] h1 em::after { opacity: .35; }
+
+/* Buttons */
+[data-theme="light"] .btn-ghost {
+  background: rgba(0,0,0,.02);
+  border-color: var(--line-2);
+  color: var(--ink);
+}
+[data-theme="light"] .btn-ghost:hover { background: rgba(107,66,248,.05); }
+[data-theme="light"] .btn-outline {
+  border-color: rgba(0,120,106,.3);
+  background: rgba(0,120,106,.03);
+}
+[data-theme="light"] .btn-outline:hover { background: rgba(0,120,106,.08); }
+
+/* Stat cards */
+[data-theme="light"] .stat {
+  background: linear-gradient(160deg, var(--panel), rgba(240,238,253,.8));
+}
+[data-theme="light"] .stat::before {
+  background: linear-gradient(160deg, rgba(255,255,255,.55), transparent 60%);
+}
+
+/* Work cards */
+[data-theme="light"] .card::before {
+  background: linear-gradient(135deg, rgba(255,255,255,.45) 0%, transparent 60%);
+}
+[data-theme="light"] .card p,
+[data-theme="light"] .card-detail-list li { color: #44405e; }
+[data-theme="light"] .card:hover { box-shadow: 0 20px 60px rgba(0,0,0,.12); }
+
+/* Niche / focus block */
+[data-theme="light"] .niche {
+  background: linear-gradient(150deg, rgba(107,66,248,.06), rgba(235,232,252,.85) 60%);
+}
+[data-theme="light"] .niche p { color: #2a2654; }
+
+/* Tag */
+[data-theme="light"] .tag:hover { background: rgba(0,0,0,.03); border-color: var(--line-2); }
+
+/* More card dashes */
+[data-theme="light"] .card-more { border-color: var(--line); }
+[data-theme="light"] .card-more:hover { border-color: var(--line-2); }
+
+/* Podcast link */
+[data-theme="light"] .podcast-link { border-color: rgba(0,0,0,.1); }
+
+/* Quote block */
+[data-theme="light"] .quote-block { background: rgba(107,66,248,.04); }
+
+/* Skill track bg */
+/* var(--line) already updated */
+
+/* Screenshot gallery */
+[data-theme="light"] .screenshot-gallery-main { border-color: var(--line-2); }
+[data-theme="light"] .screenshot-thumb        { border-color: var(--line); }
+
+/* Contact links */
+[data-theme="light"] .contact-link { background: rgba(0,0,0,.02); }
+
+/* Footer */
+[data-theme="light"] footer::before {
+  background: radial-gradient(circle, rgba(107,66,248,.07), transparent 70%);
+}
+[data-theme="light"] .copyright { color: #8880b4; }
+[data-theme="light"] .foot-divider { background: var(--line); }
+
+/* Deprecated badge */
+[data-theme="light"] .badge-dep {
+  background: rgba(180,120,0,.1);
+  border-color: rgba(180,120,0,.25);
+  color: #7a5500;
+}
+
+/* Lightbox overlay */
+[data-theme="light"] .lb-overlay {
+  background: rgba(249,248,255,.95);
+}
+[data-theme="light"] .lb-overlay img { border-color: var(--line-2); }
+
+/* WWDC caption */
+[data-theme="light"] .wwdc-caption {
+  background: linear-gradient(to top, rgba(249,248,255,.9) 0%, transparent 100%);
+}
 </style>
 </head>
 <body>
@@ -1281,9 +1464,25 @@ footer .foot-sub {
       <a href="#side">Projects</a>
       <a href="#contact" class="nav-cta">Let's talk →</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-right">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <!-- Sun — shown in dark mode -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <!-- Moon — shown in light mode -->
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
 </nav>
 
@@ -2145,6 +2344,28 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
   document.addEventListener('keydown', e => {
     if(e.key === 'Escape') { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+  });
+})();
+
+/* ============================================================
+   THEME TOGGLE
+============================================================ */
+(function(){
+  const root = document.documentElement;
+  const btn  = document.getElementById('theme-toggle');
+
+  function applyTheme(t) {
+    root.setAttribute('data-theme', t);
+    localStorage.setItem('theme', t);
+  }
+
+  btn.addEventListener('click', function(){
+    applyTheme(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+  });
+
+  // Keep in sync if user changes OS setting and has no manual preference
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function(e){
+    if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'light' : 'dark');
   });
 })();
 </script>
