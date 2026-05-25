@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabrício Masiero — Resume 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #0D1F35;
+    --navy2:  #142842;
+    --accent: #2B7FE1;
+    --accent2:#1A6ECF;
+    --white:  #FFFFFF;
+    --pale:   #B8CCDF;
+    --pale2:  #D4E4F2;
+    --dark:   #1A2636;
+    --body:   #2D3E50;
+    --muted:  #607080;
+    --line:   #E2EAF2;
+    --bg:     #F7FAFD;
+    --green:  #16A34A;
+
+    --sidebar-w: 220px;
+    --font-body: 'Inter', sans-serif;
+    --font-head: 'Space Grotesk', sans-serif;
+  }
+
+  html { font-size: 13px; }
+
+  body {
+    font-family: var(--font-body);
+    background: #CBD5E0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 24px;
+  }
+
+  .page {
+    width: 794px;
+    min-height: 1123px;
+    background: white;
+    display: flex;
+    box-shadow: 0 4px 40px rgba(0,0,0,.18);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  /* ── SIDEBAR ──────────────────────────────────────────────────────────── */
+  .sidebar {
+    width: var(--sidebar-w);
+    min-width: var(--sidebar-w);
+    background: var(--navy);
+    padding: 32px 20px 32px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .sidebar-name {
+    font-family: var(--font-head);
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 4px;
+  }
+  .sidebar-name .first { color: var(--white); }
+  .sidebar-name .last  { color: var(--accent); }
+
+  .sidebar-role {
+    font-size: 9.5px;
+    font-weight: 400;
+    color: var(--pale);
+    line-height: 1.5;
+    letter-spacing: .2px;
+    margin-bottom: 20px;
+  }
+
+  .s-divider {
+    height: 1px;
+    background: rgba(255,255,255,.12);
+    margin: 14px 0;
+  }
+
+  .s-section-label {
+    font-family: var(--font-head);
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 9px;
+    margin-top: 16px;
+  }
+  .s-section-label:first-of-type { margin-top: 0; }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    margin-bottom: 7px;
+  }
+  .contact-icon {
+    font-size: 10px;
+    color: var(--accent);
+    width: 14px;
+    text-align: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .contact-text {
+    font-size: 8.5px;
+    color: var(--pale2);
+    line-height: 1.5;
+    word-break: break-all;
+  }
+
+  .skill-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 5px;
+  }
+  .skill-dot {
+    color: var(--accent);
+    font-size: 9px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+  .skill-text {
+    font-size: 8.5px;
+    color: var(--white);
+    line-height: 1.45;
+  }
+
+  .lang-item {
+    margin-bottom: 6px;
+  }
+  .lang-name {
+    font-size: 8.5px;
+    font-weight: 600;
+    color: var(--white);
+    display: block;
+  }
+  .lang-level {
+    font-size: 8px;
+    color: var(--pale);
+    font-style: italic;
+  }
+
+  .edu-block { margin-bottom: 0; }
+  .edu-degree {
+    font-size: 8.5px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.45;
+    display: block;
+  }
+  .edu-detail {
+    font-size: 8px;
+    color: var(--pale);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .community-block { }
+  .community-title {
+    font-size: 8.5px;
+    font-weight: 600;
+    color: var(--white);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .community-desc {
+    font-size: 8px;
+    color: var(--pale);
+    line-height: 1.5;
+  }
+
+  /* ── MAIN ────────────────────────────────────────────────────────────── */
+  .main {
+    flex: 1;
+    padding: 28px 28px 28px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Profile */
+  .profile-text {
+    font-size: 9px;
+    color: var(--body);
+    line-height: 1.7;
+    margin-bottom: 2px;
+  }
+
+  /* Section header */
+  .section-header {
+    font-family: var(--font-head);
+    font-size: 7.5px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    padding-bottom: 4px;
+    border-bottom: 1.5px solid var(--accent);
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  /* Impact strip */
+  .impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 12px;
+    margin-bottom: 2px;
+  }
+  .impact-item {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    padding: 4px 6px;
+    background: var(--bg);
+    border-left: 2px solid var(--accent);
+    border-radius: 0 3px 3px 0;
+  }
+  .impact-metric {
+    font-family: var(--font-head);
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+  .impact-detail {
+    font-size: 8px;
+    color: var(--muted);
+    line-height: 1.3;
+  }
+
+  /* Job */
+  .job { margin-bottom: 12px; }
+  .job:last-child { margin-bottom: 0; }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1px;
+  }
+  .job-title {
+    font-family: var(--font-head);
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--dark);
+  }
+  .job-period {
+    font-size: 8px;
+    color: var(--muted);
+    font-style: italic;
+    white-space: nowrap;
+    margin-left: 8px;
+  }
+  .job-company {
+    font-size: 8.5px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 5px;
+  }
+  .job-location {
+    font-weight: 400;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .bullets { list-style: none; padding: 0; }
+  .bullets li {
+    font-size: 8.5px;
+    color: var(--body);
+    line-height: 1.6;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+  }
+  .bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 8px;
+    font-weight: 700;
+    top: 1px;
+  }
+  .bullets li strong {
+    color: var(--dark);
+    font-weight: 600;
+  }
+
+  /* Projects */
+  .project-item {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 5px;
+  }
+  .project-name {
+    font-family: var(--font-head);
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--dark);
+    white-space: nowrap;
+  }
+  .project-sep {
+    font-size: 8px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .project-desc {
+    font-size: 8.5px;
+    color: var(--body);
+    line-height: 1.5;
+  }
+  .badge-deprecated {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #92400E;
+    background: #FEF3C7;
+    border: 1px solid #F59E0B;
+    border-radius: 3px;
+    padding: 1px 5px;
+    vertical-align: middle;
+    margin-left: 2px;
+    white-space: nowrap;
+  }
+
+  /* ── PRINT ──────────────────────────────────────────────────────────── */
+  @media print {
+    body { background: none; padding: 0; }
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      box-shadow: none;
+      border-radius: 0;
+    }
+    @page {
+      margin: 0;
+      size: Letter;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══════════════════ SIDEBAR ═══════════════════ -->
+  <div class="sidebar">
+
+    <div class="sidebar-name">
+      <span class="first">Fabrício<br></span>
+      <span class="last">Masiero</span>
+    </div>
+    <div class="sidebar-role">Staff Apple Platforms Engineer<br>iOS · macOS · Swift · SDK Architecture</div>
+
+    <div class="s-divider"></div>
+
+    <div class="s-section-label">Contact</div>
+
+    <div class="contact-item">
+      <span class="contact-icon">🌐</span>
+      <span class="contact-text">fabriciomasiero.io</span>
+    </div>
+    <div class="contact-item">
+      <span class="contact-icon">✉</span>
+      <span class="contact-text">masiero572@gmail.com</span>
+    </div>
+    <div class="contact-item">
+      <span class="contact-icon">📱</span>
+      <span class="contact-text">+55 11 99260-5865</span>
+    </div>
+    <div class="contact-item">
+      <span class="contact-icon">in</span>
+      <span class="contact-text">linkedin.com/in/fabriciomasiero</span>
+    </div>
+    <div class="contact-item">
+      <span class="contact-icon">⌥</span>
+      <span class="contact-text">github.com/fabriciomasiero</span>
+    </div>
+
+    <div class="s-divider"></div>
+
+    <div class="s-section-label">Core Skills</div>
+
+    <div class="skill-item"><span class="skill-dot">▸</span><span class="skill-text">Swift / SwiftUI / UIKit</span></div>
+    <div class="skill-item"><span class="skill-dot">▸</span><span class="skill-text">AppKit (macOS)</span></div>
+    <div class="skill-item"><span class="skill-dot">▸</span><span class="skill-text">AVFoundation / AVAudioEngine</span></div>
+    <div class="skill-item"><span class="skill-dot">▸</span><span class="skill-text">ScreenCaptureKit</span></div>
+    <div class="skill-item"><span class="skill-dot">▸</span><span class="skill-text">CarPlay / AirPlay</span></div>
+    <div class="skill-item"><span class="skill-dot">▸</span><span class="skill-text">SDK Architecture & Design</span></div>
+    <div class="skill-item"><span class="skill-dot">▸</span><span class="skill-text">Swift Concurrency / Combine</span></div>
+    <div class="skill-item"><span class="skill-dot">▸</span><span class="skill-text">SwiftData / Core Data / Realm</span></div>
+    <div class="skill-item"><span class="skill-dot">▸</span><span class="skill-text">GraphQL (Apollo) / REST</span></div>
+    <div class="skill-item"><span class="skill-dot">▸</span><span class="skill-text">WebSockets / Real-time sync</span></div>
+    <div class="skill-item"><span class="skill-dot">▸</span><span class="skill-text">Vision / OCR</span></div>
+    <div class="skill-item"><span class="skill-dot">▸</span><span class="skill-text">CI/CD · Fastlane · Xcode Cloud</span></div>
+    <div class="skill-item"><span class="skill-dot">▸</span><span class="skill-text">Sentry · Firebase · Mixpanel</span></div>
+    <div class="skill-item"><span class="skill-dot">▸</span><span class="skill-text">MVVM / MVC / Modular Arch.</span></div>
+    <div class="skill-item"><span class="skill-dot">▸</span><span class="skill-text">Objective-C</span></div>
+
+    <div class="s-divider"></div>
+
+    <div class="s-section-label">Languages</div>
+    <div class="lang-item"><span class="lang-name">Portuguese</span><span class="lang-level">Native</span></div>
+    <div class="lang-item"><span class="lang-name">English</span><span class="lang-level">Fluent</span></div>
+    <div class="lang-item"><span class="lang-name">Spanish</span><span class="lang-level">Fluent</span></div>
+
+    <div class="s-divider"></div>
+
+    <div class="s-section-label">Education</div>
+    <div class="edu-block">
+      <span class="edu-degree">B.Sc. Computer Science</span>
+      <span class="edu-detail">Estácio de Sá · São Paulo<br>Graduated Dec 2020</span>
+    </div>
+
+    <div class="s-divider"></div>
+
+    <div class="s-section-label">Community</div>
+    <div class="community-block">
+      <span class="community-title">Programando Para Maçã Cast</span>
+      <span class="community-desc">Podcast host helping Brazilian iOS developers grow their careers and reach global roles.</span>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════ MAIN ═══════════════════ -->
+  <div class="main">
+
+    <!-- Profile -->
+    <div class="section-header">Profile</div>
+    <p class="profile-text">
+      Staff Apple Platforms Engineer with <strong>14+ years</strong> shipping production iOS and macOS apps — from zero-to-one startups to 1M+ user platforms. Deep specialist in <strong>AVFoundation, audio/video recording, SDK architecture, and real-time workflows</strong>. Shipped to <strong>#1 on the Mac App Store</strong> across 10 countries, built a Peloton SDK live in every store, and delivered a hardware-free Sonos proof-of-concept tested by <strong>David Byrne</strong>. Fluent in English, Portuguese, and Spanish.
+    </p>
+
+    <!-- Impact -->
+    <div class="section-header">Impact at a Glance</div>
+    <div class="impact-grid">
+      <div class="impact-item">
+        <span class="impact-metric">#1 Mac App Store</span>
+        <span class="impact-detail">10 countries · Backtrack macOS</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-metric">~$2M revenue</span>
+        <span class="impact-detail">Disney, HPE, Tiffany&Co, Topgolf, LG</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-metric">1M+ active users</span>
+        <span class="impact-detail">Plurall · Somos Educação</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-metric">30+ apps shipped</span>
+        <span class="impact-detail">AppFactory · healthcare, retail, ed.</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-metric">Peloton SDK</span>
+        <span class="impact-detail">Live in every Peloton store</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-metric">Sonos × David Byrne</span>
+        <span class="impact-detail">Hardware-free POC · validated by Talking Heads legend</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-metric">Featured on Setapp</span>
+        <span class="impact-detail">Curated from 200+ Mac apps</span>
+      </div>
+      <div class="impact-item">
+        <span class="impact-metric">DJ Crossfade SDK</span>
+        <span class="impact-detail">Acquired by Apple Music &amp; Spotify (NDA)</span>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="section-header">Professional Experience</div>
+
+    <!-- Backtrack -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Staff / Lead Apple Platforms Engineer</span>
+        <span class="job-period">2023 – 2026</span>
+      </div>
+      <div class="job-company">Backtrack · Yac, Inc. <span class="job-location">· Remote</span></div>
+      <ul class="bullets">
+        <li><strong>Zero-to-production iOS</strong> in a compressed timeline — directly enabled <strong>~$2M in enterprise revenue</strong> from Disney, Tiffany&amp;Co., HPE, Topgolf, Great Wolf Lodge, and LG.</li>
+        <li><strong>macOS #1 in 10 countries</strong> simultaneously; curated and <strong>Featured on Setapp</strong>; led B2B enterprise pivot with MDM hardware deployment and on-site event infrastructure.</li>
+        <li><strong>Full recording stack:</strong> AVAudioEngine raw-byte analysis, AVAudioSession interruption + route handling, segmented M4A export, ScreenCaptureKit multi-stream merge (screen + system audio + mic).</li>
+        <li><strong>PhoneContext system</strong> (original concept) — real-time orientation/position sensing (pocket, table, hand, facing up/down) that dynamically controlled camera and recording behavior.</li>
+        <li><strong>WebSocket offline autopilot</strong> — app recorded and self-synced independently if connectivity dropped mid-meeting. Zero user intervention.</li>
+        <li><strong>Vision OCR badge scanning</strong> for real-time attendee check-in at live conferences; Dynamic Island live recording status.</li>
+        <li>Reported to CEO/CTO — translated raw product vision into full technical specs; led 3-person mobile team (iOS + Android).</li>
+      </ul>
+    </div>
+
+    <!-- Super Hi-Fi -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Senior Apple Platforms / SDK Engineer</span>
+        <span class="job-period">Sep 2020 – May 2022</span>
+      </div>
+      <div class="job-company">Super Hi-Fi <span class="job-location">· Los Angeles, CA / Remote</span></div>
+      <ul class="bullets">
+        <li><strong>Sonos partnership POC:</strong> Rebuilt the full Sonos app from scratch — pixel-perfect animations, radio, and song playback — with <strong>no Sonos hardware attached</strong> (normally a hard requirement). Used Sonos private APIs + proprietary endpoints to make Sonos accessible like Spotify. <strong>Tested by David Byrne (Talking Heads).</strong> It worked.</li>
+        <li><strong>Peloton offline streaming SDK:</strong> Swift + Realm + Combine + Concurrency — track downloads, offline access, deletion, playback recovery. <strong>Live in every Peloton store.</strong></li>
+        <li><strong>DJ Crossfade SDK (iOS layer):</strong> BPM-matching C++ engine wrapped in Swift — seamless crossfade + loop transitions. Technology <strong>acquired by Apple Music and Spotify.</strong></li>
+        <li>CarPlay + AirPlay integrations; enterprise POC SDK bundles supporting partner acquisition and BD conversations.</li>
+      </ul>
+    </div>
+
+    <!-- FloSports -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Senior Apple Platforms Engineer</span>
+        <span class="job-period">Aug 2022 – 2023</span>
+      </div>
+      <div class="job-company">FloSports <span class="job-location">· Austin, TX / Remote</span></div>
+      <ul class="bullets">
+        <li>Rebuilt athlete-profile screens (UIKit + Combine) — faster rendering, cleaner data binding, more maintainable architecture.</li>
+        <li>Built A/B experimentation + analytics layer feeding conversion funnel data directly into product roadmap and subscription revenue decisions.</li>
+      </ul>
+    </div>
+
+    <!-- Plurall -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Staff iOS Engineer</span>
+        <span class="job-period">Jun 2017 – Sep 2020</span>
+      </div>
+      <div class="job-company">Plurall · Somos Educação <span class="job-location">· São Paulo / Remote</span></div>
+      <ul class="bullets">
+        <li><strong>1M+ active users</strong> — led iOS for one of Brazil's largest education apps (study, homework, exams, offline handouts).</li>
+        <li>Defined team-wide architecture; <strong>Fastlane automation cut release prep from days to hours.</strong></li>
+        <li>Offline-first content delivery for low-connectivity students — core product differentiator.</li>
+        <li>Mentored engineers to senior-level independence; collaborated with leadership on API direction.</li>
+      </ul>
+    </div>
+
+    <!-- AppFactory -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">iOS Engineer</span>
+        <span class="job-period">2012 – 2017</span>
+      </div>
+      <div class="job-company">AppFactory <span class="job-location">· São Paulo, Brazil</span></div>
+      <ul class="bullets">
+        <li><strong>30+ iOS apps shipped</strong> across healthcare, retail, education, and entertainment — technical lead and client-facing engineer for each product lifecycle. 2–3 month delivery cycles.</li>
+      </ul>
+    </div>
+
+    <!-- Projects -->
+    <div class="section-header">Selected Projects</div>
+
+    <div class="project-item">
+      <span class="project-name">Spotti</span>
+      <span class="project-sep">—</span>
+      <span class="project-desc">Intent-based city discovery iOS app. Users express cravings and moods ("romantic dessert spot", "quiet café to decompress", "late-night ramen") instead of searching categories. AI-powered evidence ranking across menu, photo, and review signals. Launching in São Paulo. Swift · SwiftUI.</span>
+    </div>
+    <div class="project-item">
+      <span class="project-name">Programando Para Maçã Cast</span>
+      <span class="badge-deprecated">⚰ Deprecated</span>
+      <span class="project-sep" style="margin-left:6px">—</span>
+      <span class="project-desc">Brazilian Apple dev podcast I hosted to help iOS engineers level up their careers and land global roles. Ran for multiple seasons, built a real community — then life happened. Gone but not forgotten. <a href="https://podcasts.apple.com/br/podcast/programando-para-ma%C3%A7%C3%A3-cast/id1524533460?l=en-GB" style="color:#2B7FE1;text-decoration:none;">Listen on Apple Podcasts ↗</a></span>
+    </div>
+
+  </div><!-- /main -->
+</div><!-- /page -->
+</body>
+</html>

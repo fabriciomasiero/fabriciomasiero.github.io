@@ -779,15 +779,63 @@ section { padding: 80px 0; }
    SIDE PROJECTS
 ================================================================ */
 .side {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.side-mini-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
-@media(max-width:760px) { .side { grid-template-columns: 1fr 1fr; } }
-@media(max-width:480px) { .side { grid-template-columns: 1fr; } }
+@media(max-width:760px) { .side-mini-row { grid-template-columns: 1fr 1fr; } }
+@media(max-width:480px) { .side-mini-row { grid-template-columns: 1fr; } }
 .side .card { padding: 28px; }
 .side .card h3 { font-size: 20px; }
 .side .card p { font-size: 14px; margin-top: 12px; }
+
+/* Deprecated / mini card */
+.card-deprecated {
+  opacity: 0.65;
+  padding: 20px 22px !important;
+  transition: opacity .3s;
+}
+.card-deprecated:hover { opacity: 0.88; }
+.card-deprecated h3 { font-size: 15px !important; }
+.card-deprecated p  { font-size: 13px !important; margin-top: 8px !important; }
+.badge-dep {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: #92701A;
+  background: rgba(234,179,8,.10);
+  border: 1px solid rgba(234,179,8,.30);
+  padding: 2px 8px;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-left: 6px;
+  text-transform: uppercase;
+}
+.podcast-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: color .2s, border-color .2s;
+}
+.podcast-link:hover { color: var(--accent); border-color: rgba(124,92,252,.4); }
 
 /* ================================================================
    TESTIMONIAL / QUOTE
@@ -1052,6 +1100,76 @@ footer .foot-sub {
   transition: opacity .2s, transform .2s;
 }
 .setapp-badge:hover { opacity: 1; transform: translateY(-1px); }
+
+/* Solo built badge */
+.solo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--green);
+  background: rgba(0,229,195,.08);
+  border: 1px solid rgba(0,229,195,.28);
+  padding: 4px 11px;
+  border-radius: 999px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
+/* Spotti — banner */
+.spotti-banner {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line-2);
+  background: #0a0f1a;
+  cursor: zoom-in;
+  transition: opacity .2s;
+}
+.spotti-banner:hover { opacity: .92; }
+.spotti-banner img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Spotti — phone grid (matches banner width) */
+.spotti-phone-grid {
+  display: flex;
+  gap: 7px;
+  margin-top: 7px;
+}
+.spotti-phone {
+  flex: 1 1 0;
+  min-width: 0;
+  aspect-ratio: 9/19.5;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid rgba(255,255,255,.1);
+  cursor: zoom-in;
+  transition: border-color .2s, transform .25s;
+  background: #0a0f1a;
+}
+.spotti-phone:hover {
+  border-color: var(--green);
+  transform: translateY(-3px);
+}
+.spotti-phone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.spotti-strip-hint {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 6px;
+  opacity: .6;
+}
 
 /* ================================================================
    SHOW MORE / LESS
@@ -1609,43 +1727,83 @@ footer .foot-sub {
       <h2 class="sec-title">Side projects</h2>
     </div>
     <div class="side">
+
+      <!-- ── Spotti: full-width featured card ── -->
       <div class="card reveal" data-tilt>
         <div class="card-accent"></div>
         <div class="card-shine"></div>
-        <div style="font-size:28px;margin-bottom:14px">🏙️</div>
-        <h3>Spotti</h3>
-        <p>Intent-based city exploration — find what's nearby through cravings, mood, and vibe instead of endless category browsing. "Best carbonara nearby." "Quiet café to decompress." "Romantic rooftop tonight." AI-ranked evidence from menus, photos, and reviews. Launching in São Paulo.</p>
-        <div class="tags">
+        <div class="card-top">
+          <div>
+            <h3>Spotti <span class="solo-badge">✦ Solo Built</span></h3>
+            <div class="role">Founder · Product · Design · iOS · Backend · Infrastructure</div>
+          </div>
+          <span class="badge rev">iOS App</span>
+        </div>
+
+        <p>Latin America's first intent-based city discovery platform. Instead of browsing categories, you tell Spotti what you're craving — <em>"romantic café"</em>, <em>"quiet spot to work"</em>, <em>"best carbonara nearby"</em> — and it returns a confident answer backed by real evidence. Built from zero to live on the App Store in 12 weeks. Every line of code, every design decision, every infrastructure choice: me.</p>
+
+        <div class="card-desc-extra">
+          <ul class="card-detail-list">
+            <li><strong>Apple Intelligence on-device:</strong> Natural language intent parsing using Foundation Models — private, fast, zero data leaving the device. "Quiet matcha spot" becomes a structured query without a server round-trip.</li>
+            <li><strong>Evidence-ranked results:</strong> Every recommendation is scored across three tiers — menu confirmation, photo match, and review sentiment. "Carbonara" means carbonara is confirmed in the menu, not just that it's an Italian restaurant.</li>
+            <li><strong>13 curated moods:</strong> Trending · Date Night · Coffee &amp; Work · Solo · Quick · Special Occasion · Quiet · Family · With Friends · Meeting · Affordable · Luxury · Surprise Me — each mapped to a real moment in your week.</li>
+            <li><strong>Full-stack solo:</strong> SwiftUI iOS app + Fastify (Node.js / TypeScript) backend + PostgreSQL on Supabase + deployed on Railway. Designed, architected, built, and shipped by one person.</li>
+            <li><strong>Fewer results, smarter ones:</strong> Spotti bets on quality over quantity. In 15–30 seconds you walk away with a plan — not 200 options to scroll through.</li>
+            <li><strong>Live in São Paulo:</strong> Strong coverage across Pinheiros, Vila Madalena, Jardins, Itaim, Liberdade, and Moema. More cities coming.</li>
+          </ul>
+        </div>
+        <button class="show-more-btn" onclick="toggleDesc(this)"><span class="btn-label">Show more</span><span class="btn-arrow">↓</span></button>
+
+        <div class="tags" style="margin-top:18px">
           <span class="tag">SwiftUI</span>
-          <span class="tag">AI Ranking</span>
-          <span class="tag">Location</span>
-          <span class="tag">Contextual Search</span>
+          <span class="tag">Apple Intelligence</span>
+          <span class="tag">Foundation Models</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Fastify</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">Railway</span>
+        </div>
+
+        <!-- Banner (full width, clickable) -->
+        <div class="spotti-banner" style="margin-top:24px;" onclick="openSpottiLb('images/spotti/social-explainer.png')">
+          <img src="images/spotti/social-explainer.png" alt="Spotti — Your city, by craving" loading="lazy">
+        </div>
+
+        <!-- Phone grid — same width as banner -->
+        <div class="spotti-phone-grid">
+          <div class="spotti-phone" onclick="openSpottiLb('images/spotti/s1.png')"><img src="images/spotti/s1.png" alt="Hero" loading="lazy"></div>
+          <div class="spotti-phone" onclick="openSpottiLb('images/spotti/s2.png')"><img src="images/spotti/s2.png" alt="Apple Intelligence" loading="lazy"></div>
+          <div class="spotti-phone" onclick="openSpottiLb('images/spotti/s3.png')"><img src="images/spotti/s3.png" alt="Detail" loading="lazy"></div>
+          <div class="spotti-phone" onclick="openSpottiLb('images/spotti/s4.png')"><img src="images/spotti/s4.png" alt="Map" loading="lazy"></div>
+          <div class="spotti-phone" onclick="openSpottiLb('images/spotti/s5.png')"><img src="images/spotti/s5.png" alt="Moods" loading="lazy"></div>
+          <div class="spotti-phone" onclick="openSpottiLb('images/spotti/s6.png')"><img src="images/spotti/s6.png" alt="Action" loading="lazy"></div>
+          <div class="spotti-phone" onclick="openSpottiLb('images/spotti/s7.png')"><img src="images/spotti/s7.png" alt="Live" loading="lazy"></div>
+        </div>
+        <div class="spotti-strip-hint">tap any screenshot to zoom</div>
+      </div>
+
+      <!-- ── Mini row: deprecated / legacy projects ── -->
+      <div class="side-mini-row">
+        <div class="card reveal card-deprecated" data-tilt>
+          <div class="card-accent"></div>
+          <div class="card-shine"></div>
+          <div style="font-size:22px;margin-bottom:10px">🎙️</div>
+          <h3>Programando Para Maçã Cast <span class="badge-dep">⚰ Deprecated</span></h3>
+          <p>Brazilian Apple dev podcast I hosted to help iOS engineers grow their careers and land global roles. Multiple seasons, a real community — then life happened.</p>
+          <a href="https://podcasts.apple.com/br/podcast/programando-para-ma%C3%A7%C3%A3-cast/id1524533460?l=en-GB"
+             target="_blank" rel="noopener" class="podcast-link">
+            🎧 Listen on Apple Podcasts
+          </a>
+          <div class="tags" style="margin-top:12px">
+            <span class="tag">Community</span>
+            <span class="tag">Podcast</span>
+            <span class="tag">PT-BR</span>
+          </div>
         </div>
       </div>
-      <div class="card reveal" data-tilt>
-        <div class="card-accent"></div>
-        <div class="card-shine"></div>
-        <div style="font-size:28px;margin-bottom:14px">⏱️</div>
-        <h3>StayFocus</h3>
-        <p>Cross-platform Pomodoro and focus-sound app with WidgetKit and Swift Concurrency. Polished Apple-platform UX for deep work.</p>
-        <div class="tags">
-          <span class="tag">SwiftUI</span>
-          <span class="tag">WidgetKit</span>
-          <span class="tag">Concurrency</span>
-        </div>
-      </div>
-      <div class="card reveal" data-tilt>
-        <div class="card-accent"></div>
-        <div class="card-shine"></div>
-        <div style="font-size:28px;margin-bottom:14px">🎙️</div>
-        <h3>Programando Para Maçã</h3>
-        <p>Podcast host — helping Brazilian Apple developers grow their careers and reach global engineering opportunities.</p>
-        <div class="tags">
-          <span class="tag">Community</span>
-          <span class="tag">Podcast</span>
-          <span class="tag">PT-BR</span>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
@@ -1703,6 +1861,11 @@ footer .foot-sub {
   <img src="images/mac1.png" alt="Backtrack macOS screenshot" id="lb-mac-img">
 </div>
 
+<!-- lightbox: Spotti screenshots -->
+<div class="lb-overlay" id="lb-spotti-overlay">
+  <img src="images/spotti/s1.png" alt="Spotti screenshot" id="lb-spotti-img" style="max-height:90vh; max-width:90vw; width:auto; border-radius:16px; object-fit:contain;">
+</div>
+
 <!-- =========================================================
      SCRIPTS
 ========================================================= -->
@@ -1744,6 +1907,27 @@ function setMacShot(i) {
     document.body.style.overflow = '';
   });
 })();
+
+/* ============================================================
+   SPOTTI PHONE LIGHTBOX
+============================================================ */
+function openSpottiLb(src) {
+  var overlay = document.getElementById('lb-spotti-overlay');
+  var img     = document.getElementById('lb-spotti-img');
+  if (!overlay || !img) return;
+  img.src = src;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+(function(){
+  var overlay = document.getElementById('lb-spotti-overlay');
+  if (!overlay) return;
+  overlay.addEventListener('click', function() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+})();
+
 
 /* ============================================================
    SHOW MORE / LESS TOGGLE
