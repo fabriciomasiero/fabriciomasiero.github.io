@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Spotti</title>
+  <style>
+    :root {
+      --coral:  #E8503A;
+      --ink:    #1A1A1A;
+      --mist:   #8A8A8A;
+      --paper:  #F9F6F1;
+      --cream:  #F0EBE1;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #1A1A1A 0%, #2D1F0E 100%);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    .wordmark {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #F9F6F1;
+      margin-bottom: 8px;
+    }
+    .wordmark span { color: var(--coral); }
+    .tagline {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(249,246,241,0.45);
+    }
+    /* ── Language toggle ── */
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 24px 24px 0;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .lang-btn {
+      border: none;
+      background: var(--cream);
+      color: var(--mist);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-btn.active {
+      background: var(--coral);
+      color: white;
+    }
+    /* ── Main ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+    .updated {
+      font-size: 13px;
+      color: var(--mist);
+      margin-bottom: 32px;
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 800;
+      margin: 40px 0 12px;
+      color: var(--ink);
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 24px 0 8px;
+      color: var(--ink);
+    }
+    p { margin-bottom: 12px; color: var(--ink); }
+    a { color: var(--coral); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    ul li { margin-bottom: 6px; }
+    /* ── Data row cards ── */
+    .data-row {
+      background: white;
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .data-row dt {
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--mist);
+      margin-bottom: 4px;
+    }
+    .data-row dd { margin: 0; color: var(--ink); }
+    /* ── Table ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 14px;
+    }
+    th {
+      text-align: left;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--mist);
+      padding: 8px 12px;
+      border-bottom: 2px solid var(--cream);
+    }
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--cream);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    /* ── Contact card ── */
+    .contact-card {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-top: 24px;
+    }
+    .contact-card p { margin: 0; }
+    /* ── Language sections ── */
+    .lang-section { display: none; }
+    .lang-section.visible { display: block; }
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: var(--mist);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wordmark">spotti<span>.</span></div>
+  <div class="tagline">Premium Discovery · Privacy Policy</div>
+</header>
+
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('en')">English</button>
+  <button class="lang-btn" onclick="setLang('pt')">Português</button>
+</div>
+
+<!-- ──────────────────────────── ENGLISH ──────────────────────────── -->
+<main>
+  <div id="en" class="lang-section visible">
+    <p class="updated">Last updated: May 27, 2026</p>
+
+    <h2>1. Who we are</h2>
+    <p>Spotti is a city-discovery app that helps you find restaurants and cafés based on intent and evidence. The app is developed by Fabrício Masiero ("we", "us", "our").</p>
+    <p>Contact: <a href="mailto:masiero572@gmail.com">masiero572@gmail.com</a></p>
+
+    <h2>2. What data we collect and why</h2>
+
+    <h3>2.1 Location (precise, when-in-use only)</h3>
+    <dl>
+      <div class="data-row"><dt>What</dt><dd>Your device's GPS coordinates while the app is open.</dd></div>
+      <div class="data-row"><dt>Why</dt><dd>To find places near you. Without it, searches default to São Paulo city centre.</dd></div>
+      <div class="data-row"><dt>How long</dt><dd>Never stored on our servers. Coordinates are sent with each search request and discarded immediately after the response is returned.</dd></div>
+      <div class="data-row"><dt>Your control</dt><dd>Deny or revoke at any time in <strong>Settings → Spotti</strong>. The app continues to work without it.</dd></div>
+    </dl>
+
+    <h3>2.2 Search queries</h3>
+    <dl>
+      <div class="data-row"><dt>What</dt><dd>The text you type in the search bar.</dd></div>
+      <div class="data-row"><dt>Why</dt><dd>Sent to our backend (hosted on Railway) to find relevant places. The backend forwards your query and approximate location to the Google Places API on your behalf.</dd></div>
+      <div class="data-row"><dt>How long</dt><dd>Not stored after the response is returned. We do not build a search profile on our servers.</dd></div>
+      <div class="data-row"><dt>On-device only</dt><dd>When Apple Intelligence is available on your device, your query is first processed by Apple's on-device Foundation Models to normalise intent. This happens entirely on your device — nothing is sent to Apple.</dd></div>
+    </dl>
+
+    <h3>2.3 Search history (device-only)</h3>
+    <dl>
+      <div class="data-row"><dt>What</dt><dd>A local list of your past search terms.</dd></div>
+      <div class="data-row"><dt>Where</dt><dd>Stored only in the app's private storage on your device (Apple SwiftData). Never synced, never uploaded.</dd></div>
+      <div class="data-row"><dt>Your control</dt><dd>Delete the app to erase this data entirely.</dd></div>
+    </dl>
+
+    <h3>2.4 Anonymous usage analytics</h3>
+    <dl>
+      <div class="data-row"><dt>What</dt><dd>Events such as "search performed", "place tapped", "mood selected", "onboarding completed". No names, emails, or personally-linked identifiers.</dd></div>
+      <div class="data-row"><dt>Why</dt><dd>To understand how the app is used so we can improve it.</dd></div>
+      <div class="data-row"><dt>Provider</dt><dd>Google Firebase Analytics. Stored on Google's servers per their <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a>.</dd></div>
+    </dl>
+
+    <h3>2.5 Crash reports</h3>
+    <dl>
+      <div class="data-row"><dt>What</dt><dd>Device model, iOS version, app version, and crash stack trace. No personal information.</dd></div>
+      <div class="data-row"><dt>Why</dt><dd>To find and fix bugs.</dd></div>
+      <div class="data-row"><dt>Provider</dt><dd>Google Firebase Crashlytics. Stored on Google's servers per their <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a>.</dd></div>
+    </dl>
+
+    <h2>3. What we do NOT collect</h2>
+    <ul>
+      <li>Your name, email address, or any account information (there are no accounts)</li>
+      <li>Contacts, photos, microphone, or camera data</li>
+      <li>Payment information</li>
+      <li>Persistent advertising identifiers</li>
+      <li>Background location (we only request "when in use")</li>
+    </ul>
+
+    <h2>4. Third-party services</h2>
+    <table>
+      <thead><tr><th>Service</th><th>Purpose</th><th>Privacy policy</th></tr></thead>
+      <tbody>
+        <tr><td>Google Firebase Analytics</td><td>Anonymous usage analytics</td><td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></td></tr>
+        <tr><td>Google Firebase Crashlytics</td><td>Crash reporting</td><td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></td></tr>
+        <tr><td>Google Places API (via our backend)</td><td>Place search and data</td><td><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></td></tr>
+        <tr><td>Railway</td><td>Backend API hosting</td><td><a href="https://railway.com/legal/privacy" target="_blank">railway.com/legal/privacy</a></td></tr>
+        <tr><td>Apple Foundation Models</td><td>On-device intent parsing</td><td>Processed locally — no data sent to Apple</td></tr>
+      </tbody>
+    </table>
+
+    <h2>5. Data retention</h2>
+    <table>
+      <thead><tr><th>Data type</th><th>Retention</th></tr></thead>
+      <tbody>
+        <tr><td>Location coordinates</td><td>Never stored — discarded after each API response</td></tr>
+        <tr><td>Search queries</td><td>Never stored after response</td></tr>
+        <tr><td>Search history</td><td>On your device only; deleted when you delete the app</td></tr>
+        <tr><td>Analytics events</td><td>Up to 14 months (Google Firebase standard)</td></tr>
+        <tr><td>Crash reports</td><td>90 days (Google Firebase Crashlytics standard)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>6. Children's privacy</h2>
+    <p>Spotti is not directed at children under 13. We do not knowingly collect personal information from children. If you believe a child has provided personal information through the app, contact us and we will delete it.</p>
+
+    <h2>7. Your rights</h2>
+    <p>Since the only personal data we hold is anonymous analytics via Google Firebase, most data-access requests should be directed to Google. For anything else, email <a href="mailto:masiero572@gmail.com">masiero572@gmail.com</a> and we will respond within 30 days.</p>
+    <p><strong>Brazilian users (LGPD):</strong> You have the rights set out in Lei Geral de Proteção de Dados (Law 13,709/2018), including access, correction, deletion, and data portability.</p>
+
+    <h2>8. Changes to this policy</h2>
+    <p>We will update this page when the policy changes and revise the "Last updated" date at the top. For significant changes, we will notify you via an in-app notice.</p>
+
+    <h2>9. Contact</h2>
+    <div class="contact-card">
+      <p><strong>Fabrício Masiero</strong><br>
+      <a href="mailto:masiero572@gmail.com">masiero572@gmail.com</a></p>
+    </div>
+  </div>
+
+  <!-- ──────────────────────────── PORTUGUÊS ──────────────────────────── -->
+  <div id="pt" class="lang-section">
+    <p class="updated">Última atualização: 27 de maio de 2026</p>
+
+    <h2>1. Quem somos</h2>
+    <p>O Spotti é um app de descoberta de cidades que ajuda você a encontrar restaurantes e cafés com base em intenção e evidências. O app é desenvolvido por Fabrício Masiero ("nós", "nosso").</p>
+    <p>Contato: <a href="mailto:masiero572@gmail.com">masiero572@gmail.com</a></p>
+
+    <h2>2. Quais dados coletamos e por quê</h2>
+
+    <h3>2.1 Localização (precisa, somente durante o uso)</h3>
+    <dl>
+      <div class="data-row"><dt>O quê</dt><dd>As coordenadas GPS do seu dispositivo enquanto o app está aberto.</dd></div>
+      <div class="data-row"><dt>Por quê</dt><dd>Para encontrar lugares próximos a você. Sem ela, as buscas assumem o centro de São Paulo como padrão.</dd></div>
+      <div class="data-row"><dt>Por quanto tempo</dt><dd>Nunca armazenadas nos nossos servidores. As coordenadas são enviadas com cada requisição de busca e descartadas imediatamente após o retorno da resposta.</dd></div>
+      <div class="data-row"><dt>Seu controle</dt><dd>Negue ou revogue a qualquer momento em <strong>Ajustes → Spotti</strong>. O app continua funcionando sem ela.</dd></div>
+    </dl>
+
+    <h3>2.2 Consultas de busca</h3>
+    <dl>
+      <div class="data-row"><dt>O quê</dt><dd>O texto que você digita na barra de busca.</dd></div>
+      <div class="data-row"><dt>Por quê</dt><dd>Enviado ao nosso backend (hospedado no Railway) para encontrar lugares relevantes. O backend encaminha sua consulta e localização aproximada à Google Places API em seu nome.</dd></div>
+      <div class="data-row"><dt>Por quanto tempo</dt><dd>Não armazenado após o retorno da resposta. Não construímos um perfil das suas buscas nos nossos servidores.</dd></div>
+      <div class="data-row"><dt>Somente no dispositivo</dt><dd>Quando o Apple Intelligence está disponível no seu dispositivo, a consulta é primeiro processada pelos Foundation Models da Apple para normalizar a intenção. Isso ocorre inteiramente no seu dispositivo — nada é enviado à Apple.</dd></div>
+    </dl>
+
+    <h3>2.3 Histórico de busca (somente no dispositivo)</h3>
+    <dl>
+      <div class="data-row"><dt>O quê</dt><dd>Uma lista local dos seus termos de busca anteriores.</dd></div>
+      <div class="data-row"><dt>Onde</dt><dd>Armazenado apenas no armazenamento privado do app no seu dispositivo (Apple SwiftData). Nunca sincronizado, nunca enviado.</dd></div>
+      <div class="data-row"><dt>Seu controle</dt><dd>Exclua o app para apagar esses dados completamente.</dd></div>
+    </dl>
+
+    <h3>2.4 Analytics anônimo de uso</h3>
+    <dl>
+      <div class="data-row"><dt>O quê</dt><dd>Eventos como "busca realizada", "lugar acessado", "mood selecionado", "onboarding concluído". Sem nomes, e-mails ou identificadores vinculados pessoalmente a você.</dd></div>
+      <div class="data-row"><dt>Por quê</dt><dd>Para entender como o app é usado e melhorá-lo.</dd></div>
+      <div class="data-row"><dt>Provedor</dt><dd>Google Firebase Analytics. Armazenado nos servidores do Google conforme a <a href="https://policies.google.com/privacy?hl=pt-BR" target="_blank">Política de Privacidade</a> deles.</dd></div>
+    </dl>
+
+    <h3>2.5 Relatórios de falha</h3>
+    <dl>
+      <div class="data-row"><dt>O quê</dt><dd>Modelo do dispositivo, versão do iOS, versão do app e rastreamento da falha. Nenhuma informação pessoal.</dd></div>
+      <div class="data-row"><dt>Por quê</dt><dd>Para encontrar e corrigir bugs.</dd></div>
+      <div class="data-row"><dt>Provedor</dt><dd>Google Firebase Crashlytics. Armazenado nos servidores do Google conforme a <a href="https://policies.google.com/privacy?hl=pt-BR" target="_blank">Política de Privacidade</a> deles.</dd></div>
+    </dl>
+
+    <h2>3. O que NÃO coletamos</h2>
+    <ul>
+      <li>Seu nome, e-mail ou qualquer informação de conta (não há contas)</li>
+      <li>Contatos, fotos, microfone ou câmera</li>
+      <li>Informações de pagamento</li>
+      <li>Identificadores de publicidade persistentes</li>
+      <li>Localização em segundo plano (solicitamos apenas "somente durante o uso")</li>
+    </ul>
+
+    <h2>4. Serviços de terceiros</h2>
+    <table>
+      <thead><tr><th>Serviço</th><th>Finalidade</th><th>Política de privacidade</th></tr></thead>
+      <tbody>
+        <tr><td>Google Firebase Analytics</td><td>Analytics anônimo de uso</td><td><a href="https://policies.google.com/privacy?hl=pt-BR" target="_blank">policies.google.com/privacy</a></td></tr>
+        <tr><td>Google Firebase Crashlytics</td><td>Relatórios de falha</td><td><a href="https://policies.google.com/privacy?hl=pt-BR" target="_blank">policies.google.com/privacy</a></td></tr>
+        <tr><td>Google Places API (via nosso backend)</td><td>Busca e dados de lugares</td><td><a href="https://policies.google.com/privacy?hl=pt-BR" target="_blank">policies.google.com/privacy</a></td></tr>
+        <tr><td>Railway</td><td>Hospedagem do backend</td><td><a href="https://railway.com/legal/privacy" target="_blank">railway.com/legal/privacy</a></td></tr>
+        <tr><td>Apple Foundation Models</td><td>Análise de intenção no dispositivo</td><td>Processado localmente — nenhum dado enviado à Apple</td></tr>
+      </tbody>
+    </table>
+
+    <h2>5. Retenção de dados</h2>
+    <table>
+      <thead><tr><th>Tipo de dado</th><th>Retenção</th></tr></thead>
+      <tbody>
+        <tr><td>Coordenadas de localização</td><td>Nunca armazenadas — descartadas após cada resposta da API</td></tr>
+        <tr><td>Consultas de busca</td><td>Nunca armazenadas após a resposta</td></tr>
+        <tr><td>Histórico de busca</td><td>Somente no seu dispositivo; excluído ao deletar o app</td></tr>
+        <tr><td>Eventos de analytics</td><td>Até 14 meses (padrão Google Firebase)</td></tr>
+        <tr><td>Relatórios de falha</td><td>90 dias (padrão Firebase Crashlytics)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>6. Privacidade de crianças</h2>
+    <p>O Spotti não é direcionado a crianças menores de 13 anos. Não coletamos intencionalmente informações pessoais de crianças. Caso acredite que uma criança forneceu informações pessoais pelo app, entre em contato e as excluiremos.</p>
+
+    <h2>7. Seus direitos (LGPD)</h2>
+    <p>De acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem direito a: confirmação do tratamento, acesso, correção, anonimização ou eliminação, portabilidade e revogação do consentimento.</p>
+    <p>Entre em contato: <a href="mailto:masiero572@gmail.com">masiero572@gmail.com</a>. Responderemos em até 30 dias.</p>
+
+    <h2>8. Alterações nesta política</h2>
+    <p>Atualizaremos esta página quando a política mudar e revisaremos a data de "Última atualização" no topo. Para alterações significativas, notificaremos via aviso dentro do app.</p>
+
+    <h2>9. Contato</h2>
+    <div class="contact-card">
+      <p><strong>Fabrício Masiero</strong><br>
+      <a href="mailto:masiero572@gmail.com">masiero572@gmail.com</a></p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © 2026 Spotti · <a href="mailto:masiero572@gmail.com">masiero572@gmail.com</a>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('visible'));
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(lang).classList.add('visible');
+    document.querySelector(`[onclick="setLang('${lang}')"]`).classList.add('active');
+  }
+</script>
+</body>
+</html>
