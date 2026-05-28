@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Spotti</title>
+  <meta name="description" content="Get help with Spotti. Find answers to common questions or contact us directly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --coral: #F25C3D;
+      --ink: #15110E;
+      --cream: #F4EFE6;
+      --paper: #FBFAF7;
+      --mist: #7A6F64;
+      --hair: rgba(20, 15, 10, 0.08);
+      --font: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: var(--paper); color: var(--ink); line-height: 1.65; }
+    a { color: var(--coral); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Language ── */
+    .lang-en, .lang-pt { display: none; }
+    .lang-en.visible, .lang-pt.visible { display: block; }
+    .lang-toggle { display: flex; gap: 4px; justify-content: center; padding: 20px 24px 0; }
+    .lang-btn {
+      border: none;
+      background: rgba(251,250,247,0.12);
+      color: rgba(251,250,247,0.5);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: var(--font);
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-btn.active { background: var(--coral); color: white; }
+    .lang-btn:hover:not(.active) { background: rgba(251,250,247,0.2); color: rgba(251,250,247,0.8); }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #15110E 0%, #2D1F0E 100%);
+      padding: 48px 24px 28px;
+      text-align: center;
+    }
+    .wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #FBFAF7;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+    .tagline {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(251,250,247,0.4);
+    }
+
+    /* ── Layout ── */
+    main { max-width: 760px; margin: 0 auto; padding: 48px 24px 96px; }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: var(--ink);
+      border-radius: 20px;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+    .contact-card-text h2 { font-size: 20px; font-weight: 700; color: white; margin-bottom: 6px; }
+    .contact-card-text p { font-size: 15px; color: rgba(255,255,255,0.5); }
+    .btn-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--coral);
+      color: white;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: opacity 0.15s;
+      text-decoration: none;
+    }
+    .btn-email:hover { opacity: 0.85; text-decoration: none; }
+
+    /* ── Section ── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 20px;
+    }
+
+    /* ── Info cards ── */
+    .info-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 56px; }
+    .info-card { background: var(--cream); border-radius: var(--radius); padding: 24px; }
+    .info-card .icon { font-size: 24px; margin-bottom: 12px; }
+    .info-card h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .info-card p { font-size: 14px; color: var(--mist); line-height: 1.55; }
+
+    /* ── FAQ ── */
+    .faq { margin-bottom: 56px; }
+    details { border-bottom: 1px solid var(--hair); }
+    details:first-of-type { border-top: 1px solid var(--hair); }
+    summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+      gap: 16px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 22px; font-weight: 400; color: var(--mist); flex-shrink: 0; transition: transform 0.2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    .answer { padding: 0 0 20px; font-size: 15px; color: var(--mist); line-height: 1.7; }
+    .answer p { margin-bottom: 10px; }
+    .answer p:last-child { margin-bottom: 0; }
+    .answer ul { padding-left: 20px; margin-bottom: 10px; }
+    .answer ul li { margin-bottom: 6px; }
+    .answer strong { color: var(--ink); }
+
+    /* ── Footer ── */
+    footer { border-top: 1px solid var(--hair); padding: 28px 24px; text-align: center; font-size: 13px; color: var(--mist); max-width: 760px; margin: 0 auto; }
+    footer a { color: var(--mist); }
+    footer a:hover { color: var(--ink); text-decoration: none; }
+
+    @media (max-width: 480px) { .contact-card { flex-direction: column; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="wordmark">
+    <svg width="22" height="22" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <mask id="hm"><rect width="100" height="100" fill="white"/><circle cx="42" cy="42" r="11" fill="black"/></mask>
+      <circle cx="50" cy="50" r="36" fill="#F25C3D" mask="url(#hm)"/>
+    </svg>
+    spotti
+  </a>
+  <div class="tagline" data-en="Support" data-pt="Suporte">Support</div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+  </div>
+</header>
+
+<!-- ═══════════════════════════ ENGLISH ═══════════════════════════ -->
+<div class="lang-en visible">
+<main>
+
+  <div class="contact-card">
+    <div class="contact-card-text">
+      <h2>Need help?</h2>
+      <p>We usually reply within 24 hours.</p>
+    </div>
+    <a href="mailto:masiero572@gmail.com" class="btn-email">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      masiero572@gmail.com
+    </a>
+  </div>
+
+  <p class="section-label">Quick info</p>
+  <div class="info-cards">
+    <div class="info-card">
+      <div class="icon">📍</div>
+      <h3>Availability</h3>
+      <p>Currently live in São Paulo. More cities coming soon.</p>
+    </div>
+    <div class="info-card">
+      <div class="icon">📱</div>
+      <h3>Requirements</h3>
+      <p>Requires iPhone with iOS 17 or later. Free to download.</p>
+    </div>
+    <div class="info-card">
+      <div class="icon">🧠</div>
+      <h3>Apple Intelligence</h3>
+      <p>Enhanced on iPhone 15 Pro and later with Apple Intelligence enabled.</p>
+    </div>
+  </div>
+
+  <p class="section-label">Frequently asked questions</p>
+  <div class="faq">
+
+    <details>
+      <summary>How does Spotti search work?</summary>
+      <div class="answer">
+        <p>You type what you're actually craving — a dish, a vibe, or a moment. Spotti parses your intent (using Apple Intelligence on supported devices) and searches for places where that craving is <strong>confirmed by evidence</strong>: menu mentions, matching photos, and review quotes.</p>
+        <p>Results are ranked by evidence strength. A place with a menu item confirmed in photos and multiple reviews ranks higher than one where the category is just a guess.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Why does Spotti return fewer results than other apps?</summary>
+      <div class="answer">
+        <p>That's intentional. Spotti bets on quality over quantity. We'd rather show you 5 places where the carbonara is confirmed than 200 Italian restaurants where it might or might not exist.</p>
+        <p>If you're seeing very few results, try broadening your search or increasing the search radius in Settings.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Why am I being asked for location permission?</summary>
+      <div class="answer">
+        <p>Spotti uses your device's GPS to find places near you. We request <strong>"While Using the App"</strong> access only — we never use your location in the background.</p>
+        <p>If you deny location access, searches will default to São Paulo city centre. You can change this at any time in <strong>Settings → Privacy &amp; Security → Location Services → Spotti</strong>.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>How do I delete my search history?</summary>
+      <div class="answer">
+        <p>Your search history is stored only on your device (never uploaded to our servers). To clear it:</p>
+        <ul>
+          <li>Open Spotti → tap the search bar → swipe left on any item to delete it individually, or</li>
+          <li>Delete and reinstall the app to erase all local data.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>What does "confirmed by evidence" mean?</summary>
+      <div class="answer">
+        <p>Spotti checks three types of evidence for each result:</p>
+        <ul>
+          <li><strong>Menu:</strong> the dish or item appears in the restaurant's menu data</li>
+          <li><strong>Photos:</strong> uploaded photos match what you searched for</li>
+          <li><strong>Reviews:</strong> customer reviews mention your search term</li>
+        </ul>
+        <p>A result with all three is marked <em>Verified</em>. A result with only category data (no specific evidence) is excluded or shown last.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>What are Moods?</summary>
+      <div class="answer">
+        <p>Moods are curated filters designed for real moments — Date Night, Coffee &amp; Work, Solo, Quick, Quiet, and more. Selecting a mood adjusts what Spotti looks for and how it ranks results for that context.</p>
+        <p>You can search without a mood too — just type what you want.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Does Spotti work without Apple Intelligence?</summary>
+      <div class="answer">
+        <p>Yes. Apple Intelligence enhances intent parsing on iPhone 15 Pro and later (iOS 18.1+), but the core search experience works on any iPhone running iOS 17 or later.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Is Spotti free?</summary>
+      <div class="answer">
+        <p>Yes. Basic discovery is free. Premium features — curated lists, new-place alerts, and extended AI — are planned for a future update.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>A place shown in results has wrong information. How do I report it?</summary>
+      <div class="answer">
+        <p>Place data comes from Google Places API. For inaccurate business details (hours, address, phone number), the fastest fix is for the business owner to update their Google Business Profile.</p>
+        <p>If you'd like to flag a specific result to us, email <a href="mailto:masiero572@gmail.com">masiero572@gmail.com</a> with the place name and what's incorrect.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>How do I contact you?</summary>
+      <div class="answer">
+        <p>Email us at <a href="mailto:masiero572@gmail.com">masiero572@gmail.com</a>. We aim to respond within 24 hours on business days.</p>
+      </div>
+    </details>
+
+  </div>
+
+</main>
+<footer>
+  © 2026 Fabrício Masiero &nbsp;·&nbsp;
+  <a href="index.html">Home</a> &nbsp;·&nbsp;
+  <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+  <a href="mailto:masiero572@gmail.com">masiero572@gmail.com</a>
+</footer>
+</div>
+
+<!-- ═══════════════════════════ PORTUGUÊS ═══════════════════════════ -->
+<div class="lang-pt">
+<main>
+
+  <div class="contact-card">
+    <div class="contact-card-text">
+      <h2>Precisa de ajuda?</h2>
+      <p>Respondemos em até 24 horas.</p>
+    </div>
+    <a href="mailto:masiero572@gmail.com" class="btn-email">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      masiero572@gmail.com
+    </a>
+  </div>
+
+  <p class="section-label">Informações rápidas</p>
+  <div class="info-cards">
+    <div class="info-card">
+      <div class="icon">📍</div>
+      <h3>Disponibilidade</h3>
+      <p>Disponível em São Paulo. Outras cidades em breve.</p>
+    </div>
+    <div class="info-card">
+      <div class="icon">📱</div>
+      <h3>Requisitos</h3>
+      <p>iPhone com iOS 17 ou superior. Download gratuito.</p>
+    </div>
+    <div class="info-card">
+      <div class="icon">🧠</div>
+      <h3>Apple Intelligence</h3>
+      <p>Aprimorado no iPhone 15 Pro ou superior com Apple Intelligence ativado.</p>
+    </div>
+  </div>
+
+  <p class="section-label">Perguntas frequentes</p>
+  <div class="faq">
+
+    <details>
+      <summary>Como funciona a busca do Spotti?</summary>
+      <div class="answer">
+        <p>Você digita o que está com vontade — um prato, uma vibe, um momento. O Spotti interpreta sua intenção (usando Apple Intelligence em dispositivos compatíveis) e busca lugares onde aquela vontade é <strong>confirmada por evidências</strong>: menções em cardápio, fotos correspondentes e citações em avaliações.</p>
+        <p>Os resultados são ordenados pela força das evidências. Um lugar com item confirmado em fotos e em várias avaliações aparece antes de um onde a categoria é só uma suposição.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Por que o Spotti retorna menos resultados que outros apps?</summary>
+      <div class="answer">
+        <p>É proposital. O Spotti aposta em qualidade, não quantidade. Preferimos mostrar 5 lugares onde a carbonara é confirmada a 200 restaurantes italianos onde ela pode ou não existir.</p>
+        <p>Se você está vendo poucos resultados, tente ampliar a busca ou aumentar o raio de pesquisa nas Configurações.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Por que estou sendo solicitado a dar permissão de localização?</summary>
+      <div class="answer">
+        <p>O Spotti usa o GPS do seu dispositivo para encontrar lugares perto de você. Solicitamos acesso apenas <strong>"Enquanto usa o app"</strong> — nunca usamos sua localização em segundo plano.</p>
+        <p>Se você negar o acesso, as buscas usarão o centro de São Paulo como padrão. Você pode alterar isso a qualquer momento em <strong>Ajustes → Privacidade e Segurança → Serviços de Localização → Spotti</strong>.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Como excluir meu histórico de busca?</summary>
+      <div class="answer">
+        <p>Seu histórico de busca fica armazenado apenas no seu dispositivo (nunca enviado aos nossos servidores). Para limpar:</p>
+        <ul>
+          <li>Abra o Spotti → toque na barra de busca → deslize para a esquerda em qualquer item para excluí-lo individualmente, ou</li>
+          <li>Exclua e reinstale o app para apagar todos os dados locais.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>O que significa "confirmado por evidências"?</summary>
+      <div class="answer">
+        <p>O Spotti verifica três tipos de evidências para cada resultado:</p>
+        <ul>
+          <li><strong>Cardápio:</strong> o prato ou item aparece nos dados do cardápio do restaurante</li>
+          <li><strong>Fotos:</strong> as fotos enviadas correspondem ao que você buscou</li>
+          <li><strong>Avaliações:</strong> avaliações de clientes mencionam o seu termo de busca</li>
+        </ul>
+        <p>Um resultado com os três é marcado como <em>Verificado</em>. Resultados com apenas dados de categoria (sem evidência específica) são excluídos ou aparecem por último.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>O que são Moods?</summary>
+      <div class="answer">
+        <p>Moods são filtros curados para momentos reais — Date Night, Coffee &amp; Work, Solo, Rápido, Tranquilo, e mais. Selecionar um mood ajusta o que o Spotti procura e como ranqueia os resultados para aquele contexto.</p>
+        <p>Você também pode buscar sem mood — só digitar o que quer.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>O Spotti funciona sem Apple Intelligence?</summary>
+      <div class="answer">
+        <p>Sim. O Apple Intelligence aprimora a interpretação de intenção no iPhone 15 Pro ou superior (iOS 18.1+), mas a experiência principal de busca funciona em qualquer iPhone com iOS 17 ou superior.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>O Spotti é gratuito?</summary>
+      <div class="answer">
+        <p>Sim. A descoberta básica é gratuita. Recursos premium — listas curadas, alertas de novos lugares e IA pessoal estendida — estão previstos para uma atualização futura.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Um lugar nos resultados tem informação incorreta. Como reportar?</summary>
+      <div class="answer">
+        <p>Os dados dos lugares vêm da Google Places API. Para corrigir informações incorretas (horários, endereço, telefone), a solução mais rápida é o próprio proprietário atualizar o Google Business Profile.</p>
+        <p>Se quiser nos avisar de um resultado específico, envie um e-mail para <a href="mailto:masiero572@gmail.com">masiero572@gmail.com</a> com o nome do lugar e o que está incorreto.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Como entrar em contato?</summary>
+      <div class="answer">
+        <p>Envie um e-mail para <a href="mailto:masiero572@gmail.com">masiero572@gmail.com</a>. Respondemos em até 24 horas nos dias úteis.</p>
+      </div>
+    </details>
+
+  </div>
+
+</main>
+<footer>
+  © 2026 Fabrício Masiero &nbsp;·&nbsp;
+  <a href="index.html">Início</a> &nbsp;·&nbsp;
+  <a href="privacy.html">Política de Privacidade</a> &nbsp;·&nbsp;
+  <a href="mailto:masiero572@gmail.com">masiero572@gmail.com</a>
+</footer>
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-en, .lang-pt').forEach(s => s.classList.remove('visible'));
+    document.querySelectorAll('.lang-' + lang).forEach(s => s.classList.add('visible'));
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.lang-btn[data-lang="' + lang + '"]').classList.add('active');
+    document.querySelectorAll('[data-en][data-pt]').forEach(el => {
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+    try { localStorage.setItem('spotti-lang', lang); } catch(e) {}
+  }
+  (function() {
+    let lang = 'en';
+    try { lang = localStorage.getItem('spotti-lang') || (navigator.language.startsWith('pt') ? 'pt' : 'en'); } catch(e) {}
+    if (lang === 'pt') setLang('pt');
+  })();
+</script>
+</body>
+</html>
