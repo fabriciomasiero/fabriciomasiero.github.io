@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spotti — Your city, by craving</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <meta name="description" content="Find restaurants, cafés, and bars by what you actually want — not just a category. Powered by Apple Intelligence, on your device. Live in São Paulo." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --coral: #F25C3D;
@@ -19,10 +20,35 @@
       --hair: rgba(20, 15, 10, 0.08);
       --gradient-sunset: linear-gradient(155deg, #FFC247 0%, #F25C3D 55%, #B22F4A 100%);
       --font: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+      --shadow-card: 0 1px 3px rgba(21,17,14,0.05), 0 8px 24px rgba(21,17,14,0.06);
+      --shadow-shot:
+        0 12px 28px rgba(21,17,14,0.07),
+        0 32px 64px rgba(21,17,14,0.09),
+        0 64px 96px rgba(21,17,14,0.06);
+      --shadow-shot-center:
+        0 12px 32px rgba(21,17,14,0.08),
+        0 32px 72px rgba(21,17,14,0.12),
+        0 64px 112px rgba(21,17,14,0.10),
+        0 96px 160px rgba(242,92,61,0.10);
+      --shadow-shot-hover:
+        0 16px 36px rgba(21,17,14,0.08),
+        0 40px 80px rgba(21,17,14,0.12),
+        0 80px 120px rgba(21,17,14,0.08);
+      --ease: 0.2s ease;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: var(--font); background: var(--paper); color: var(--ink); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: 'ss01' 1, 'cv01' 1;
+      text-rendering: optimizeLegibility;
+    }
     a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
     /* ── Language ── */
     .lang-en, .lang-pt { display: none; }
@@ -38,12 +64,24 @@
       border-radius: 999px;
       cursor: pointer;
       font-family: var(--font);
-      transition: background 0.15s, color 0.15s;
+      transition: background var(--ease), color var(--ease);
     }
     .lang-btn.active { background: var(--coral); color: white; }
     .lang-btn:hover:not(.active) { background: var(--cream); color: var(--ink); }
 
     /* ── Nav ── */
+    .nav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: background 0.35s ease, border-color 0.35s ease;
+    }
+    .nav-wrapper.scrolled {
+      background: rgba(251, 250, 247, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--hair);
+    }
     nav {
       display: flex;
       justify-content: space-between;
@@ -60,14 +98,16 @@
       font-weight: 800;
       letter-spacing: -0.5px;
       color: var(--ink);
+      transition: opacity var(--ease);
     }
+    .wordmark:hover { opacity: 0.65; }
     .nav-right { display: flex; gap: 8px; align-items: center; }
     .nav-links { display: flex; gap: 20px; align-items: center; margin-right: 8px; }
     .nav-links a {
       font-size: 14px;
       font-weight: 600;
       color: var(--mist);
-      transition: color 0.15s;
+      transition: color var(--ease);
     }
     .nav-links a:hover { color: var(--ink); }
     .btn {
@@ -77,14 +117,14 @@
       border-radius: 999px;
       font-size: 14px;
       font-weight: 700;
-      transition: opacity 0.15s;
+      transition: opacity var(--ease), transform var(--ease);
     }
-    .btn:hover { opacity: 0.8; }
+    .btn:hover { opacity: 0.8; transform: translateY(-1px); }
 
     /* ── Hero ── */
     .hero {
       text-align: center;
-      padding: 72px 24px 48px;
+      padding: 84px 24px 60px;
       max-width: 820px;
       margin: 0 auto;
     }
@@ -102,14 +142,23 @@
       color: var(--mist);
       margin-bottom: 32px;
     }
-    .badge-dot { width: 8px; height: 8px; background: var(--coral); border-radius: 50%; }
+    @keyframes live-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(242,92,61,0.45); opacity: 1; }
+      60% { box-shadow: 0 0 0 5px rgba(242,92,61,0); opacity: 0.7; }
+    }
+    .badge-dot {
+      width: 8px; height: 8px;
+      background: var(--coral);
+      border-radius: 50%;
+      animation: live-pulse 2.4s ease-in-out infinite;
+    }
     .hero h1 {
-      font-size: clamp(44px, 9vw, 80px);
+      font-size: clamp(48px, 9vw, 84px);
       font-weight: 800;
-      letter-spacing: -0.035em;
-      line-height: 1.0;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
       color: var(--ink);
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
     .hero h1 em {
       font-style: normal;
@@ -119,11 +168,13 @@
       background-clip: text;
     }
     .hero p {
-      font-size: clamp(17px, 2.5vw, 20px);
+      font-size: clamp(16px, 2.2vw, 19px);
+      font-weight: 500;
       color: var(--mist);
-      line-height: 1.6;
-      max-width: 520px;
+      line-height: 1.65;
+      max-width: 500px;
       margin: 0 auto 44px;
+      letter-spacing: -0.01em;
     }
     .as-btn {
       display: inline-flex;
@@ -133,33 +184,96 @@
       color: white;
       border-radius: 14px;
       padding: 13px 22px;
-      transition: opacity 0.15s;
+      box-shadow: 0 4px 16px rgba(21,17,14,0.18);
+      transition: opacity var(--ease), transform var(--ease), box-shadow var(--ease);
     }
-    .as-btn:hover { opacity: 0.8; }
+    .as-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(21,17,14,0.26);
+    }
     .as-btn svg { flex-shrink: 0; }
     .as-text { display: flex; flex-direction: column; text-align: left; }
     .as-sub { font-size: 11px; opacity: 0.55; font-weight: 500; }
     .as-name { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; }
 
     /* ── Screenshots ── */
-    .shots { padding: 0 24px 80px; overflow: hidden; }
+    .shots {
+      padding: 40px 24px 100px;
+      position: relative;
+    }
+    .shots::before {
+      content: '';
+      position: absolute;
+      top: 10%; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(ellipse at center, rgba(242,92,61,0.09) 0%, transparent 68%);
+      pointer-events: none;
+    }
     .shots-row {
       display: flex;
-      gap: 16px;
+      gap: 18px;
       justify-content: center;
-      flex-wrap: wrap;
+      align-items: center;
     }
     .shot {
-      border-radius: 24px;
+      --y: 0px;
+      border-radius: 30px;
       overflow: hidden;
-      box-shadow: 0 24px 64px rgba(21, 17, 14, 0.14);
-      width: 200px;
+      box-shadow: var(--shadow-shot);
+      width: 215px;
       flex-shrink: 0;
+      transform: translateY(var(--y));
+      transition: transform 0.45s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.45s ease;
+    }
+    .shot:hover {
+      --y: -14px;
+      box-shadow: var(--shadow-shot-hover);
     }
     .shot img { width: 100%; display: block; }
+    .shots-row .shot:nth-child(1) { --y: 60px; width: 244px; }
+    .shots-row .shot:nth-child(2) { --y: 30px; width: 260px; }
+    .shots-row .shot:nth-child(3) { --y: 0px; width: 284px; box-shadow: var(--shadow-shot-center); }
+    .shots-row .shot:nth-child(4) { --y: 30px; width: 260px; }
+    .shots-row .shot:nth-child(5) { --y: 60px; width: 244px; }
+
+    /* ── Stats strip ── */
+    .stats-strip {
+      display: flex;
+      justify-content: center;
+      max-width: 640px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+    }
+    .stat {
+      flex: 1;
+      text-align: center;
+      padding: 24px 16px;
+      position: relative;
+    }
+    .stat:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 20%; bottom: 20%;
+      width: 1px;
+      background: var(--hair);
+    }
+    .stat-value {
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--mist);
+    }
 
     /* ── Features ── */
-    .features { background: var(--cream); padding: 80px 24px; }
+    .features { background: var(--cream); padding: 88px 24px; }
     .section-label {
       font-size: 11px;
       font-weight: 700;
@@ -170,47 +284,182 @@
       margin-bottom: 14px;
     }
     .section-title {
-      font-size: clamp(28px, 5vw, 44px);
+      font-size: clamp(30px, 5vw, 46px);
       font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.1;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
       text-align: center;
       color: var(--ink);
       margin-bottom: 56px;
-      max-width: 540px;
+      max-width: 560px;
       margin-left: auto;
       margin-right: auto;
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
       max-width: 1100px;
       margin: 0 auto;
     }
-    .card { background: white; border-radius: 20px; padding: 32px; }
-    .card-icon { font-size: 26px; margin-bottom: 18px; }
-    .card h3 { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 10px; }
-    .card p { font-size: 15px; color: var(--mist); line-height: 1.65; }
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 36px;
+      border: 1px solid rgba(20,15,10,0.07);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 60px rgba(21,17,14,0.09);
+      border-color: transparent;
+    }
+    .card-icon-box {
+      width: 52px; height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 24px;
+      transition: transform 0.28s ease;
+    }
+    .card:hover .card-icon-box { transform: scale(1.08); }
+    .card:nth-child(1) .card-icon-box { background: #FFF0EB; }
+    .card:nth-child(2) .card-icon-box { background: #FFF6EB; }
+    .card:nth-child(3) .card-icon-box { background: #FFFAEC; }
+    .card:nth-child(4) .card-icon-box { background: #EEF5EB; }
+    .card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--mist);
+      line-height: 1.75;
+      letter-spacing: -0.005em;
+    }
+
+    /* ── Scroll animations ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* ── Moods ── */
-    .moods { padding: 80px 24px; max-width: 780px; margin: 0 auto; text-align: center; }
-    .moods p { font-size: 18px; color: var(--mist); line-height: 1.6; margin-bottom: 40px; }
-    .chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-    .chip { background: var(--cream); border-radius: 999px; padding: 10px 18px; font-size: 14px; font-weight: 600; color: var(--smoke); }
+    .moods { padding: 88px 0; }
+    .moods-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 24px;
+      margin-bottom: 44px;
+    }
+    .moods .section-title { margin-bottom: 16px; }
+    .moods-inner > p { font-size: 18px; color: var(--mist); line-height: 1.6; }
+
+    .chips-outer {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    .chips-track {
+      display: flex;
+      gap: 10px;
+      width: max-content;
+      animation: marquee 24s linear infinite;
+      padding: 6px 0;
+    }
+    .chips-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .chip {
+      background: white;
+      border: 1.5px solid var(--hair);
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--smoke);
+      white-space: nowrap;
+      cursor: default;
+      transition: background var(--ease), border-color var(--ease), color var(--ease);
+    }
+    .chip:hover { background: var(--coral); border-color: var(--coral); color: white; }
 
     /* ── Privacy strip ── */
-    .privacy-strip { background: var(--cream); padding: 40px 24px; text-align: center; }
-    .privacy-strip p { font-size: 15px; color: var(--mist); max-width: 560px; margin: 0 auto; line-height: 1.6; }
-    .privacy-strip a { color: var(--coral); }
+    .privacy-strip { background: var(--cream); padding: 52px 24px; }
+    .privacy-inner {
+      max-width: 580px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      text-align: center;
+    }
+    .privacy-icon {
+      width: 44px; height: 44px;
+      background: white;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: var(--shadow-card);
+    }
+    .privacy-strip p { font-size: 15px; color: var(--mist); line-height: 1.7; }
+    .privacy-strip a { color: var(--coral); font-weight: 600; }
     .privacy-strip a:hover { text-decoration: underline; }
 
     /* ── CTA ── */
-    .cta { background: var(--ink); padding: 80px 24px; text-align: center; }
-    .cta h2 { font-size: clamp(32px, 6vw, 52px); font-weight: 800; letter-spacing: -0.03em; color: white; margin-bottom: 14px; }
-    .cta p { font-size: 17px; color: rgba(255,255,255,0.45); margin-bottom: 36px; }
+    .cta {
+      background: var(--ink);
+      padding: 96px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 480px;
+      background: radial-gradient(ellipse at center, rgba(242,92,61,0.16) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cta-content { position: relative; z-index: 1; }
+    .cta h2 {
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: white;
+      margin-bottom: 14px;
+    }
+    .cta p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.42);
+      margin-bottom: 40px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     /* ── Footer ── */
+    .footer-wrapper { border-top: 1px solid var(--hair); }
     footer {
       padding: 32px 48px;
       display: flex;
@@ -222,43 +471,50 @@
       margin: 0 auto;
       font-size: 13px;
       color: var(--mist);
-      border-top: 1px solid var(--hair);
     }
-    footer a { color: var(--mist); transition: color 0.15s; }
+    footer a { color: var(--mist); transition: color var(--ease); }
     footer a:hover { color: var(--ink); }
     .footer-links { display: flex; gap: 20px; }
 
     @media (max-width: 640px) {
       nav { padding: 16px 20px; }
       .nav-hide { display: none; }
+      .shots-row .shot:nth-child(1),
+      .shots-row .shot:nth-child(5) { display: none; }
+      .shots-row .shot:nth-child(2) { --y: 18px; }
+      .shots-row .shot:nth-child(4) { --y: 18px; }
+      .shot { width: calc(48vw - 24px); min-width: 140px; }
+      .shots-row .shot:nth-child(3) { width: calc(52vw - 16px); }
+      .stats-strip { gap: 0; }
       footer { padding: 24px 20px; flex-direction: column; text-align: center; }
       .footer-links { justify-content: center; }
-      .shot { width: calc(50vw - 28px); min-width: 140px; }
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="/" class="wordmark">
-    <svg width="20" height="20" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-      <mask id="nm"><rect width="100" height="100" fill="white"/><circle cx="42" cy="42" r="11" fill="black"/></mask>
-      <circle cx="50" cy="50" r="36" fill="#F25C3D" mask="url(#nm)"/>
-    </svg>
-    spotti
-  </a>
-  <div class="nav-right">
-    <div class="nav-links">
-      <a href="support.html" class="nav-hide" data-en="Support" data-pt="Suporte">Support</a>
-      <a href="privacy.html" class="nav-hide" data-en="Privacy" data-pt="Privacidade">Privacy</a>
+<div class="nav-wrapper" id="navWrapper">
+  <nav>
+    <a href="/" class="wordmark">
+      <svg width="20" height="20" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <mask id="nm"><rect width="100" height="100" fill="white"/><circle cx="42" cy="42" r="11" fill="black"/></mask>
+        <circle cx="50" cy="50" r="36" fill="#F25C3D" mask="url(#nm)"/>
+      </svg>
+      spotti
+    </a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="support.html" class="nav-hide" data-en="Support" data-pt="Suporte">Support</a>
+        <a href="privacy.html" class="nav-hide" data-en="Privacy" data-pt="Privacidade">Privacy</a>
+      </div>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+      </div>
+      <a href="#download" class="btn" data-en="Get the app" data-pt="Baixar">Get the app</a>
     </div>
-    <div class="lang-toggle">
-      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
-    </div>
-    <a href="#download" class="btn" data-en="Get the app" data-pt="Baixar">Get the app</a>
-  </div>
-</nav>
+  </nav>
+</div>
 
 <!-- ═══════════════════════════ ENGLISH ═══════════════════════════ -->
 <div class="lang-en visible">
@@ -266,7 +522,7 @@
   <section class="hero">
     <div class="badge"><span class="badge-dot"></span>Live in São Paulo</div>
     <h1>Your city,<br><em>by craving.</em></h1>
-    <p>Find restaurants, cafés, and bars by what you actually want — not just a category. Powered by Apple Intelligence, on your device.</p>
+    <p>Describe what you're in the mood for. Walk away with three places worth going — not three hundred to scroll past. Apple Intelligence, entirely on your device.</p>
     <a href="https://apps.apple.com/us/app/spotti-your-city-by-craving/id6773900200" class="as-btn" id="download" target="_blank" rel="noopener">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
       <div class="as-text">
@@ -286,78 +542,103 @@
     </div>
   </div>
 
+  <div class="stats-strip fade-up">
+    <div class="stat">
+      <div class="stat-value">15s</div>
+      <div class="stat-label">avg. time to a plan</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">100%</div>
+      <div class="stat-label">on-device AI</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">SP</div>
+      <div class="stat-label">São Paulo</div>
+    </div>
+  </div>
+
   <section class="features">
     <p class="section-label">How it works</p>
-    <h2 class="section-title">Not a search. A craving understood.</h2>
+    <h2 class="section-title fade-up">Not a search. A craving understood.</h2>
     <div class="grid">
-      <div class="card">
-        <div class="card-icon">🧠</div>
-        <h3>Powered by Apple Intelligence</h3>
-        <p>Your search is processed on your device first. Intent parsed privately, fast, and contextually — nothing leaves your phone during discovery.</p>
+      <div class="card fade-up" style="transition-delay:0.05s">
+        <div class="card-icon-box">🧠</div>
+        <h3>Private by design</h3>
+        <p>Searches run on your device, not a server. Your cravings stay with you — Spotti never ships your intent to the cloud.</p>
       </div>
-      <div class="card">
-        <div class="card-icon">🔍</div>
+      <div class="card fade-up" style="transition-delay:0.1s">
+        <div class="card-icon-box">🔍</div>
         <h3>Evidence, not just vibes</h3>
-        <p>"Carbonara" means menu-confirmed, photo-matched, review-quoted carbonara — not any Italian place within 5 km.</p>
+        <p>"Carbonara" returns places with it on the menu, in photos, quoted in reviews — not every Italian spot within 5 km.</p>
       </div>
-      <div class="card">
-        <div class="card-icon">⚡</div>
-        <h3>Fewer results, smarter ones</h3>
-        <p>In 15 to 30 seconds you walk away with a real plan — not 200 options to scroll through and forget.</p>
+      <div class="card fade-up" style="transition-delay:0.15s">
+        <div class="card-icon-box">⚡</div>
+        <h3>Done in 30 seconds</h3>
+        <p>Three options. One decision. No scroll paralysis, no FOMO — just a place that's actually worth the trip.</p>
       </div>
-      <div class="card">
-        <div class="card-icon">🗺️</div>
+      <div class="card fade-up" style="transition-delay:0.2s">
+        <div class="card-icon-box">🗺️</div>
         <h3>From craving to table</h3>
-        <p>Directions in one tap, Instagram link, real photos. Find it, see it, go.</p>
+        <p>One tap to directions, real photos, and the Instagram. Find it, feel it, go.</p>
       </div>
     </div>
   </section>
 
   <section class="moods">
-    <p class="section-label">Moods</p>
-    <h2 class="section-title">Every moment has a mood.</h2>
-    <p>Designed for real moments in your week — from a quick solo lunch to a full date night.</p>
-    <div class="chips">
-      <span class="chip">🔥 Trending</span>
-      <span class="chip">💑 Date Night</span>
-      <span class="chip">☕ Coffee &amp; Work</span>
-      <span class="chip">🙋 Solo</span>
-      <span class="chip">⚡ Quick</span>
-      <span class="chip">✨ Special</span>
-      <span class="chip">🤫 Quiet</span>
-      <span class="chip">👨‍👩‍👧 Family</span>
-      <span class="chip">🎉 With Friends</span>
-      <span class="chip">💼 Meeting</span>
-      <span class="chip">💸 Affordable</span>
-      <span class="chip">🥂 Luxury</span>
-      <span class="chip">🎲 Surprise Me</span>
+    <div class="moods-inner">
+      <p class="section-label">Moods</p>
+      <h2 class="section-title fade-up">Every moment has a mood.</h2>
+      <p class="fade-up" style="transition-delay:0.08s">From a quick solo lunch to a full date night — Spotti meets you where the moment is.</p>
+    </div>
+    <div class="chips-outer">
+      <div class="chips-track" id="chipsTrackEn">
+        <span class="chip">🔥 Trending</span>
+        <span class="chip">💑 Date Night</span>
+        <span class="chip">☕ Coffee &amp; Work</span>
+        <span class="chip">🙋 Solo</span>
+        <span class="chip">⚡ Quick</span>
+        <span class="chip">✨ Special</span>
+        <span class="chip">🤫 Quiet</span>
+        <span class="chip">👨‍👩‍👧 Family</span>
+        <span class="chip">🎉 With Friends</span>
+        <span class="chip">💼 Meeting</span>
+        <span class="chip">💸 Affordable</span>
+        <span class="chip">🥂 Luxury</span>
+        <span class="chip">🎲 Surprise Me</span>
+      </div>
     </div>
   </section>
 
   <div class="privacy-strip">
-    <p>Spotti does not sell your data. Your location is used only to find places near you. Your search is processed locally whenever possible. <a href="privacy.html">Read our Privacy Policy →</a></p>
+    <div class="privacy-inner fade-up">
+      <div class="privacy-icon">🔒</div>
+      <p>Spotti does not sell your data. Your location is used only to find places near you. Your search is processed locally whenever possible. <a href="privacy.html">Read our Privacy Policy →</a></p>
+    </div>
   </div>
 
   <section class="cta">
-    <h2>Live in São Paulo.</h2>
-    <p>Strong coverage in Pinheiros, Vila Madalena, Jardins, Itaim, Liberdade, Moema, and Santo André.</p>
-    <a href="https://apps.apple.com/us/app/spotti-your-city-by-craving/id6773900200" class="as-btn" target="_blank" rel="noopener">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      <div class="as-text">
-        <span class="as-sub">Download on the</span>
-        <span class="as-name">App Store</span>
-      </div>
-    </a>
+    <div class="cta-content">
+      <h2>Live in São Paulo.</h2>
+      <p>Strong coverage in Pinheiros, Vila Madalena, Jardins, Itaim, Liberdade, Moema, and Santo André.</p>
+      <a href="https://apps.apple.com/us/app/spotti-your-city-by-craving/id6773900200" class="as-btn" target="_blank" rel="noopener">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <div class="as-text">
+          <span class="as-sub">Download on the</span>
+          <span class="as-name">App Store</span>
+        </div>
+      </a>
+    </div>
   </section>
 
 </div>
+
 <!-- ═══════════════════════════ PORTUGUÊS ═══════════════════════════ -->
 <div class="lang-pt">
 
   <section class="hero">
     <div class="badge"><span class="badge-dot"></span>Disponível em São Paulo</div>
     <h1>Sua cidade,<br><em>pela vontade.</em></h1>
-    <p>Encontre restaurantes, cafés e bares pelo que você realmente quer — não só uma categoria. Powered by Apple Intelligence, no seu dispositivo.</p>
+    <p>Descreva o que você está a fim. Saia com três lugares que valem ir — não trezentos pra rolar e esquecer. Apple Intelligence, direto no seu aparelho.</p>
     <a href="https://apps.apple.com/us/app/spotti-your-city-by-craving/id6773900200" class="as-btn" id="download-pt" target="_blank" rel="noopener">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
       <div class="as-text">
@@ -377,80 +658,106 @@
     </div>
   </div>
 
+  <div class="stats-strip fade-up">
+    <div class="stat">
+      <div class="stat-value">15s</div>
+      <div class="stat-label">tempo médio pra decidir</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">100%</div>
+      <div class="stat-label">IA no dispositivo</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">SP</div>
+      <div class="stat-label">São Paulo</div>
+    </div>
+  </div>
+
   <section class="features">
     <p class="section-label">Como funciona</p>
-    <h2 class="section-title">Não é uma busca. É uma vontade entendida.</h2>
+    <h2 class="section-title fade-up">Não é uma busca. É uma vontade entendida.</h2>
     <div class="grid">
-      <div class="card">
-        <div class="card-icon">🧠</div>
-        <h3>Powered by Apple Intelligence</h3>
-        <p>Sua busca é processada no dispositivo primeiro. Intenção analisada de forma privada, rápida e contextual — nada sai do celular durante a descoberta.</p>
+      <div class="card fade-up" style="transition-delay:0.05s">
+        <div class="card-icon-box">🧠</div>
+        <h3>Privado por padrão</h3>
+        <p>A busca roda no seu aparelho, não num servidor. Suas vontades ficam com você — o Spotti nunca manda sua intenção pra nuvem.</p>
       </div>
-      <div class="card">
-        <div class="card-icon">🔍</div>
+      <div class="card fade-up" style="transition-delay:0.1s">
+        <div class="card-icon-box">🔍</div>
         <h3>Evidências, não só vibes</h3>
-        <p>"Carbonara" significa carbonara confirmada em cardápio, correspondida em fotos e citada em avaliações — não qualquer italiano no raio de 5 km.</p>
+        <p>"Carbonara" retorna lugares com ela no cardápio, nas fotos e citada em avaliações — não todo italiano no raio de 5 km.</p>
       </div>
-      <div class="card">
-        <div class="card-icon">⚡</div>
-        <h3>Menos resultados, mais certos</h3>
-        <p>Em 15 a 30 segundos você sai com um plano real — não com 200 opções pra rolar e esquecer.</p>
+      <div class="card fade-up" style="transition-delay:0.15s">
+        <div class="card-icon-box">⚡</div>
+        <h3>Pronto em 30 segundos</h3>
+        <p>Três opções. Uma decisão. Sem rolar infinito, sem FOMO — só um lugar que realmente vale a ida.</p>
       </div>
-      <div class="card">
-        <div class="card-icon">🗺️</div>
+      <div class="card fade-up" style="transition-delay:0.2s">
+        <div class="card-icon-box">🗺️</div>
         <h3>Da descoberta à mesa</h3>
-        <p>Direções em um toque, link do Instagram, fotos reais. Encontre, veja, vá.</p>
+        <p>Um toque para chegar, fotos reais, link do Instagram. Encontrou, curtiu, foi.</p>
       </div>
     </div>
   </section>
 
   <section class="moods">
-    <p class="section-label">Moods</p>
-    <h2 class="section-title">Cada momento tem um mood.</h2>
-    <p>Pensados para momentos reais da sua semana — de um almoço solo rápido a um date night completo.</p>
-    <div class="chips">
-      <span class="chip">🔥 Trending</span>
-      <span class="chip">💑 Date Night</span>
-      <span class="chip">☕ Coffee &amp; Work</span>
-      <span class="chip">🙋 Solo</span>
-      <span class="chip">⚡ Rápido</span>
-      <span class="chip">✨ Especial</span>
-      <span class="chip">🤫 Tranquilo</span>
-      <span class="chip">👨‍👩‍👧 Family</span>
-      <span class="chip">🎉 With Friends</span>
-      <span class="chip">💼 Meeting</span>
-      <span class="chip">💸 Acessível</span>
-      <span class="chip">🥂 Luxo</span>
-      <span class="chip">🎲 Surprise Me</span>
+    <div class="moods-inner">
+      <p class="section-label">Moods</p>
+      <h2 class="section-title fade-up">Cada momento tem um mood.</h2>
+      <p class="fade-up" style="transition-delay:0.08s">De um almoço solo rápido a um date night completo — o Spotti chega junto no momento certo.</p>
+    </div>
+    <div class="chips-outer">
+      <div class="chips-track" id="chipsTrackPt">
+        <span class="chip">🔥 Trending</span>
+        <span class="chip">💑 Date Night</span>
+        <span class="chip">☕ Coffee &amp; Work</span>
+        <span class="chip">🙋 Solo</span>
+        <span class="chip">⚡ Rápido</span>
+        <span class="chip">✨ Especial</span>
+        <span class="chip">🤫 Tranquilo</span>
+        <span class="chip">👨‍👩‍👧 Family</span>
+        <span class="chip">🎉 With Friends</span>
+        <span class="chip">💼 Meeting</span>
+        <span class="chip">💸 Acessível</span>
+        <span class="chip">🥂 Luxo</span>
+        <span class="chip">🎲 Surprise Me</span>
+      </div>
     </div>
   </section>
 
   <div class="privacy-strip">
-    <p>O Spotti não vende seus dados. Sua localização é usada apenas para encontrar lugares perto de você. Sua busca é processada localmente quando possível. <a href="privacy.html">Leia a Política de Privacidade →</a></p>
+    <div class="privacy-inner fade-up">
+      <div class="privacy-icon">🔒</div>
+      <p>O Spotti não vende seus dados. Sua localização é usada apenas para encontrar lugares perto de você. Sua busca é processada localmente quando possível. <a href="privacy.html">Leia a Política de Privacidade →</a></p>
+    </div>
   </div>
 
   <section class="cta">
-    <h2>Disponível em São Paulo.</h2>
-    <p>Cobertura forte em Pinheiros, Vila Madalena, Jardins, Itaim, Liberdade, Moema e Santo André.</p>
-    <a href="https://apps.apple.com/us/app/spotti-your-city-by-craving/id6773900200" class="as-btn" target="_blank" rel="noopener">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-      <div class="as-text">
-        <span class="as-sub">Disponível na</span>
-        <span class="as-name">App Store</span>
-      </div>
-    </a>
+    <div class="cta-content">
+      <h2>Disponível em São Paulo.</h2>
+      <p>Cobertura forte em Pinheiros, Vila Madalena, Jardins, Itaim, Liberdade, Moema e Santo André.</p>
+      <a href="https://apps.apple.com/us/app/spotti-your-city-by-craving/id6773900200" class="as-btn" target="_blank" rel="noopener">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <div class="as-text">
+          <span class="as-sub">Disponível na</span>
+          <span class="as-name">App Store</span>
+        </div>
+      </a>
+    </div>
   </section>
 
 </div>
 
-<footer>
-  <span>© 2026 Fabrício Masiero</span>
-  <div class="footer-links">
-    <a href="support.html" data-en="Support" data-pt="Suporte">Support</a>
-    <a href="privacy.html" data-en="Privacy Policy" data-pt="Privacidade">Privacy Policy</a>
-    <a href="mailto:masiero572@gmail.com" data-en="Contact" data-pt="Contato">Contact</a>
-  </div>
-</footer>
+<div class="footer-wrapper">
+  <footer>
+    <span>© 2026 Fabrício Masiero</span>
+    <div class="footer-links">
+      <a href="support.html" data-en="Support" data-pt="Suporte">Support</a>
+      <a href="privacy.html" data-en="Privacy Policy" data-pt="Privacidade">Privacy Policy</a>
+      <a href="mailto:masiero572@gmail.com" data-en="Contact" data-pt="Contato">Contact</a>
+    </div>
+  </footer>
+</div>
 
 <script>
   function setLang(lang) {
@@ -468,6 +775,26 @@
     try { lang = localStorage.getItem('spotti-lang') || (navigator.language.startsWith('pt') ? 'pt' : 'en'); } catch(e) {}
     if (lang === 'pt') setLang('pt');
   })();
+
+  // Sticky nav frosted glass on scroll
+  const navWrapper = document.getElementById('navWrapper');
+  window.addEventListener('scroll', function() {
+    navWrapper.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Scroll-triggered fade-up animations
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in-view'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Duplicate chip content for seamless marquee loop
+  ['chipsTrackEn', 'chipsTrackPt'].forEach(id => {
+    const track = document.getElementById(id);
+    if (track) track.innerHTML += track.innerHTML;
+  });
 </script>
 </body>
 </html>
