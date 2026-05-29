@@ -1,7 +1,0 @@
-After 12 weeks, Spotti is live.
-
-It's an intent-based discovery platform for São Paulo — you tell it what you're craving, Apple Intelligence understands, and Spotti returns the right place, backed by menu evidence, real photos, and reviews.
-
-It's premium. It's private (everything runs on-device). It's beautiful. And it was built from zero in 12 weeks.
-
-Thank you to everyone who tested. Available now on the App Store.

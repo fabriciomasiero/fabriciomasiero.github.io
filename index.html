@@ -843,6 +843,38 @@ section { padding: 80px 0; }
 }
 .podcast-link:hover { color: var(--accent); border-color: rgba(124,92,252,.4); }
 
+.spotti-cta {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--accent), #5030d4);
+  color: #f0effe !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 24px rgba(124,92,252,.45);
+  transition: box-shadow .2s, transform .2s;
+}
+.spotti-cta:hover {
+  box-shadow: 0 8px 36px rgba(124,92,252,.65) !important;
+  transform: translateY(-1px);
+  color: #f0effe !important;
+  border-color: transparent !important;
+}
+.spotti-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.38) 50%, transparent 100%);
+  transform: skewX(-18deg);
+  animation: spotti-shimmer 2.6s ease-in-out infinite;
+}
+@keyframes spotti-shimmer {
+  0%   { left: -75%; }
+  55%  { left: 130%; }
+  100% { left: 130%; }
+}
+
 /* ================================================================
    TESTIMONIAL / QUOTE
 ================================================================ */
@@ -1943,7 +1975,7 @@ footer .foot-sub {
           <span class="badge rev">iOS App</span>
         </div>
 
-        <p>Latin America's first intent-based city discovery platform. Instead of browsing categories, you tell Spotti what you're craving — <em>"romantic café"</em>, <em>"quiet spot to work"</em>, <em>"best carbonara nearby"</em> — and it returns a confident answer backed by real evidence. Concept, design, engineering, and infrastructure — all under one roof. Zero to App Store in 12 weeks.</p>
+        <p>Latin America's first intent-based city discovery platform. Instead of browsing categories, you tell Spotti what you're craving — <em>"romantic café"</em>, <em>"quiet spot to work"</em>, <em>"best carbonara nearby"</em> — and it returns a confident answer backed by real evidence. Concept, design, engineering, and infrastructure — all under one roof. Zero to App Store in 3 weeks.</p>
 
         <div class="card-desc-extra">
           <ul class="card-detail-list">
@@ -1969,7 +2001,7 @@ footer .foot-sub {
           <span class="tag">Railway</span>
         </div>
 
-        <a href="urban-discovery/index.html" target="_blank" rel="noopener" class="podcast-link" style="margin-top:16px;display:inline-flex">
+        <a href="urban-discovery/index.html" target="_blank" rel="noopener" class="podcast-link spotti-cta" style="margin-top:16px;display:inline-flex">
           Explore Spotti →
         </a>
 
