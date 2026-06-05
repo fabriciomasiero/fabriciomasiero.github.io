@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Support - Snippr</title>
+    <meta name="description" content="Snippr support: troubleshooting, FAQ, and contact information for the macOS text expansion app.">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .support-layout {
+        display: grid;
+        grid-template-columns: 240px minmax(0, 1fr);
+        gap: 44px;
+        align-items: start;
+        padding: 58px 0 90px;
+      }
+
+      .support-nav {
+        position: sticky;
+        top: 92px;
+        display: grid;
+        gap: 10px;
+        color: var(--ink-600);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .support-nav a {
+        color: var(--ink-600);
+      }
+
+      .support-nav a:hover {
+        color: var(--green-700);
+      }
+
+      .support-doc {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--surface);
+        padding: min(7vw, 56px);
+        box-shadow: 0 1px 2px rgba(16, 40, 28, 0.05);
+      }
+
+      .support-doc h1 {
+        max-width: none;
+        font-family: "snipprDisplay", "Space Grotesk", sans-serif;
+        font-weight: 700;
+        font-size: clamp(38px, 6vw, 64px);
+        margin: 0;
+      }
+
+      .support-doc h2 {
+        font-family: "snipprDisplay", "Space Grotesk", sans-serif;
+        font-weight: 700;
+        margin-top: 44px;
+        font-size: 24px;
+      }
+
+      .support-doc h3 {
+        font-family: "snipprDisplay", "Space Grotesk", sans-serif;
+        font-weight: 700;
+        margin-top: 28px;
+        font-size: 17px;
+      }
+
+      .support-doc p,
+      .support-doc li {
+        color: var(--ink-700);
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .support-doc p {
+        margin: 10px 0 0;
+      }
+
+      .support-doc ul,
+      .support-doc ol {
+        padding-left: 20px;
+        margin: 12px 0 0;
+      }
+
+      .support-doc a {
+        color: var(--green-700);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .faq-item {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--bg);
+        padding: 20px 22px;
+        margin-top: 16px;
+      }
+
+      .faq-item h3 {
+        margin: 0;
+        font-size: 16px;
+        color: var(--ink-900);
+      }
+
+      .faq-item p {
+        margin: 10px 0 0;
+        font-size: 15px;
+        color: var(--ink-600);
+        line-height: 1.6;
+      }
+
+      .contact-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 20px;
+      }
+
+      .contact-card {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--surface);
+        padding: 22px;
+        box-shadow: 0 1px 2px rgba(16, 40, 28, 0.05);
+      }
+
+      .contact-card h3 {
+        margin: 0 0 8px;
+        font-size: 17px;
+      }
+
+      .contact-card p {
+        margin: 0;
+        color: var(--ink-600);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .contact-card a {
+        display: inline-block;
+        margin-top: 14px;
+        color: var(--green-700);
+        font-weight: 700;
+        font-size: 14px;
+        text-decoration: none;
+      }
+
+      .contact-card a:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .steps {
+        margin: 16px 0 0;
+        padding-left: 20px;
+      }
+
+      .steps li {
+        margin-top: 10px;
+      }
+
+      .trigger-inline {
+        display: inline-flex;
+        border-radius: 6px;
+        background: var(--green-50);
+        padding: 2px 7px;
+        color: var(--green-700);
+        font-family: "snipprMono", "Space Mono", ui-monospace, monospace;
+        font-weight: 700;
+        font-size: 13px;
+      }
+
+      @media (max-width: 880px) {
+        .support-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .support-nav {
+          position: static;
+        }
+
+        .contact-cards {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap nav">
+        <a class="brand" href="index.html" aria-label="Snippr home">
+          <img class="app-icon-img" src="icon.png" alt="Snippr icon" width="32" height="32">
+          <span>Snippr</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#privacy">Privacy</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">User Agreement</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap support-layout">
+      <aside class="support-nav" aria-label="Support sections">
+        <a href="#troubleshooting">Troubleshooting</a>
+        <a href="#accessibility">Accessibility Permission</a>
+        <a href="#not-expanding">Snippets Not Expanding</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </aside>
+
+      <article class="support-doc">
+        <h1>Support</h1>
+        <p class="updated">Need help with Snippr? Start with the troubleshooting steps below, then reach out if something is still not working.</p>
+
+        <!-- ── Troubleshooting ─────────────────────────────── -->
+        <section id="troubleshooting">
+          <h2>Troubleshooting</h2>
+          <p>Most issues with Snippr fall into one of two categories: a missing Accessibility permission or an app-specific restriction. Work through the steps below before reaching out.</p>
+        </section>
+
+        <!-- ── Accessibility Permission ───────────────────── -->
+        <section id="accessibility">
+          <h2>Accessibility Permission</h2>
+          <p>Snippr requires macOS Accessibility permission to detect abbreviations and expand them. Without this permission, no snippets will expand anywhere.</p>
+
+          <h3>How to grant the permission</h3>
+          <ol class="steps">
+            <li>Open <strong>System Settings</strong> (or System Preferences on older macOS).</li>
+            <li>Go to <strong>Privacy &amp; Security → Accessibility</strong>.</li>
+            <li>Find <strong>Snippr</strong> in the list and turn the toggle on.</li>
+            <li>If Snippr is not listed, click the <strong>+</strong> button and add it from your Applications folder.</li>
+            <li>Quit and relaunch Snippr from the menu bar icon.</li>
+          </ol>
+
+          <h3>The toggle is on but snippets still won't expand</h3>
+          <ol class="steps">
+            <li>Turn the toggle <strong>off</strong>, wait a moment, then turn it back <strong>on</strong>. macOS sometimes caches a stale permission state.</li>
+            <li>Quit Snippr completely (right-click the menu bar icon → Quit), then relaunch it.</li>
+            <li>If you recently updated macOS, open System Settings → Privacy &amp; Security → Accessibility and confirm Snippr is still listed and enabled.</li>
+          </ol>
+        </section>
+
+        <!-- ── Snippets Not Expanding ──────────────────────── -->
+        <section id="not-expanding">
+          <h2>Snippets Not Expanding</h2>
+          <p>If Accessibility is granted but a specific snippet is not expanding, check the following.</p>
+
+          <h3>Snippr is paused</h3>
+          <p>Click the Snippr icon in the menu bar. If it shows <strong>Paused</strong>, click <strong>Resume</strong> to re-enable expansion.</p>
+
+          <h3>The abbreviation doesn't match</h3>
+          <p>Triggers are case-sensitive and must be typed exactly. Open Snippr's manager window and check the abbreviation for the snippet. For example, <span class="trigger-inline">;ty</span> and <span class="trigger-inline">;TY</span> are treated as different triggers.</p>
+
+          <h3>The app prevents text expansion</h3>
+          <p>Some apps use secure input mode or restrict third-party accessibility tools:</p>
+          <ul>
+            <li><strong>Password fields</strong> — macOS blocks all third-party text injection in password fields by design. This is intentional and cannot be changed.</li>
+            <li><strong>Terminal / SSH sessions</strong> — expansion may not work inside raw terminal input or remote sessions.</li>
+            <li><strong>Electron apps</strong> (Slack desktop, VS Code, etc.) — these apps sometimes intercept keystrokes before Snippr can process them. Try typing the abbreviation slowly or using the web version of the app instead.</li>
+            <li><strong>Virtual machines</strong> — text injection into VM guest windows is generally not supported.</li>
+            <li><strong>Browser extensions or password managers</strong> — some extensions lock input fields and block expansion.</li>
+          </ul>
+
+          <h3>Export diagnostics for further investigation</h3>
+          <p>If you cannot identify the cause, use Snippr's built-in diagnostics export: open the app, go to Settings, and tap <strong>Export Diagnostics</strong>. This creates a local report you can review and optionally send to support.</p>
+        </section>
+
+        <!-- ── FAQ ────────────────────────────────────────── -->
+        <section id="faq">
+          <h2>FAQ</h2>
+
+          <div class="faq-item">
+            <h3>Does Snippr store what I type?</h3>
+            <p>No. Snippr watches for saved abbreviations and replaces them. It does not log raw keystrokes, save clipboard contents, or transmit any text to a server. Everything stays on your Mac.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Why does Snippr need Accessibility permission?</h3>
+            <p>macOS requires Accessibility access for any app that reads keyboard input system-wide or injects text into other apps. Snippr uses it only to detect abbreviations and perform expansions — nothing else.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>How do I add a new snippet?</h3>
+            <p>Click the Snippr menu bar icon and choose <strong>Manage Snippets</strong>. In the manager window, click the <strong>+</strong> button, enter a trigger abbreviation (e.g., <span class="trigger-inline">;email</span>) and the expansion text, then save.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Can I organise snippets into groups?</h3>
+            <p>Yes. Snippr supports categories. In the manager window you can create categories (such as Work, Personal, or Developer) and assign snippets to them.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Does Snippr work with all apps on my Mac?</h3>
+            <p>Snippr works in the vast majority of text fields across macOS apps. A small number of apps with secure input modes, strict accessibility sandboxes, or remote desktop surfaces may prevent expansion. See the <a href="#not-expanding">Snippets Not Expanding</a> section above.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Is this a subscription?</h3>
+            <p>No. Snippr is a one-time purchase. The launch price is $4.99; the standard lifetime price is $9.99. No recurring fees.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>How do I get a refund?</h3>
+            <p>Snippr is sold through the Mac App Store. Refund requests are handled by Apple. Visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a> and select your purchase to request a refund.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>How do I completely uninstall Snippr?</h3>
+            <ol class="steps">
+              <li>Quit Snippr from the menu bar icon.</li>
+              <li>Open <strong>System Settings → Privacy &amp; Security → Accessibility</strong> and remove Snippr from the list.</li>
+              <li>Drag Snippr from your Applications folder to the Trash.</li>
+              <li>To remove stored snippet data, delete the Snippr container in <code>~/Library/Containers/</code>.</li>
+            </ol>
+          </div>
+
+          <div class="faq-item">
+            <h3>I updated macOS and Snippr stopped working</h3>
+            <p>A macOS update can revoke previously granted Accessibility permissions. Open <strong>System Settings → Privacy &amp; Security → Accessibility</strong>, confirm Snippr is still listed and enabled, and toggle the permission off and back on. Then quit and relaunch Snippr.</p>
+          </div>
+        </section>
+
+        <!-- ── Contact ─────────────────────────────────────── -->
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>If the troubleshooting steps above didn't resolve your issue, reach out directly. Include your macOS version and a brief description of what's happening.</p>
+
+          <div class="contact-cards">
+            <div class="contact-card">
+              <h3>Email Support</h3>
+              <p>Send a message and we'll get back to you. Attaching a diagnostics export (Settings → Export Diagnostics) helps speed things up.</p>
+              <a href="mailto:masiero572@gmail.com">masiero572@gmail.com</a>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <a class="brand" href="index.html"><img class="app-icon-img" src="icon.png" alt="Snippr icon" width="32" height="32"><span>Snippr</span></a>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">User Agreement</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
