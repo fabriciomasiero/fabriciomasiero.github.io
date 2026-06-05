@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snippr — Native Text Expander for Mac</title>
+  <meta name="description" content="Snippr is a native macOS text expander. Type short abbreviations, get full text anywhere on your Mac. No account, no cloud, no subscription.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="Snippr home">
+      <span class="app-icon" aria-hidden="true">
+        <span class="gl"><span class="se">;</span>S</span>
+      </span>
+      Snippr
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#pricing">Pricing</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">User Agreement</a>
+    </nav>
+    <a class="nav-cta" href="#pricing">Get Snippr →</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── Hero ── -->
+  <section class="hero" style="border:none">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Native macOS · Menu bar · One-time purchase</div>
+        <h1>Type less.<br><em>Say more.</em></h1>
+        <p class="lede">Snippr turns the phrases you type every day into fast, reliable shortcuts. It lives in the menu bar, stores everything locally, and never asks for an account.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#pricing">Get Snippr — $9.99</a>
+          <a class="btn" href="#privacy">100% offline →</a>
+        </div>
+        <p class="price-note">$4.99 launch price · $9.99 standard · No subscription, ever.</p>
+      </div>
+
+      <!-- Product window mock -->
+      <div class="product-window" role="img" aria-label="Snippr manager window preview">
+        <div class="window-chrome">
+          <span class="tl r"></span><span class="tl y"></span><span class="tl g"></span>
+          <span class="win-title">Snippr</span>
+        </div>
+        <div class="window-body">
+          <aside class="win-sidebar">
+            <div class="brand-row">
+              <span class="app-icon"><span class="gl"><span class="se">;</span>S</span></span>
+              <span>Snippr</span>
+            </div>
+            <span class="cat-label">
+              <span class="cat-dot" style="background:#2d7ff9"></span>Email
+            </span>
+            <div class="side-row active">
+              <span class="abbr">;email</span>
+              <span class="sname">Email address</span>
+            </div>
+            <div class="side-row">
+              <span class="abbr">;sig</span>
+              <span class="sname">Email signature</span>
+            </div>
+            <div class="side-row">
+              <span class="abbr">;ty</span>
+              <span class="sname">Thank you</span>
+            </div>
+            <span class="cat-label" style="margin-top:8px">
+              <span class="cat-dot" style="background:#8b5cf6"></span>Developer
+            </span>
+            <div class="side-row">
+              <span class="abbr">;log</span>
+              <span class="sname">console.log</span>
+            </div>
+            <div class="side-row">
+              <span class="abbr">;todo</span>
+              <span class="sname">TODO comment</span>
+            </div>
+          </aside>
+          <div class="win-editor">
+            <div>
+              <div class="editor-title">Email address</div>
+              <div class="editor-abbr">;email</div>
+            </div>
+            <div class="field-card">
+              <div class="field-label">AA · Abbreviation</div>
+              <div class="field-val"><span class="trigger-pill">;email</span></div>
+            </div>
+            <div class="field-card">
+              <div class="field-label">◻ · Expansion</div>
+              <div class="field-val">fabricio@snipprapp.com</div>
+            </div>
+            <div class="field-card">
+              <div class="field-label">◈ · Category</div>
+              <div class="field-val">📧 Email</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ── -->
+  <section id="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">What it does</div>
+        <h2>One focused tool for people who live on a Mac.</h2>
+        <p>Not a team knowledge platform. Not a launcher. Not a clipboard suite. Snippr does one job: turn the things you type repeatedly into fast, reliable shortcuts — instantly, in every app.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Works in every app</h3>
+          <p>Expansions fire in Mail, Slack, browsers, Xcode, Terminal, Notes, and any app that accepts typed text — no integration needed.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🍎</div>
+          <h3>Built for macOS</h3>
+          <p>A native SwiftUI menu-bar app with system styling, dark mode, categories, templates, usage stats, and launch at login.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">↗</div>
+          <h3>Smart triggers</h3>
+          <p>Use any prefix like <span style="font-family:var(--mono);font-size:.9em;color:var(--green-700)">;</span> to avoid accidental expansions. Variable placeholders let you personalise text at expansion time.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">📂</div>
+          <h3>Organised categories</h3>
+          <p>Group snippets by project, client, or topic. Add from templates or import from TextExpander in one click.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">📊</div>
+          <h3>Usage insights</h3>
+          <p>See which snippets save you the most time, your daily streak, and a chart of when you type most — all on-device.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">✦</div>
+          <h3>Apple Intelligence</h3>
+          <p>Improve or generate snippet text with on-device AI, and get abbreviation suggestions — no API key required.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Privacy ── -->
+  <section id="privacy">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Privacy first</div>
+        <h2>No account. No cloud. No telemetry.</h2>
+        <p>A text expander needs Accessibility permission to detect abbreviations. Snippr keeps that responsibility narrow: your snippets live on your Mac and nowhere else.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-icon">🔒</div>
+          <h3>Local snippets</h3>
+          <p>Everything — snippets, categories, usage counts, settings — is stored on your Mac with SwiftData. Nothing is uploaded.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🌐</div>
+          <h3>Zero network</h3>
+          <p>Snippr makes no network requests. No servers, no accounts, no telemetry, no analytics. It works fully offline.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🔑</div>
+          <h3>One permission</h3>
+          <p>Accessibility is used only to detect when you type an abbreviation. Raw keystrokes are never saved or transmitted.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pricing ── -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Pricing</div>
+        <h2>Pay once. Keep it forever.</h2>
+        <p>No subscription. No annual renewal. Buy Snippr once and it is yours — including all future v1 updates.</p>
+      </div>
+      <div class="price-card">
+        <div>
+          <h3>Lifetime license</h3>
+          <p>The Mac app, local snippet storage, privacy-first diagnostics, Apple Intelligence features, and all future updates included in v1.</p>
+        </div>
+        <div class="price-tag">
+          <div class="amount">$9.99</div>
+          <div class="label">one-time · no subscription</div>
+        </div>
+      </div>
+      <div class="compare" style="margin-top:20px">
+        <div class="compare-item">
+          <strong>Snippr</strong>
+          <span>$9.99 once. Private Mac utility, no account, no telemetry, no recurring cost.</span>
+        </div>
+        <div class="compare-item">
+          <strong>TextExpander</strong>
+          <span>Subscription SaaS for individuals and teams. Strongest for cross-platform orgs.</span>
+        </div>
+        <div class="compare-item">
+          <strong>Typinator</strong>
+          <span>Mature Mac app with a one-time option and subscription plans for broader use.</span>
+        </div>
+        <div class="compare-item">
+          <strong>Espanso</strong>
+          <span>Free and powerful, but configuration-file-based — more technical setup required.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <a class="brand" href="index.html">
+      <span class="app-icon" aria-hidden="true">
+        <span class="gl"><span class="se">;</span>S</span>
+      </span>
+      Snippr
+    </a>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">User Agreement</a>
+      <a href="mailto:support@snipprapp.com">Support</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
