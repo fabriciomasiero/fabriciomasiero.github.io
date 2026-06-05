@@ -7,55 +7,60 @@
     <meta name="description" content="Snippr privacy policy. Snippr stores snippets locally and does not collect typed text, snippet content, clipboard content, or telemetry.">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body data-page="privacy">
     <header class="topbar">
       <div class="wrap nav">
         <a class="brand" href="index.html"><img class="app-icon-img" src="icon.png" alt="Snippr icon" width="32" height="32"><span>Snippr</span></a>
         <nav class="nav-links" aria-label="Primary navigation">
-          <a href="index.html">Marketing Site</a>
-          <a href="terms.html">User Agreement</a>
-          <a href="support.html">Support</a>
+          <a href="index.html" data-i18n="nav.marketingSite">Marketing Site</a>
+          <a href="terms.html" data-i18n="nav.userAgreement">User Agreement</a>
+          <a href="support.html" data-i18n="nav.support">Support</a>
+          <div class="lang-switcher" aria-label="Language selection">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="pt">PT</button>
+          </div>
         </nav>
       </div>
     </header>
 
     <main class="wrap legal-layout">
       <aside class="legal-nav" aria-label="Privacy sections">
-        <a href="#summary">Summary</a>
-        <a href="#data">Data Snippr Stores</a>
-        <a href="#no-collection">Data Snippr Does Not Collect</a>
-        <a href="#permissions">Permissions</a>
-        <a href="#diagnostics">Diagnostics</a>
-        <a href="#payments">Payments</a>
-        <a href="#contact">Contact</a>
+        <a href="#summary" data-i18n="privacy.nav.summary">Summary</a>
+        <a href="#data" data-i18n="privacy.nav.data">Data Snippr Stores</a>
+        <a href="#no-collection" data-i18n="privacy.nav.noCollection">Data Snippr Does Not Collect</a>
+        <a href="#permissions" data-i18n="privacy.nav.permissions">Permissions</a>
+        <a href="#diagnostics" data-i18n="privacy.nav.diagnostics">Diagnostics</a>
+        <a href="#payments" data-i18n="privacy.nav.payments">Payments</a>
+        <a href="#contact" data-i18n="privacy.nav.contact">Contact</a>
       </aside>
 
       <article class="legal-doc">
-        <h1>Privacy Policy</h1>
+        <h1 data-i18n="privacy.h1">Privacy Policy</h1>
         <p class="updated">Last updated: June 4, 2026</p>
 
         <section id="summary">
-          <h2>Summary</h2>
-          <p>Snippr is a local-first macOS text expander. Snippr does not track what you type. Your snippets stay on your Mac unless you choose to export or share them outside the app.</p>
-          <p>Snippr does not use analytics SDKs, advertising SDKs, tracking pixels, custom telemetry servers, or cloud accounts.</p>
+          <h2 data-i18n="privacy.summary.h2">Summary</h2>
+          <p data-i18n="privacy.summary.p1">Snippr is a local-first macOS text expander. Snippr does not track what you type. Your snippets stay on your Mac unless you choose to export or share them outside the app.</p>
+          <p data-i18n="privacy.summary.p2">Snippr does not use analytics SDKs, advertising SDKs, tracking pixels, custom telemetry servers, or cloud accounts.</p>
         </section>
 
         <section id="data">
-          <h2>Data Snippr Stores</h2>
-          <p>Snippr stores product data locally on your Mac so the app can work:</p>
-          <ul>
+          <h2 data-i18n="privacy.data.h2">Data Snippr Stores</h2>
+          <p data-i18n="privacy.data.p">Snippr stores product data locally on your Mac so the app can work:</p>
+          <ul data-i18n-html="privacy.data.ul">
             <li>Snippets, categories, and snippet settings.</li>
             <li>Local usage counts, such as how many times a snippet was expanded and approximate time saved.</li>
             <li>App preferences, such as launch at login, pause state, and local settings.</li>
             <li>Local diagnostic events that use safe event names and status values.</li>
           </ul>
-          <p>This data is stored locally using Apple's macOS storage frameworks. Snippr does not upload it to Snippr servers.</p>
+          <p data-i18n="privacy.data.p2">This data is stored locally using Apple's macOS storage frameworks. Snippr does not upload it to Snippr servers.</p>
         </section>
 
         <section id="no-collection">
-          <h2>Data Snippr Does Not Collect</h2>
-          <p>Snippr does not collect, transmit, sell, rent, or share:</p>
-          <ul>
+          <h2 data-i18n="privacy.noCollection.h2">Data Snippr Does Not Collect</h2>
+          <p data-i18n="privacy.noCollection.p">Snippr does not collect, transmit, sell, rent, or share:</p>
+          <ul data-i18n-html="privacy.noCollection.ul">
             <li>Raw typed text or keystroke history.</li>
             <li>Snippet content or abbreviation text.</li>
             <li>Clipboard contents.</li>
@@ -67,31 +72,31 @@
         </section>
 
         <section id="permissions">
-          <h2>Permissions</h2>
-          <p>Snippr asks for macOS Accessibility permission. This permission is required for system-wide text expansion: Snippr needs to detect when you type a saved abbreviation and then replace that abbreviation with the saved expansion.</p>
-          <p>Snippr uses Accessibility for text expansion only. Snippr does not use it to save raw keystrokes, inspect private documents, or send typing data to a server.</p>
+          <h2 data-i18n="privacy.permissions.h2">Permissions</h2>
+          <p data-i18n="privacy.permissions.p1">Snippr asks for macOS Accessibility permission. This permission is required for system-wide text expansion: Snippr needs to detect when you type a saved abbreviation and then replace that abbreviation with the saved expansion.</p>
+          <p data-i18n="privacy.permissions.p2">Snippr uses Accessibility for text expansion only. Snippr does not use it to save raw keystrokes, inspect private documents, or send typing data to a server.</p>
         </section>
 
         <section id="diagnostics">
-          <h2>Diagnostics</h2>
-          <p>Snippr may use Apple-provided crash and performance reporting available through App Store Connect, TestFlight, Xcode Organizer, and MetricKit. These reports are governed by Apple's diagnostics settings and developer tooling.</p>
-          <p>Snippr also includes a local Export Diagnostics feature. You control this export. The exported report is created locally, can be reviewed by you, and is shared only if you decide to send it to support.</p>
-          <p>Diagnostic exports are designed to exclude snippet text, abbreviation text, clipboard content, typed text, URLs, document names, and window titles.</p>
+          <h2 data-i18n="privacy.diagnostics.h2">Diagnostics</h2>
+          <p data-i18n="privacy.diagnostics.p1">Snippr may use Apple-provided crash and performance reporting available through App Store Connect, TestFlight, Xcode Organizer, and MetricKit. These reports are governed by Apple's diagnostics settings and developer tooling.</p>
+          <p data-i18n="privacy.diagnostics.p2">Snippr also includes a local Export Diagnostics feature. You control this export. The exported report is created locally, can be reviewed by you, and is shared only if you decide to send it to support.</p>
+          <p data-i18n="privacy.diagnostics.p3">Diagnostic exports are designed to exclude snippet text, abbreviation text, clipboard content, typed text, URLs, document names, and window titles.</p>
         </section>
 
         <section id="payments">
-          <h2>Payments</h2>
-          <p>If you buy Snippr through the Mac App Store, Apple processes the purchase. Snippr does not receive your payment card number. Apple's privacy policy and App Store terms apply to payment processing, refunds, tax handling, receipts, and purchase history.</p>
+          <h2 data-i18n="privacy.payments.h2">Payments</h2>
+          <p data-i18n="privacy.payments.p">If you buy Snippr through the Mac App Store, Apple processes the purchase. Snippr does not receive your payment card number. Apple's privacy policy and App Store terms apply to payment processing, refunds, tax handling, receipts, and purchase history.</p>
         </section>
 
         <section id="future">
-          <h2>Future Features</h2>
-          <p>If Snippr later adds optional sync, sharing, or anonymous health telemetry, this policy will be updated before those features are released. Any such feature should be clearly explained and controlled by you.</p>
+          <h2 data-i18n="privacy.future.h2">Future Features</h2>
+          <p data-i18n="privacy.future.p">If Snippr later adds optional sync, sharing, or anonymous health telemetry, this policy will be updated before those features are released. Any such feature should be clearly explained and controlled by you.</p>
         </section>
 
         <section id="contact">
-          <h2>Contact</h2>
-          <p>Questions about privacy can be sent to <a href="mailto:privacy@snipprapp.com">privacy@snipprapp.com</a>.</p>
+          <h2 data-i18n="privacy.contact.h2">Contact</h2>
+          <p data-i18n-html="privacy.contact.p">Questions about privacy can be sent to <a href="mailto:privacy@snipprapp.com">privacy@snipprapp.com</a>.</p>
         </section>
       </article>
     </main>
@@ -100,10 +105,11 @@
       <div class="wrap footer-inner">
         <a class="brand" href="index.html"><img class="app-icon-img" src="icon.png" alt="Snippr icon" width="32" height="32"><span>Snippr</span></a>
         <div class="footer-links">
-          <a href="index.html">Home</a>
-          <a href="terms.html">User Agreement</a>
+          <a href="index.html" data-i18n="footer.home">Home</a>
+          <a href="terms.html" data-i18n="footer.userAgreement">User Agreement</a>
         </div>
       </div>
     </footer>
+    <script src="i18n.js"></script>
   </body>
 </html>

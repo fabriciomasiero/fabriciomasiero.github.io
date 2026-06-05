@@ -7,7 +7,7 @@
     <meta name="description" content="Snippr is a native Mac text expander. Type shortcuts into full text anywhere on macOS. No account, no cloud, no telemetry, no subscription.">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body data-page="index">
     <header class="topbar">
       <div class="wrap nav">
         <a class="brand" href="index.html" aria-label="Snippr home">
@@ -15,12 +15,17 @@
           <span>Snippr</span>
         </a>
         <nav class="nav-links" aria-label="Primary navigation">
-          <a href="#features">Features</a>
-          <a href="#privacy">Privacy</a>
-          <a href="#pricing">Pricing</a>
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">User Agreement</a>
-          <a href="support.html">Support</a>
+          <a href="#features" data-i18n="nav.features">Features</a>
+          <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
+          <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+          <a href="privacy.html" data-i18n="nav.privacyPolicy">Privacy Policy</a>
+          <a href="terms.html" data-i18n="nav.userAgreement">User Agreement</a>
+          <a href="support.html" data-i18n="nav.support">Support</a>
+          <div class="lang-switcher" aria-label="Language selection">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="es">ES</button>
+            <button class="lang-btn" data-lang="pt">PT</button>
+          </div>
         </nav>
       </div>
     </header>
@@ -29,14 +34,14 @@
       <section class="hero">
         <div class="wrap hero-grid">
           <div>
-            <div class="eyebrow">Native macOS text expansion</div>
-            <h1>Type less. Say more.</h1>
-            <p class="lede">Snippr expands short abbreviations into full text anywhere on your Mac. It lives in the menu bar, stores snippets locally, and never asks for an account.</p>
+            <div class="eyebrow" data-i18n="hero.eyebrow">Native macOS text expansion</div>
+            <h1 data-i18n="hero.h1">Type less. Say more.</h1>
+            <p class="lede" data-i18n="hero.lede">Snippr expands short abbreviations into full text anywhere on your Mac. It lives in the menu bar, stores snippets locally, and never asks for an account.</p>
             <div class="hero-actions">
-              <a class="button primary" href="#pricing">Get Snippr</a>
-              <a class="button" href="#privacy">Read the privacy promise</a>
+              <a class="button primary" href="#pricing" data-i18n="hero.ctaGet">Get Snippr</a>
+              <a class="button" href="#privacy" data-i18n="hero.ctaPrivacy">Read the privacy promise</a>
             </div>
-            <p class="price-note">$4.99 launch price. $9.99 standard lifetime price. No subscription.</p>
+            <p class="price-note" data-i18n="hero.priceNote">$4.99 launch price. $9.99 standard lifetime price. No subscription.</p>
           </div>
 
           <div class="product-window" aria-label="Snippr product preview">
@@ -47,19 +52,19 @@
             </div>
             <div class="window-body">
               <aside class="sidebar">
-                <div class="side-row active"><span>Email</span><span>8</span></div>
-                <div class="side-row"><span>Developer</span><span>11</span></div>
-                <div class="side-row"><span>Work</span><span>9</span></div>
-                <div class="side-row"><span>Personal</span><span>7</span></div>
+                <div class="side-row active"><span data-i18n="window.email">Email</span><span>8</span></div>
+                <div class="side-row"><span data-i18n="window.developer">Developer</span><span>11</span></div>
+                <div class="side-row"><span data-i18n="window.work">Work</span><span>9</span></div>
+                <div class="side-row"><span data-i18n="window.personal">Personal</span><span>7</span></div>
               </aside>
               <div class="editor">
-                <h3>Follow-up reply</h3>
-                <div class="field-label">Abbreviation</div>
+                <h3 data-i18n="window.snippet.title">Follow-up reply</h3>
+                <div class="field-label" data-i18n="window.label.abbreviation">Abbreviation</div>
                 <div class="trigger">;follow</div>
-                <div class="field-label">Expansion</div>
-                <div class="input">Thanks for reaching out. I will take a look and get back to you with a clear answer today.</div>
-                <div class="field-label">Stats</div>
-                <div class="input">Used 42 times. About 18 minutes saved.</div>
+                <div class="field-label" data-i18n="window.label.expansion">Expansion</div>
+                <div class="input" data-i18n="window.expansion.text">Thanks for reaching out. I will take a look and get back to you with a clear answer today.</div>
+                <div class="field-label" data-i18n="window.label.stats">Stats</div>
+                <div class="input" data-i18n="window.stats.text">Used 42 times. About 18 minutes saved.</div>
               </div>
             </div>
           </div>
@@ -69,22 +74,22 @@
       <section id="features">
         <div class="wrap">
           <div class="section-head">
-            <div class="eyebrow">What it does</div>
-            <h2>A focused text expander for people who live on a Mac.</h2>
-            <p>Snippr is not a team knowledge platform, launcher, or clipboard suite. It does one job: turn the things you type repeatedly into fast, reliable snippets.</p>
+            <div class="eyebrow" data-i18n="features.eyebrow">What it does</div>
+            <h2 data-i18n="features.h2">A focused text expander for people who live on a Mac.</h2>
+            <p data-i18n="features.p">Snippr is not a team knowledge platform, launcher, or clipboard suite. It does one job: turn the things you type repeatedly into fast, reliable snippets.</p>
           </div>
           <div class="grid-3">
             <article class="card">
-              <h3>Works across apps</h3>
-              <p>Use abbreviations in Mail, Slack, browsers, Xcode, Terminal, Notes, and other apps that accept typed text.</p>
+              <h3 data-i18n="features.card1.h3">Works across apps</h3>
+              <p data-i18n="features.card1.p">Use abbreviations in Mail, Slack, browsers, Xcode, Terminal, Notes, and other apps that accept typed text.</p>
             </article>
             <article class="card">
-              <h3>Built for macOS</h3>
-              <p>A SwiftUI menu bar app with native windows, system styling, launch at login, categories, templates, and usage stats.</p>
+              <h3 data-i18n="features.card2.h3">Built for macOS</h3>
+              <p data-i18n="features.card2.p">A SwiftUI menu bar app with native windows, system styling, launch at login, categories, templates, and usage stats.</p>
             </article>
             <article class="card">
-              <h3>Migration friendly</h3>
-              <p>Import plain text snippets from TextExpander and review warnings for unsupported macro-heavy snippets.</p>
+              <h3 data-i18n="features.card3.h3">Migration friendly</h3>
+              <p data-i18n="features.card3.p">Import plain text snippets from TextExpander and review warnings for unsupported macro-heavy snippets.</p>
             </article>
           </div>
         </div>
@@ -93,22 +98,22 @@
       <section id="privacy">
         <div class="wrap">
           <div class="section-head">
-            <div class="eyebrow">Privacy</div>
-            <h2>No account. No cloud. No telemetry.</h2>
-            <p>A text expander needs Accessibility permission to detect abbreviations. Snippr keeps that responsibility narrow: snippets stay local, raw keystrokes are not saved, and diagnostics are exported only when you choose to share them.</p>
+            <div class="eyebrow" data-i18n="privacySection.eyebrow">Privacy</div>
+            <h2 data-i18n="privacySection.h2">No account. No cloud. No telemetry.</h2>
+            <p data-i18n="privacySection.p">A text expander needs Accessibility permission to detect abbreviations. Snippr keeps that responsibility narrow: snippets stay local, raw keystrokes are not saved, and diagnostics are exported only when you choose to share them.</p>
           </div>
           <div class="grid-3">
             <article class="card">
-              <h3>Local snippets</h3>
-              <p>Your snippets, categories, usage counts, and settings are stored on your Mac with SwiftData.</p>
+              <h3 data-i18n="privacySection.card1.h3">Local snippets</h3>
+              <p data-i18n="privacySection.card1.p">Your snippets, categories, usage counts, and settings are stored on your Mac with SwiftData.</p>
             </article>
             <article class="card">
-              <h3>Content-free diagnostics</h3>
-              <p>Exported diagnostics include app state and safe event names, not snippet text, abbreviations, typed text, URLs, or clipboard content.</p>
+              <h3 data-i18n="privacySection.card2.h3">Content-free diagnostics</h3>
+              <p data-i18n="privacySection.card2.p">Exported diagnostics include app state and safe event names, not snippet text, abbreviations, typed text, URLs, or clipboard content.</p>
             </article>
             <article class="card">
-              <h3>One permission</h3>
-              <p>Snippr uses Accessibility to watch for snippet triggers. It does not need screen recording, full disk access, browser extensions, or a server.</p>
+              <h3 data-i18n="privacySection.card3.h3">One permission</h3>
+              <p data-i18n="privacySection.card3.p">Snippr uses Accessibility to watch for snippet triggers. It does not need screen recording, full disk access, browser extensions, or a server.</p>
             </article>
           </div>
         </div>
@@ -117,14 +122,14 @@
       <section id="pricing">
         <div class="wrap">
           <div class="section-head">
-            <div class="eyebrow">Pricing</div>
-            <h2>Pay once. Keep using it.</h2>
-            <p>A single payment that covers all v1 updates. No subscription, no renewal, no account required.</p>
+            <div class="eyebrow" data-i18n="pricing.eyebrow">Pricing</div>
+            <h2 data-i18n="pricing.h2">Pay once. Keep using it.</h2>
+            <p data-i18n="pricing.p">A single payment that covers all v1 updates. No subscription, no renewal, no account required.</p>
           </div>
           <div class="price-card">
             <div>
-              <h3>Lifetime license</h3>
-              <p>$4.99 at launch, then $9.99 standard. Includes the Mac app, local snippets, privacy-first diagnostics, and future v1 updates.</p>
+              <h3 data-i18n="pricing.cardH3">Lifetime license</h3>
+              <p data-i18n="pricing.cardP">$4.99 at launch, then $9.99 standard. Includes the Mac app, local snippets, privacy-first diagnostics, and future v1 updates.</p>
             </div>
             <div class="price">$9.99</div>
           </div>
@@ -136,11 +141,12 @@
       <div class="wrap footer-inner">
         <a class="brand" href="index.html"><img class="app-icon-img" src="icon.png" alt="Snippr icon" width="32" height="32"><span>Snippr</span></a>
         <div class="footer-links">
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">User Agreement</a>
-          <a href="support.html">Support</a>
+          <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
+          <a href="terms.html" data-i18n="footer.userAgreement">User Agreement</a>
+          <a href="support.html" data-i18n="footer.support">Support</a>
         </div>
       </div>
     </footer>
+    <script src="i18n.js"></script>
   </body>
 </html>
