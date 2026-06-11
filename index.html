@@ -1473,6 +1473,110 @@ footer .foot-sub {
 [data-theme="light"] .wwdc-caption {
   background: linear-gradient(to top, rgba(249,248,255,.9) 0%, transparent 100%);
 }
+
+/* ================================================================
+   SNIPPR PRODUCT MOCKUP (namespaced from snippr/styles.css)
+================================================================ */
+.snippr-mockup {
+  --sn-line: #e5e9e7;
+  --sn-ink-500: #737b82;
+  --sn-ink-600: #565e64;
+  --sn-ink-800: #1e2226;
+  --sn-green-50: #e9fbf1;
+  --sn-green-700: #08864d;
+  margin-top: 24px;
+  overflow: hidden;
+  border: 1px solid var(--sn-line);
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 28px 70px -34px rgba(8,60,38,.44), 0 10px 28px -18px rgba(8,60,38,.24);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+}
+.snippr-mockup .window-chrome {
+  display: flex;
+  height: 36px;
+  align-items: center;
+  gap: 7px;
+  border-bottom: 1px solid var(--sn-line);
+  padding: 0 14px;
+  background: rgba(238,241,239,.66);
+}
+.snippr-mockup .window-chrome .sn-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+.snippr-mockup .window-chrome .sn-dot:nth-child(2) { background: #febc2e; }
+.snippr-mockup .window-chrome .sn-dot:nth-child(3) { background: #28c840; }
+.snippr-mockup .window-body {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  min-height: 340px;
+}
+.snippr-mockup .sn-sidebar {
+  border-right: 1px solid var(--sn-line);
+  background: #f8faf7;
+  padding: 18px 12px;
+}
+.snippr-mockup .sn-side-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 34px;
+  border-radius: 9px;
+  padding: 0 10px;
+  color: var(--sn-ink-600);
+  font-size: 13px;
+  font-weight: 700;
+}
+.snippr-mockup .sn-side-row.active {
+  background: var(--sn-green-50);
+  color: var(--sn-green-700);
+}
+.snippr-mockup .sn-editor { padding: 24px; }
+.snippr-mockup .sn-editor h4 {
+  margin: 0;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--sn-ink-800);
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+.snippr-mockup .sn-field-label {
+  margin: 18px 0 7px;
+  color: var(--sn-ink-500);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.snippr-mockup .sn-input {
+  border: 1px solid var(--sn-line);
+  border-radius: 10px;
+  background: #fbfcfb;
+  padding: 12px 13px;
+  color: var(--sn-ink-800);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.snippr-mockup .sn-trigger {
+  display: inline-flex;
+  border-radius: 8px;
+  background: var(--sn-green-50);
+  padding: 6px 10px;
+  color: var(--sn-green-700);
+  font-family: 'Space Mono', ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 13.5px;
+}
+@media (max-width: 600px) {
+  .snippr-mockup .window-body { grid-template-columns: 1fr; }
+  .snippr-mockup .sn-sidebar { display: none; }
+  .snippr-mockup .sn-editor { padding: 18px; }
+}
 </style>
 </head>
 <body>
@@ -1553,27 +1657,27 @@ footer .foot-sub {
       <div class="stat reveal">
         <div class="stat-glow blue"></div>
         <div class="n blue">14+</div>
-        <div class="l">Years shipping iOS &amp; macOS products</div>
+        <div class="l">Years on Apple platforms</div>
       </div>
       <div class="stat reveal">
         <div class="stat-glow green"></div>
         <div class="n green">~$2M</div>
-        <div class="l">Potential revenue unlocked at Backtrack</div>
+        <div class="l">ARR at Backtrack</div>
       </div>
       <div class="stat reveal">
         <div class="stat-glow warm"></div>
         <div class="n warm">#1</div>
-        <div class="l">Mac App Store rank in 10 countries</div>
+        <div class="l">Mac App Store, 10 countries</div>
       </div>
       <div class="stat reveal">
         <div class="stat-glow purple"></div>
         <div class="n" style="color:var(--cyan)">1M+</div>
-        <div class="l">Users served on Plurall</div>
+        <div class="l">Plurall users at peak</div>
       </div>
       <div class="stat reveal">
         <div class="stat-glow" style="background:radial-gradient(circle,rgba(192,132,252,.2),transparent 70%)"></div>
         <div class="n" style="color:var(--purple)">30+</div>
-        <div class="l">Apps shipped to the App Store</div>
+        <div class="l">Apps on the App Store</div>
       </div>
     </div>
   </div>
@@ -1585,8 +1689,7 @@ footer .foot-sub {
 <section id="work">
   <div class="wrap">
     <div class="sec-head">
-      <span class="sec-num">01</span>
-      <h2 class="sec-title">Selected work</h2>
+      <h2 class="sec-title">Work</h2>
     </div>
     <div class="work">
 
@@ -1845,11 +1948,10 @@ footer .foot-sub {
 <section id="niche">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-num">02</span>
-      <h2 class="sec-title">What I'm great at</h2>
+      <h2 class="sec-title">The niche</h2>
     </div>
     <div class="niche reveal">
-      <p>Few iOS engineers have shipped real-time audio capture at production scale. At <em>Backtrack</em>, I designed and built the entire AVFoundation recording stack from zero — live capture, segmented export, background-safe recovery, WebSocket sync — and watched it land in rooms at Disney, Topgolf, and HPE. That depth started earlier, at <em>FloSports</em>, engineering corporate-grade streaming pipelines into products people actually love. That combination — <strong>broadcast-quality audio and media infrastructure inside beautiful, fast Apple apps</strong> — is what I carry into every team. Right now, every AI note-taker, voice product, and real-time tool needs exactly this skillset.</p>
+      <p>Real-time audio on iOS is a small world, and I've been in it for a while. At Backtrack I owned the AVFoundation recording stack: capture, segmented export, background-safe recovery, WebSocket sync. It ended up running in rooms at Disney, Topgolf, and HPE. The same instincts went into FloSports' streaming pipeline a few years earlier. It's the part of Apple-platform work most teams underestimate <strong>until something glitches in production</strong>.</p>
     </div>
   </div>
 </section>
@@ -1860,7 +1962,6 @@ footer .foot-sub {
 <section id="skills">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-num">03</span>
       <h2 class="sec-title">Technical depth</h2>
     </div>
 
@@ -1952,7 +2053,6 @@ footer .foot-sub {
 <section id="side">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-num">04</span>
       <h2 class="sec-title">Side projects</h2>
     </div>
     <div class="side">
@@ -2015,6 +2115,75 @@ footer .foot-sub {
           <div class="spotti-phone" onclick="openSpottiLb('images/spotti/s7.png')"><img src="images/spotti/s7.png" alt="Live" loading="lazy"></div>
         </div>
         <div class="spotti-strip-hint">tap any screenshot to zoom</div>
+      </div>
+
+      <!-- ── Snippr: full-width featured card ── -->
+      <div class="card reveal" data-tilt>
+        <div class="card-accent"></div>
+        <div class="card-shine"></div>
+        <div class="card-top">
+          <div style="display:flex;align-items:center;gap:14px">
+            <img src="snippr/icon.png" alt="Snippr icon" style="width:52px;height:52px;border-radius:12px;flex-shrink:0;box-shadow:0 4px 16px rgba(0,229,195,.18)">
+            <div>
+              <h3>Snippr <span class="solo-badge">✦ Solo Built</span></h3>
+              <div class="role">Founder · Product · Design · macOS</div>
+            </div>
+          </div>
+          <span class="badge rank">Pre-launch</span>
+        </div>
+
+        <p>A Mac text expander that stays out of your way. Type a short trigger anywhere on macOS and it expands into full text. Lives in the menu bar, stores everything locally, no account or subscription. Approaching App Store submission.</p>
+
+        <div class="card-desc-extra">
+          <ul class="card-detail-list">
+            <li><strong>SwiftUI menu bar app:</strong> native macOS — launch at login, system styling, universal binary. No Electron, no web view.</li>
+            <li><strong>Local-first:</strong> snippets live on your machine. No cloud sync, no account, no telemetry.</li>
+            <li><strong>Cross-app expansion:</strong> works in Mail, Slack, Safari, Chrome, Xcode, Terminal, Notes — anywhere typed text is accepted.</li>
+            <li><strong>TextExpander import:</strong> bring an existing library over. Plain-text snippets come in cleanly; macro-heavy ones get flagged for review.</li>
+            <li><strong>Enough structure, not too much:</strong> categories, templates, and usage stats. A snippet library, not a CMS.</li>
+            <li><strong>One-time price:</strong> $4.99 at launch, $9.99 lifetime after. No subscription model.</li>
+          </ul>
+        </div>
+        <button class="show-more-btn" onclick="toggleDesc(this)"><span class="btn-label">Show more</span><span class="btn-arrow">↓</span></button>
+
+        <div class="tags" style="margin-top:18px">
+          <span class="tag">SwiftUI</span>
+          <span class="tag">AppKit</span>
+          <span class="tag">macOS</span>
+          <span class="tag">Menu Bar</span>
+          <span class="tag">Universal Binary</span>
+          <span class="tag">Privacy-first</span>
+        </div>
+
+        <a href="snippr/index.html" target="_blank" rel="noopener" class="podcast-link" style="margin-top:16px">
+          See Snippr →
+        </a>
+
+        <!-- Inlined product mockup (mirrors snippr/index.html) -->
+        <div class="snippr-mockup" aria-label="Snippr product preview">
+          <div class="window-chrome">
+            <span class="sn-dot"></span>
+            <span class="sn-dot"></span>
+            <span class="sn-dot"></span>
+          </div>
+          <div class="window-body">
+            <aside class="sn-sidebar">
+              <div class="sn-side-row active"><span>Email</span><span>8</span></div>
+              <div class="sn-side-row"><span>Developer</span><span>11</span></div>
+              <div class="sn-side-row"><span>Work</span><span>9</span></div>
+              <div class="sn-side-row"><span>Personal</span><span>7</span></div>
+            </aside>
+            <div class="sn-editor">
+              <h4>Follow-up reply</h4>
+              <div class="sn-field-label">Abbreviation</div>
+              <div class="sn-trigger">;follow</div>
+              <div class="sn-field-label">Expansion</div>
+              <div class="sn-input">Thanks for reaching out. I will take a look and get back to you with a clear answer today.</div>
+              <div class="sn-field-label">Stats</div>
+              <div class="sn-input">Used 42 times. About 18 minutes saved.</div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- ── Mini row: deprecated / legacy projects ── -->
