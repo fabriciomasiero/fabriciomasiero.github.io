@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StarLapse — Wake up with a night-sky timelapse</title>
+  <meta name="description" content="StarLapse turns your iPhone into an effortless night-sky camera. Point it at the stars, choose when to stop, and wake up with a beautiful timelapse. No photography skills required." />
+  <meta name="theme-color" content="#05070f" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="StarLapse — Capture the stars while you sleep" />
+  <meta property="og:description" content="The easiest way to turn a night sky into a video. Powered by Apple Intelligence and built entirely on native Apple frameworks." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Animated sky background -->
+  <div class="sky" aria-hidden="true">
+    <canvas id="starfield"></canvas>
+    <div class="moon"></div>
+    <div class="aurora"></div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="nav">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      StarLapse
+    </a>
+    <nav class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#intelligence">Apple Intelligence</a>
+      <a href="#privacy">Privacy</a>
+    </nav>
+    <a class="btn btn-ghost" href="#how">How it works</a>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="badge"><span class="dot"></span> In development · Coming to the App Store</span>
+        <h1>Capture the stars<br />while you sleep.</h1>
+        <p class="lede">
+          Point your iPhone at the sky, choose when it should stop, and wake up
+          with a beautiful timelapse. No ISO. No shutter speed. No tripod jargon.
+          Just the night sky, turned into a memory.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#how">See how it works →</a>
+        </div>
+        <p class="hero-foot">Built entirely on native Apple frameworks · Enhanced by Apple&nbsp;Intelligence</p>
+      </div>
+
+      <!-- iPhone mockup -->
+      <div class="phone" role="img" aria-label="StarLapse app capturing the night sky">
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="app-preview">
+              <div class="app-stars"></div>
+              <div class="app-top">
+                <span>Capturing the sky</span>
+                <span class="app-rec"><i></i> REC</span>
+              </div>
+              <div class="app-center">
+                <div class="ring">
+                  <div class="ring-fill"></div>
+                  <div class="ring-label">
+                    <strong id="frameCount">128</strong>
+                    <small>frames captured</small>
+                  </div>
+                </div>
+              </div>
+              <div class="app-checks">
+                <span>✓ Stable</span>
+                <span>✓ Dark enough</span>
+                <span>✓ Battery OK</span>
+              </div>
+              <div class="app-status">
+                <p>Stops at <strong>4:30 AM</strong> · est. video ~12s</p>
+                <div class="app-btn">Stop &amp; Create Video</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-glow"></div>
+      </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section class="strip">
+      <div class="strip-item"><strong>Point</strong><span>at the sky</span></div>
+      <div class="strip-divider"></div>
+      <div class="strip-item"><strong>Set</strong><span>a stop time</span></div>
+      <div class="strip-divider"></div>
+      <div class="strip-item"><strong>Sleep</strong><span>through the night</span></div>
+      <div class="strip-divider"></div>
+      <div class="strip-item"><strong>Wake up</strong><span>with a video</span></div>
+    </section>
+
+    <!-- Problem -->
+    <section class="section center narrow">
+      <h2>The night sky is hard to capture. It shouldn't be.</h2>
+      <p class="muted">
+        You're traveling. The stars are unreal. You reach for your phone — and get
+        a black rectangle. Pro camera apps drown you in settings: exposure, focus
+        distance, RAW, stacking, intervals. StarLapse takes a different path. It
+        asks a couple of simple questions and handles everything else automatically.
+      </p>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="section">
+      <div class="section-head center">
+        <span class="eyebrow">How it works</span>
+        <h2>Four steps. Zero technical knowledge.</h2>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <span class="step-num">1</span>
+          <h3>Prop it up</h3>
+          <p>Lean your iPhone against a backpack, bottle, rock, or rail. The app confirms it's stable.</p>
+        </article>
+        <article class="step">
+          <span class="step-num">2</span>
+          <h3>Choose a stop</h3>
+          <p>In an hour, at sunrise, or when the battery runs low. StarLapse plans the rest.</p>
+        </article>
+        <article class="step">
+          <span class="step-num">3</span>
+          <h3>Tap start</h3>
+          <p>The screen dims and the app quietly captures frame after frame through the night.</p>
+        </article>
+        <article class="step">
+          <span class="step-num">4</span>
+          <h3>Wake up to a video</h3>
+          <p>A finished timelapse, ready to save or share — vertical, square, or landscape.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section">
+      <div class="section-head center">
+        <span class="eyebrow">What's inside</span>
+        <h2>Quietly clever, radically simple.</h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-ico">🌙</div>
+          <h3>Automatic night settings</h3>
+          <p>Exposure, focus, and intervals are chosen for you and locked for the whole session. No menus, no guessing.</p>
+        </article>
+        <article class="card">
+          <div class="card-ico">⏰</div>
+          <h3>Stop at sunrise</h3>
+          <p>Start now and let it run. StarLapse stops itself just before dawn — the most magical capture there is.</p>
+        </article>
+        <article class="card">
+          <div class="card-ico">🔋</div>
+          <h3>Readiness checks</h3>
+          <p>Battery, storage, stability, and sky brightness are checked before you commit, with honest, friendly warnings.</p>
+        </article>
+        <article class="card">
+          <div class="card-ico">🎞️</div>
+          <h3>Beautiful exports</h3>
+          <p>Get a smooth timelapse plus a best-still photo and a star-trail image — vertical, square, or landscape.</p>
+        </article>
+        <article class="card">
+          <div class="card-ico">🧭</div>
+          <h3>Built for travel</h3>
+          <p>Cabins, deserts, balconies, campsites. One-purpose, offline-friendly, and forgiving of imperfect setups.</p>
+        </article>
+        <article class="card">
+          <div class="card-ico">✨</div>
+          <h3>Honest results</h3>
+          <p>This is your real night sky, captured over time — never a fake Milky Way pasted in by AI.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Apple Intelligence -->
+    <section id="intelligence" class="section ai">
+      <div class="ai-grid">
+        <div class="ai-copy">
+          <span class="eyebrow">Apple Intelligence</span>
+          <h2>An assistant for the night, not a gimmick.</h2>
+          <p class="muted">
+            On supported iPhones, just say what you want. Apple Intelligence turns
+            plain language into a complete capture plan — then explains it in words
+            anyone can understand. Everything runs on-device, and the app works fully
+            without it.
+          </p>
+          <ul class="ai-list">
+            <li><strong>Natural-language setup</strong> — "Capture the stars until sunrise, make it vertical."</li>
+            <li><strong>Plain-English guidance</strong> — no ISO or shutter values, just what's happening and why.</li>
+            <li><strong>Post-capture summaries</strong> — "Captured 1h 42m, removed 14 blurry frames, best part near 2:30 AM."</li>
+            <li><strong>Smart names &amp; export tips</strong> — "Stars over Atacama," cropped for the way the sky moved.</li>
+          </ul>
+        </div>
+        <div class="ai-chat" aria-hidden="true">
+          <div class="bubble user">Capture the stars until sunrise and make it vertical.</div>
+          <div class="bubble app">
+            Sunrise is at <strong>5:48 AM</strong>. I'll capture until 5:35 AM and
+            create a vertical video. Your battery should be enough if the screen
+            stays dimmed.
+            <div class="bubble-cta">Start now</div>
+          </div>
+          <div class="bubble badge-bubble">On-device · Private by design</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <section id="privacy" class="section center narrow">
+      <span class="eyebrow">Privacy</span>
+      <h2>Your night stays on your iPhone.</h2>
+      <p class="muted">
+        Captures and AI-assisted recommendations process on-device. Location is
+        optional and used only to improve sunrise, moon, and sky suggestions.
+        Nothing leaves your phone unless you choose to share it.
+      </p>
+    </section>
+
+    <!-- Native stack -->
+    <section class="section center narrow native">
+      <span class="eyebrow">Under the hood</span>
+      <h2>100% native Apple frameworks.</h2>
+      <p class="muted">No third-party engines. Just Apple's own tools, the way iPhone photography is meant to feel.</p>
+      <div class="chips">
+        <span>SwiftUI</span>
+        <span>AVFoundation</span>
+        <span>Apple Intelligence</span>
+        <span>Foundation Models</span>
+        <span>Core Image</span>
+        <span>Photos</span>
+        <span>WeatherKit</span>
+        <span>Core Location</span>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section center cta">
+      <div class="cta-card">
+        <span class="badge"><span class="dot"></span> Phase 0 prototype in progress</span>
+        <h2>Be there on the first clear night.</h2>
+        <p class="muted">StarLapse is still in development — coming to the App Store. Built entirely on native Apple frameworks and enhanced by Apple&nbsp;Intelligence.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">✦</span> StarLapse</div>
+      <p class="muted small">The easiest way to turn a night sky into a video. Made for travelers.</p>
+      <p class="muted small">© <span id="year"></span> StarLapse · Not yet affiliated with Apple. Apple Intelligence is a trademark of Apple Inc.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
